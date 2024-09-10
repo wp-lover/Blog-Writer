@@ -1,0 +1,17 @@
+{
+    "name": "wp-lover/blog-writer",
+    "description": "This is a wordpress plugin it will help to make desing pagess and  create a creative content like posts & articles and also including MCQ based blog post.",
+    "type": "wordpress-plugin",
+    "license": "GPL v2.0 or later",
+    "autoload": {
+        "psr-4": {
+            "WpLover\\BlogWriter\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "Joshim"
+        }
+    ],
+    "require": {}
+}

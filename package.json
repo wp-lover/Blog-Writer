@@ -1,0 +1,29 @@
+{
+  "name": "blog-writer",
+  "version": "1.0.0",
+  "description": "This is a wordpress plugin it will help to make desing pagess and  create a creative content like posts & articles and also including MCQ based blog post.",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start --experimental-modules",
+    "blocks": "wp-scripts start --experimental-modules",
+    "build": "wp-scripts build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wp-lover/Blog-Writer.git"
+  },
+  "keywords": [
+    "gutenberg",
+    "blocks"
+  ],
+  "author": "Joshim",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/wp-lover/Blog-Writer/issues"
+  },
+  "homepage": "https://github.com/wp-lover/Blog-Writer#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "^28.6.0"
+  }
+}
