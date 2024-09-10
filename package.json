@@ -1,7 +1,7 @@
 {
   "name": "blog-writer",
   "version": "1.0.0",
-  "description": "This is a wordpress plugin it will help to make desing pagess and  create a creative content like posts & articles and also including MCQ based blog post.",
+  "description": "This is a WordPress plugin that will help to design pages and  create creative content like posts & articles and also include MCQ-based blog posts.",
   "main": "index.js",
   "scripts": {
     "start": "wp-scripts start --experimental-modules",

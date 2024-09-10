@@ -7,7 +7,7 @@ namespace WpLover\BlogWriter;
 /*
  Plugin Name: Blog-Writer
  Plugin URI: https://github.com/wp-lover/Blog-Writer
- Description: This is a wordpress plugin it will help to make desing pagess and  create a creative content like posts & articles and also including MCQ based blog post.
+ Description: This is a WordPress plugin that will help to design pages and  create creative content like posts & articles and also include MCQ-based blog posts.
  Version: 1.0
  Requires at least: 5.8
  Requires PHP: 5.6.20
