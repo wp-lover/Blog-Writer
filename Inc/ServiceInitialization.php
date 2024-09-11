@@ -6,7 +6,7 @@ namespace WpLover\BlogWriter\Inc;
 class ServiceInitialization
 {
     private $services = [
-        
+        Menu\Register::class,
     ];
 
     
