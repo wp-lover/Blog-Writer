@@ -76,6 +76,7 @@ final class BlogWriter
     {
         if ( $this->isServiceLoaded == false ) {
             new \WpLover\BlogWriter\Inc\ServiceInitialization();
+
         }
 
         $this->isServiceLoaded = true;
@@ -87,4 +88,5 @@ final class BlogWriter
 if ( class_exists( 'WpLover\BlogWriter\BlogWriter' ) ) {
 
    add_action( 'plugin_loaded' , [ BlogWriter::get_instance() , 'load' ] );
+
 }
