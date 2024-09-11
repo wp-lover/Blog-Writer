@@ -7,6 +7,7 @@ class ServiceInitialization
 {
     private $services = [
         Menu\Register::class,
+        \WpLover\BlogWriter\RestApi\Initialize::class
     ];
 
     
