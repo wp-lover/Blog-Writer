@@ -168,7 +168,6 @@ function HeaderMenu({
   const li_styles = {
     mainWidth: '270px',
     background: attributes.item_bg_color,
-    color: attributes.item_text_color,
     marginTop: attributes.item_margin_t + "px",
     marginLeft: attributes.item_margin_l + "px",
     marginRight: attributes.item_margin_r + "px",
@@ -219,6 +218,9 @@ function HeaderMenu({
                 href: link,
                 class: "nav-link",
                 "aria-current": "page",
+                style: {
+                  color: attributes.item_text_color
+                },
                 children: name
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SubMenu, {
                 item: e,
@@ -235,6 +237,9 @@ function HeaderMenu({
               href: link,
               class: "nav-link",
               "aria-current": "page",
+              style: {
+                color: attributes.item_text_color
+              },
               children: name
             })
           });
@@ -357,8 +362,9 @@ function ColorsPanel() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ColorPicker, {
             onChange: val => {
-
-              // const args = updateAttributes(attributes , 'header_bg' , val);
+              setAttributes({
+                header_bg: val
+              });
             },
             enableAlpha: true,
             defaultValue: attributes.header_bg
@@ -369,7 +375,11 @@ function ColorsPanel() {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ColorPicker, {
-            onChange: val => {},
+            onChange: val => {
+              setAttributes({
+                item_bg_color: val
+              });
+            },
             enableAlpha: true,
             defaultValue: attributes.item_bg_color
           })
@@ -379,7 +389,11 @@ function ColorsPanel() {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ColorPicker, {
-            onChange: val => {},
+            onChange: val => {
+              setAttributes({
+                item_text_color: val
+              });
+            },
             enableAlpha: true,
             defaultValue: attributes.item_text_color
           })
@@ -402,13 +416,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ SpacePanelDesktop)
 /* harmony export */ });
-/* harmony import */ var _functions_context_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../functions/context-api */ "./src/header/functions/context-api.js");
-/* harmony import */ var _common_margin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/margin */ "./src/header/components/common/margin.js");
-/* harmony import */ var _common_padding__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/padding */ "./src/header/components/common/padding.js");
-/* harmony import */ var _common_panel_margin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../common/panel-margin */ "./src/header/components/common/panel-margin.js");
-/* harmony import */ var _common_panel_padding__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../common/panel-padding */ "./src/header/components/common/panel-padding.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _functions_context_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../functions/context-api */ "./src/header/functions/context-api.js");
+/* harmony import */ var _common_margin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/margin */ "./src/header/components/common/margin.js");
+/* harmony import */ var _common_padding__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../common/padding */ "./src/header/components/common/padding.js");
+/* harmony import */ var _common_panel_margin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../common/panel-margin */ "./src/header/components/common/panel-margin.js");
+/* harmony import */ var _common_panel_padding__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../common/panel-padding */ "./src/header/components/common/panel-padding.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -416,27 +433,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function SpacePanelDesktop() {
-  const [attributes, setAttributes] = useContext(_functions_context_api__WEBPACK_IMPORTED_MODULE_0__.ContextAttributes);
-  const margins = [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_margin__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  const [attributes, setAttributes] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useContext)(_functions_context_api__WEBPACK_IMPORTED_MODULE_1__.ContextAttributes);
+  const margins = [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_margin__WEBPACK_IMPORTED_MODULE_2__["default"], {
     props: ["Margin-Left", "margin_l", attributes.item_margin_l]
-  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_margin__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_margin__WEBPACK_IMPORTED_MODULE_2__["default"], {
     props: ["Margin-Right", "margin_r", attributes.item_margin_r]
-  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_margin__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_margin__WEBPACK_IMPORTED_MODULE_2__["default"], {
     props: ["Margin-Bottom", "margin_b", attributes.item_margin_b]
   })];
-  const padings = [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_padding__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  const padings = [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_padding__WEBPACK_IMPORTED_MODULE_3__["default"], {
     props: ["Padding-Top", "padding_t", attributes.item_padding_t]
-  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_padding__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_padding__WEBPACK_IMPORTED_MODULE_3__["default"], {
     props: ["Padding-Left", "padding_l", attributes.item_padding_l]
-  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_padding__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_padding__WEBPACK_IMPORTED_MODULE_3__["default"], {
     props: ["Padding-Left", "padding_r", attributes.item_padding_r]
-  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_padding__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_padding__WEBPACK_IMPORTED_MODULE_3__["default"], {
     props: ["Padding-Bottom", "padding_b", attributes.item_padding_b]
   })];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_panel_margin__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_panel_margin__WEBPACK_IMPORTED_MODULE_4__["default"], {
       items: margins
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_panel_padding__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_panel_padding__WEBPACK_IMPORTED_MODULE_5__["default"], {
       items: padings
     })]
   });
@@ -532,11 +549,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const onSelect = tabName => {
-  if (tabName == 'desktop') {
-    isDesktop.value = true;
-  } else {
-    isDesktop.value = false;
-  }
+
+  // if (tabName == 'desktop') {
+  //     isDesktop.value = true;
+  // } else {
+  //     isDesktop.value = false;
+  // }
 };
 function EditorPanel() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
@@ -1186,7 +1204,7 @@ __webpack_require__.r(__webpack_exports__);
 });
 function Edit(props) {
   // const blockProps = useBlockProps();
-  const [menus, setMenus] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(['Loading menu...']);
+  const [menus, setMenus] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
   const {
     attributes,
     setAttributes
@@ -1197,9 +1215,10 @@ function Edit(props) {
 
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default()({
-      path: '/gsp/v1/primary-menu'
+      path: '/gsp/v1/menu'
     }).then(menus => {
       // setMenus(menus);
+      console.log(menus);
       setMenus(menus['data']['menu']);
     });
   }, []);
@@ -1208,7 +1227,9 @@ function Edit(props) {
       value: [attributes, setAttributes],
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_editor_panel__WEBPACK_IMPORTED_MODULE_8__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
         ...blocksProps,
-        children: menuWrapper(menus)
+        children: menus.length > 0 ? menuWrapper(menus) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          children: "Data loading..."
+        })
       })]
     })
   });
@@ -1311,7 +1332,7 @@ module.exports = window["wp"]["element"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"http://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"gsp/header","title":"Site Header","textdomain":"writteninfo","editorScript":"file:./index.js","script":"file:./functions/script.js","style":"file:./style-index.css","render":"file:./render.php","supports":{"spacing":{"padding":true,"margin":true},"typography":{"textAlign":true}},"attributes":{"is_desktop":{"type":"boolean","default":true},"header_bg":{"type":"string","default":"green"},"title_text":{"type":"string","default":"black"},"item_bg_color":{"type":"string","default":"black"},"item_bg_hover_color":{"type":"string","default":"white"},"item_text_color":{"type":"string","default":"white"},"item_text_hover_color":{"type":"string","default":"black"},"submenu_bg":{"type":"string","default":""},"child_item_bg_color":{"type":"string","default":"black"},"child_item_bg_hover_color":{"type":"string","default":"white"},"child_item_text_color":{"type":"string","default":"white"},"child_item_text_hover_color":{"type":"string","default":"black"},"item_margin_t":{"type":"number","default":0},"item_margin_l":{"type":"number","default":5},"item_margin_r":{"type":"number","default":5},"item_margin_b":{"type":"number","default":0},"item_padding_t":{"type":"number","default":0},"item_padding_l":{"type":"number","default":8},"item_padding_r":{"type":"number","default":8},"item_padding_b":{"type":"number","default":0},"sub_menu_margin_t":{"type":"number","default":10},"child_item_margin_b":{"type":"number","default":8},"sidebar_bg":{"type":"string","default":"green"},"sidebar_item_bg_color":{"type":"string","default":"black"},"sidebar_item_bg_hover_color":{"type":"string","default":"white"},"sidebar_item_text_color":{"type":"string","default":"white"},"sidebar_item_text_hover_color":{"type":"string","default":"black"},"sidebar_item_margin_t":{"type":"number","default":0},"sidebar_item_margin_l":{"type":"number","default":0},"sidebar_item_margin_r":{"type":"number","default":0},"sidebar_item_margin_b":{"type":"number","default":10},"sidebar_item_padding_t":{"type":"number","default":8},"sidebar_item_padding_l":{"type":"number","default":8},"sidebar_item_padding_r":{"type":"number","default":8},"sidebar_item_padding_b":{"type":"number","default":0}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"http://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"gsp/header","title":"Site Header","textdomain":"writteninfo","editorScript":"file:./index.js","script":"file:./functions/script.js","style":"file:./style-index.css","render":"file:./render.php","attributes":{"is_desktop":{"type":"boolean","default":true},"header_bg":{"type":"string","default":""},"title_text":{"type":"string","default":""},"item_bg_color":{"type":"string","default":""},"item_bg_hover_color":{"type":"string","default":""},"item_text_color":{"type":"string","default":""},"item_text_hover_color":{"type":"string","default":""},"submenu_bg":{"type":"string","default":""},"child_item_bg_color":{"type":"string","default":""},"child_item_bg_hover_color":{"type":"string","default":""},"child_item_text_color":{"type":"string","default":""},"child_item_text_hover_color":{"type":"string","default":""},"item_margin_t":{"type":"number","default":0},"item_margin_l":{"type":"number","default":5},"item_margin_r":{"type":"number","default":5},"item_margin_b":{"type":"number","default":0},"item_padding_t":{"type":"number","default":0},"item_padding_l":{"type":"number","default":8},"item_padding_r":{"type":"number","default":8},"item_padding_b":{"type":"number","default":0},"sub_menu_margin_t":{"type":"number","default":10},"child_item_margin_b":{"type":"number","default":8},"sidebar_bg":{"type":"string","default":""},"sidebar_item_bg_color":{"type":"string","default":""},"sidebar_item_bg_hover_color":{"type":"string","default":""},"sidebar_item_text_color":{"type":"string","default":""},"sidebar_item_text_hover_color":{"type":"string","default":""},"sidebar_item_margin_t":{"type":"number","default":0},"sidebar_item_margin_l":{"type":"number","default":0},"sidebar_item_margin_r":{"type":"number","default":0},"sidebar_item_margin_b":{"type":"number","default":10},"sidebar_item_padding_t":{"type":"number","default":8},"sidebar_item_padding_l":{"type":"number","default":8},"sidebar_item_padding_r":{"type":"number","default":8},"sidebar_item_padding_b":{"type":"number","default":0}}}');
 
 /***/ })
 

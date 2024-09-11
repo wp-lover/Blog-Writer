@@ -19,11 +19,7 @@ export default function ColorsPanel() {
                     <PanelRow>
                         <ColorPicker
                             onChange={ (val) => {
-                                
-                               
-                                // const args = updateAttributes(attributes , 'header_bg' , val);
-                      
-                                
+                                setAttributes({ header_bg : val });
                             } }
                             enableAlpha
                             defaultValue={attributes.header_bg}
@@ -36,9 +32,7 @@ export default function ColorsPanel() {
                     <PanelRow>
                         <ColorPicker
                             onChange={ (val) => {
-                        
-                               
-
+                                setAttributes({ item_bg_color : val });
                             } }
                             enableAlpha
                             defaultValue={attributes.item_bg_color}
@@ -50,9 +44,8 @@ export default function ColorsPanel() {
                     <PanelRow>
                         <ColorPicker
                             onChange={ (val) => {
+                                setAttributes({ item_text_color : val }); 
                                
-                               
-
                             } }
                             enableAlpha
                             defaultValue={attributes.item_text_color}

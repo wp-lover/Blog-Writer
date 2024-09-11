@@ -26,7 +26,7 @@ function Edit( props ) {
    
     
     // const blockProps = useBlockProps();
-    const [menus, setMenus] = useState(['Loading menu...']);
+    const [menus, setMenus] = useState([]);
 
    const  {attributes , setAttributes } = props;
 
@@ -37,8 +37,9 @@ function Edit( props ) {
 
         useEffect(() => {
            
-                apiFetch({ path: '/gsp/v1/primary-menu' }).then((menus) => {
+                apiFetch({ path: '/gsp/v1/menu' }).then((menus) => {
                     // setMenus(menus);
+                    console.log(menus);
                     setMenus(menus['data']['menu'])
                 });
             
@@ -51,7 +52,7 @@ function Edit( props ) {
         <ContextAttributes.Provider value={[attributes , setAttributes]} >  
             <EditorPanel /> 
             <div {...blocksProps}>
-                {menuWrapper( menus )}
+                { menus.length > 0 ? menuWrapper( menus ) : <div>Data loading...</div>}
             </div>
         </ContextAttributes.Provider>
         </>

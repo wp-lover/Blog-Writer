@@ -10,7 +10,6 @@ export default function HeaderMenu({items}) {
     const li_styles = {
         mainWidth : '270px',
         background : attributes.item_bg_color,
-        color : attributes.item_text_color,
 
         marginTop : attributes.item_margin_t + "px",
         marginLeft : attributes.item_margin_l + "px",
@@ -54,7 +53,7 @@ export default function HeaderMenu({items}) {
 
                                 if (e[0]['has_child']) {
                                     return <li id={ID} className={classes + " item-parent"} style={li_styles} onClick={ for_on_click }>
-                                            <a itemprop="url" href={link} class="nav-link" aria-current="page">
+                                            <a itemprop="url" href={link} class="nav-link" aria-current="page" style={{color:attributes.item_text_color}}>
                                                 {name}
                                                 </a>
                                                 <SubMenu item={ e } styles={li_styles} />
@@ -62,7 +61,7 @@ export default function HeaderMenu({items}) {
                                 }
 
                                 return <li id={ID} className={classes} style={li_styles}>
-                                        <a itemprop="url" href={link} class="nav-link" aria-current="page">
+                                        <a itemprop="url" href={link} class="nav-link" aria-current="page" style={{color:attributes.item_text_color}}>
                                             {name}
                                         </a>
                                     </li>

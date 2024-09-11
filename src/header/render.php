@@ -1,42 +1,52 @@
 <?php
 
-    // require_once ( dirname( __FILE__, 3) . '/Inc/Menu/WP_Bootstrap_Navwalker.php');
+	class StyleForTest
+	{
+		public $styles;
 
-	$jsonMetaData = file_get_contents( __DIR__ . '/block.json' );
+		function __construct( $styles )
+		{
+			$this->styles = $styles;
 
-	$fromJson = json_decode($jsonMetaData);
+			add_action( 'wp_head' , [ $this , 'header_blocks_style' ] );
+		}
 
-	$jsonAttributes = $fromJson->attributes;
+		function header_blocks_style() {
+			?>
+			<style>
+				.nav-item a , .nav-item svg path {
+					color: <?php echo $this->styles['color'] ?>;
+				}
+				.nav-item a {
+					text-decoration: none;
+				}
+			</style>
+			<?php
+		}
+	}
 
-	$colors = $jsonAttributes->colors;
+	$header_bg = $attributes['header_bg'];
+	$title_text = $attributes['title_text'];
+	$item_bg_color = $attributes['item_bg_color'];
+	$item_bg_hover_color = $attributes['item_bg_hover_color'];
+	$item_text_color = $attributes['item_text_color'];
+	$item_text_hover_color = $attributes['item_text_hover_color'];
 
-	(array) $colorAttributes = array_key_exists( 'colors' , $attributes ) ? $attributes['colors'] : [];
-
-	$header_bg = array_key_exists( 'header_bg' , $colorAttributes ) ? $colorAttributes['header_bg'] : $colors->header_bg->default;
-	$title_text = array_key_exists( 'title_text' , $colorAttributes ) ? $colorAttributes['title_text'] : $colors->title_text->default;
-	$item_bg_color = array_key_exists( 'item_bg_color' , $colorAttributes ) ? $colorAttributes['item_bg_color'] : $colors->item_bg_color->default;
-	$item_bg_hover_color = array_key_exists( 'item_bg_hover_color' , $colorAttributes ) ? $colorAttributes['item_bg_hover_color'] : $colors->item_bg_hover_color->default;
-	$item_text_color = array_key_exists( 'item_text_color' , $colorAttributes ) ? $colorAttributes['item_text_color'] : $colors->item_text_color->default;
-	$item_text_hover_color = array_key_exists( 'item_text_hover_color' , $colorAttributes ) ? $colorAttributes['item_text_hover_color'] : $colors->item_text_hover_color->default;
-
-	
-	$space = $jsonAttributes->space;
-	(array) $spaceAttributes = array_key_exists( 'space' , $attributes ) ? $attributes['space'] : [];
 	
 	// margin
-	$item_margin_l = array_key_exists( 'margin_l' , $spaceAttributes ) ? $spaceAttributes['margin_l'] : $space->margin_l->default;
-	$item_margin_r = array_key_exists( 'margin_r' , $spaceAttributes ) ? $spaceAttributes['margin_r'] : $space->margin_r->default;
-	$item_margin_b = array_key_exists( 'margin_b' , $spaceAttributes ) ? $spaceAttributes['margin_b'] : $space->margin_b->default;
+	$item_margin_l = $attributes['item_margin_l'];
+	$item_margin_r = $attributes['item_margin_r'];
+	$item_margin_b = $attributes['item_margin_b'];
 	
 	// padding
-	$item_padding_t = array_key_exists( 'padding_t' , $spaceAttributes ) ? $spaceAttributes['padding_t'] : $space->padding_t->default;
-	$item_padding_l = array_key_exists( 'padding_l' , $spaceAttributes ) ? $spaceAttributes['padding_l'] : $space->padding_l->default;
-	$item_padding_r = array_key_exists( 'padding_r' , $spaceAttributes ) ? $spaceAttributes['padding_r'] : $space->padding_r->default;
-	$item_padding_b = array_key_exists( 'padding_b' , $spaceAttributes ) ? $spaceAttributes['padding_b'] : $space->padding_b->default;
+	$item_padding_t = $attributes['item_padding_t'];
+	$item_padding_l = $attributes['item_padding_l'];
+	$item_padding_r = $attributes['item_padding_r'];
+	$item_padding_b = $attributes['item_padding_b'];
 
 	// child item
-	$sub_menu_margin_t = array_key_exists( 'sub_menu_margin_t' , $spaceAttributes ) ? $spaceAttributes['sub_menu_margin_t'] : $spaceAttributes->sub_menu_margin_t->default;
-	$child_margin_b = array_key_exists( 'child_item_margin_b' , $spaceAttributes ) ? $spaceAttributes['child_item_margin_b'] : $space->child_item_margin_b->default;
+	$sub_menu_margin_t = $attributes['sub_menu_margin_t'];
+	$child_margin_b = $attributes['child_item_margin_b'];
 
 
 	$styles = [
@@ -47,6 +57,8 @@
 
 	];
 
+
+
 		// $sub_menu_margin_t .
 	$subMenuStyles = [
 		'margin-top' => $sub_menu_margin_t . 'px',
@@ -56,14 +68,13 @@
 		'margin-bottom'  => $child_margin_b . 'px'
 	];
 
+	new StyleForTest( $styles );
 
-
-	$menu = new Gsp\BlockTheme\Inc\Menu\Nav_Menus();
+	$menu = new \WpLover\BlogWriter\Inc\Menu\Register;
 
 	
 
 	?><header id="gsp-header-container" class="gsp-site-header md:flex md:items-end md:justify-between z-40 md:h-20 min-w-full py-0  px-4"
-	bg_color="<?php echo $header_bg; ?>"
 	   justify_content="space-around" style="background:<?php echo $header_bg;?>"
 	>
 	  <div class="gsp-site-name bg-slate-400 flex justify-between p-2">
@@ -79,3 +90,5 @@
 	</header>
 
 	<?php
+
+

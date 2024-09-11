@@ -8,15 +8,6 @@
   "script": "file:./functions/script.js",
   "style": "file:./style-index.css",
   "render": "file:./render.php",
-  "supports": {
-    "spacing": {
-      "padding": true,
-      "margin": true
-    },
-    "typography": {
-      "textAlign": true
-    }
-  },
   "attributes": {
     "is_desktop": {
       "type": "boolean",
@@ -24,27 +15,27 @@
     },
     "header_bg": {
       "type": "string",
-      "default": "green"
+      "default": ""
     },
     "title_text": {
       "type": "string",
-      "default": "black"
+      "default": ""
     },
     "item_bg_color": {
       "type": "string",
-      "default": "black"
+      "default": ""
     },
     "item_bg_hover_color": {
       "type": "string",
-      "default": "white"
+      "default": ""
     },
     "item_text_color": {
       "type": "string",
-      "default": "white"
+      "default": ""
     },
     "item_text_hover_color": {
       "type": "string",
-      "default": "black"
+      "default": ""
     },
     "submenu_bg": {
       "type": "string",
@@ -52,19 +43,19 @@
     },
     "child_item_bg_color": {
       "type": "string",
-      "default": "black"
+      "default": ""
     },
     "child_item_bg_hover_color": {
       "type": "string",
-      "default": "white"
+      "default": ""
     },
     "child_item_text_color": {
       "type": "string",
-      "default": "white"
+      "default": ""
     },
     "child_item_text_hover_color": {
       "type": "string",
-      "default": "black"
+      "default": ""
     },
     "item_margin_t": {
       "type": "number",
@@ -108,23 +99,23 @@
     },
     "sidebar_bg": {
       "type": "string",
-      "default": "green"
+      "default": ""
     },
     "sidebar_item_bg_color": {
       "type": "string",
-      "default": "black"
+      "default": ""
     },
     "sidebar_item_bg_hover_color": {
       "type": "string",
-      "default": "white"
+      "default": ""
     },
     "sidebar_item_text_color": {
       "type": "string",
-      "default": "white"
+      "default": ""
     },
     "sidebar_item_text_hover_color": {
       "type": "string",
-      "default": "black"
+      "default": ""
     },
     "sidebar_item_margin_t": {
       "type": "number",

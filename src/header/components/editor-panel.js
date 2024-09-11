@@ -10,11 +10,11 @@ import SpacePanelMobile from './desktop/panels/space-panel-desktop';
 
 const onSelect = ( tabName ) => {
    
-    if (tabName == 'desktop') {
-        isDesktop.value = true;
-    } else {
-        isDesktop.value = false;
-    }
+    // if (tabName == 'desktop') {
+    //     isDesktop.value = true;
+    // } else {
+    //     isDesktop.value = false;
+    // }
 };
 
 
