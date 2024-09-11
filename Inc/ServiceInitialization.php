@@ -9,7 +9,10 @@ class ServiceInitialization
         Menu\Register::class,
     ];
 
-    
+    function __construct()
+    {
+        $this->run_service();
+    }
 
     function run_service()
     {
