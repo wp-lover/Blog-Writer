@@ -7,9 +7,14 @@ class ServiceInitialization
 {
     private $services = [
         
+        \WpLover\BlogWriter\Inc\Blocks\Register::class
     ];
 
     
+    function __construct()
+    {
+        $this->run_service();
+    }
 
     function run_service()
     {

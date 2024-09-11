@@ -75,16 +75,18 @@ final class BlogWriter
     function load()
     {
         if ( $this->isServiceLoaded == false ) {
+
             new \WpLover\BlogWriter\Inc\ServiceInitialization();
         }
 
         $this->isServiceLoaded = true;
+
     }
 
 }
 
 
-if ( class_exists( 'BlogWriter' ) ) {
+if ( class_exists( '\WpLover\BlogWriter\BlogWriter' ) ) {
 
    add_action( 'plugin_loaded' , [ BlogWriter::get_instance() , 'load' ] );
 }
