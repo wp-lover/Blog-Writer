@@ -10,7 +10,10 @@ class ServiceInitialization
         \WpLover\BlogWriter\RestApi\Initialize::class
     ];
 
-    
+    function __construct()
+    {
+        $this->run_service();
+    }
 
     function run_service()
     {
