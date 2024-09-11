@@ -76,7 +76,7 @@ class WP_Lover_Navwalker extends \Walker_Nav_menu
         $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
         $item_output .= '</a>';
         $item_output .= ( $depth == 0 && $args->walker->has_children ) ? '<svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-            <path id="path-id-'. $item->ID .'" d="M6 9l6 6 6-6" fill="black"/>
+            <path id="path-id-'. $item->ID .'" d="M6 9l6 6 6-6"/>
           </svg>' : '' ;
         $item_output .= $args->after;
 
