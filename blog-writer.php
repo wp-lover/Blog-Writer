@@ -84,7 +84,7 @@ final class BlogWriter
 }
 
 
-if ( class_exists( 'BlogWriter' ) ) {
+if ( class_exists( 'WpLover\BlogWriter\BlogWriter' ) ) {
 
    add_action( 'plugin_loaded' , [ BlogWriter::get_instance() , 'load' ] );
 }
