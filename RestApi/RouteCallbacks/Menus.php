@@ -17,12 +17,15 @@ trait Menus {
     {
         $locations = get_nav_menu_locations();
 
-        $menu = wp_get_nav_menu_object($locations['blog_writer_header']);
+        if ( array_key_exists( 'blog_writer_header' , $locations) ) {
+          
+            $menu = wp_get_nav_menu_object($locations['blog_writer_header']);
 
-        $this->menu_items = wp_get_nav_menu_items($menu->term_id);
-
-        foreach ( $this->menu_items as $index => $item) {
-             $this->modify_item( $index , $item );
+            $this->menu_items = wp_get_nav_menu_items($menu->term_id);
+    
+            foreach ( $this->menu_items as $index => $item) {
+                $this->modify_item( $index , $item );
+            }
         }
 
     

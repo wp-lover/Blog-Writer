@@ -10,9 +10,7 @@ class Routes
     {
         register_rest_route('gsp/v1', '/menu', array(
             'methods'  => 'GET',
-            'callback' => function(){
-                return 'hello world';
-            } ,
+            'callback' => [$this, 'get_menu'] ,
             'permission_callback' => '__return_true'
         ));
     }
