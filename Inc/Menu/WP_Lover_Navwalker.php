@@ -46,7 +46,9 @@ class WP_Lover_Navwalker extends \Walker_Nav_menu
 
         $class_names = $value = '';
 
-        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        // do not add wp defualt menu classes
+        $classes = empty( $item->classes ) ? array() : array();
+
         $classes[] = ( $args->walker->has_children ) ? 'item-parent' : '';
         $classes[] = ( $item->current || $item->current_item_anchestor ) ? 'active' : '';
         $classes[] = 'nav-item nav-item-' . $item->ID;
