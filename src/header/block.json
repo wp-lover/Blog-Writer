@@ -5,10 +5,11 @@
     "title": "Site Header",
     "textdomain": "writteninfo",
     "editorScript" : "file:./index.js",
-    "script" : "file:./functions/script.js",
     "style" : "file:./style-index.css",
     "render": "file:./render.php",
- 
+    "supports": {
+       
+    },
     "attributes": {
         "is_desktop" : {"type":"boolean", "default": true},
         "header_bg" : {"type":"string", "default":""},
@@ -30,12 +31,12 @@
         "item_margin_r":{"type":"number", "default":5},
         "item_margin_b":{"type":"number", "default":0},
 
-        "item_padding_t":{"type":"number", "default":0},
+        "item_padding_t":{"type":"number", "default":8},
         "item_padding_l":{"type":"number", "default":8},
         "item_padding_r":{"type":"number", "default":8},
-        "item_padding_b":{"type":"number", "default":0},
+        "item_padding_b":{"type":"number", "default":8},
 
-        "sub_menu_margin_t":{"type":"number", "default":10},
+        "sub_menu_margin_t":{"type":"number", "default":35},
         "child_item_margin_b":{"type":"number", "default":8},
 
         "sidebar_bg" : {"type":"string", "default":""},

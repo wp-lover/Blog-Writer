@@ -875,7 +875,6 @@ video {
 
 #gsp-header-menu .item-parent .sub-menu {
   --tw-bg-opacity: 1;
-  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
   padding-left: 0.5rem;
 }
 
@@ -975,7 +974,6 @@ video {
   #gsp-sidebar-menu-container .sub-menu{ 
     position:relative;
     display: none;
-    background-color: green;
     left: -600px;
     transition-property: left;
     transition-duration: 500ms;

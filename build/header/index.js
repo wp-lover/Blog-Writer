@@ -1,4 +1,5 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/header/components/common/margin.js":
@@ -7,7 +8,6 @@
   \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Margin)
@@ -45,7 +45,6 @@ function Margin(array) {
   \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Padding)
@@ -84,7 +83,6 @@ function Padding(array) {
   \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ PanelMargin)
@@ -116,7 +114,6 @@ function PanelMargin({
   \*******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ PanelMargin)
@@ -148,7 +145,6 @@ function PanelMargin({
   \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ HeaderMenu)
@@ -332,7 +328,6 @@ function controll_dropdown_icon(item, fillColor, isOpen) {
   \**************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ColorsPanel)
@@ -397,6 +392,28 @@ function ColorsPanel() {
             enableAlpha: true,
             defaultValue: attributes.item_text_color
           })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+          children: "Item Background Hover Color"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ColorPicker, {
+            onChange: val => {
+              setAttributes({
+                item_bg_hover_color: val
+              });
+            },
+            enableAlpha: true,
+            defaultValue: attributes.item_bg_hover_color
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+          children: "Item Text Hover Color"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ColorPicker, {
+          onChange: val => {
+            setAttributes({
+              item_text_hover_color: val
+            });
+          },
+          enableAlpha: true,
+          defaultValue: attributes.item_text_hover_color
         })]
       })
     })
@@ -411,7 +428,6 @@ function ColorsPanel() {
   \*********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ SpacePanelDesktop)
@@ -467,7 +483,6 @@ function SpacePanelDesktop() {
   \****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ SubMenuSettings)
@@ -527,7 +542,6 @@ function Margin() {
   \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ EditorPanel)
@@ -598,7 +612,6 @@ function MobileSidebaMenu() {
   \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ SidebarMenu)
@@ -727,95 +740,12 @@ function SubMenu({
 
 /***/ }),
 
-/***/ "./src/header/functions/common-functions.js":
-/*!**************************************************!*\
-  !*** ./src/header/functions/common-functions.js ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   gsp_header_sub_menu: () => (/* binding */ gsp_header_sub_menu)
-/* harmony export */ });
-/**
- * @param i [is menu-item id number] 
- * @param fillColor icon color
- * @param isOpen if sub-mneu open then it should true
- */
-function controll_dropdown_icon(i, fillColor, isOpen) {
-  let path = document.getElementById("path-id-" + i);
-  console.log(path);
-  if (isOpen) {
-    path.setAttribute("d", "M6 15l6-6 6 6");
-    path.setAttribute("fill", fillColor);
-  } else {
-    path.setAttribute("d", "M6 9l6 6 6-6");
-    path.setAttribute("fill", fillColor);
-  }
-}
-
-/**
- * 
- * @param i [is menu-item id number] 
- */
-function gsp_header_sub_menu(i) {
-  var item = document.getElementById('nav-item-' + i);
-  console.log(item);
-  var child = item.getElementsByClassName('sub-menu');
-
-  // if not container class named 'hidden'
-  if (!child[0].classList.contains('hidden')) {
-    child[0].style.opacity = 0;
-    setTimeout(function () {
-      child[0].classList.remove('d-block');
-      child[0].classList.add('hidden');
-    }, 450);
-    controll_dropdown_icon(i, item.getAttribute('color'), false);
-  } else {
-    child[0].classList.remove('hidden');
-    child[0].classList.add('d-block');
-    setTimeout(function () {
-      child[0].style.opacity = 1;
-    }, 100);
-    if (child[0].style.marginTop != child[0].getAttribute("mt")) {
-      child[0].style.marginTop = child[0].getAttribute('mt');
-    }
-    controll_dropdown_icon(i, item.getAttribute('hover_color'), true);
-  }
-}
-
-/**
- * 
- * @param i [is menu-item id number] 
- */
-function gsp_sidebar_sub_menu(i) {
-  var item = document.getElementById('nav-item-' + i);
-  var child = item.getElementsByClassName('sub-menu');
-  if (child[0].style.left == '0px') {
-    child[0].style.left = '-600px';
-    setTimeout(function () {
-      child[0].style.display = 'none';
-    }, 550);
-    controll_dropdown_icon(i, item.getAttribute('color'), false);
-  } else {
-    child[0].style.display = 'block';
-    setTimeout(function () {
-      child[0].style.left = '0px';
-    }, 100);
-    controll_dropdown_icon(i, item.getAttribute('hover_color'), true);
-  }
-}
-
-/***/ }),
-
 /***/ "./src/header/functions/context-api.js":
 /*!*********************************************!*\
   !*** ./src/header/functions/context-api.js ***!
   \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ContextAttributes: () => (/* binding */ ContextAttributes)
@@ -829,343 +759,12 @@ const ContextAttributes = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.cre
 
 /***/ }),
 
-/***/ "./src/header/functions/header-menu.js":
-/*!*********************************************!*\
-  !*** ./src/header/functions/header-menu.js ***!
-  \*********************************************/
-/***/ (() => {
-
-class GspHeaderMenuController {
-  constructor() {
-    this.header = document.getElementById('gsp-header-container');
-
-    // main ul id
-    this.headerMenu = document.getElementById('gsp-header-menu');
-    if (!this.headerMenu) {
-      return;
-    }
-    this.container_justify_content();
-    this.container_item_alignment();
-    this.container_bg_color();
-
-    // menu
-    this.header_menu_set_position();
-    // item styles
-    if (this.headerMenu) {
-      for (let i = 0; i < this.headerMenu.children.length; i++) {
-        this.item_bg_color(i);
-        this.item_hover_bg_color(i);
-        this.item_color(i);
-        this.item_hover_color(i);
-        this.item_px(i);
-        this.item_py(i);
-        this.item_mx(i);
-        this.item_my(i);
-      }
-    }
-    // this.run_console();
-  }
-  run_console() {
-    console.log(this.headerMenu.children);
-    console.log(this.headerMenu.children.length);
-  }
-  container_justify_content() {
-    if (this.header && this.header.hasAttribute('justify_content')) {
-      this.header.style.justifyContent = this.header.getAttribute('justify_content');
-    }
-  }
-  container_bg_color() {
-    if (this.header && this.header.hasAttribute('bg_color')) {
-      this.header.style.backgroundColor = this.header.getAttribute('bg_color');
-    }
-  }
-  container_item_alignment() {
-    if (this.header && this.header.hasAttribute('align_items')) {
-      this.header.style.alignItems = this.header.getAttribute('align_items');
-    }
-  }
-  header_menu_set_position() {
-    var positioinName = '';
-    var value = '0px';
-    if (this.headerMenu && this.headerMenu.hasAttribute('position_name')) {
-      positioinName = this.headerMenu.getAttribute('position_name');
-    } else {
-      return;
-    }
-    if (this.headerMenu && this.headerMenu.hasAttribute('position_value')) {
-      value = this.headerMenu.getAttribute('position_value');
-    } else {
-      return;
-    }
-    switch (positioinName) {
-      case 'top':
-        this.headerMenu.style.top = value;
-        break;
-      case 'bottom':
-        this.headerMenu.style.bottom = value;
-        break;
-      case 'left':
-        this.headerMenu.style.left = value;
-        break;
-      case 'right':
-        this.headerMenu.style.right = value;
-        break;
-      default:
-        break;
-    }
-  }
-  item_bg_color(i = 0) {
-    if (!this.headerMenu) {
-      return;
-    }
-    var items = this.headerMenu.children;
-    if (this.headerMenu && items[i].hasAttribute("bg_color")) {
-      items[i].style.backgroundColor = items[i].getAttribute("bg_color");
-    }
-  }
-  item_hover_bg_color(i = 0) {
-    if (!this.headerMenu) {
-      return;
-    }
-    var items = this.headerMenu.children;
-
-    // Set background color on hover
-    items[i].addEventListener('mouseover', function () {
-      if (items[i].hasAttribute("bg_hover_color")) {
-        items[i].style.backgroundColor = items[i].getAttribute("bg_hover_color");
-      }
-    });
-    items[i].addEventListener('mouseout', function () {
-      if (items[i].hasAttribute("bg_color")) {
-        items[i].style.backgroundColor = items[i].getAttribute("bg_color");
-      }
-    });
-  }
-  item_color(i = 0) {
-    if (!this.headerMenu) {
-      return;
-    }
-    var items = this.headerMenu.children;
-    if (this.headerMenu && items[i].hasAttribute("color")) {
-      items[i].style.color = items[i].getAttribute("color");
-    }
-  }
-  item_hover_color(i = 0) {
-    if (!this.headerMenu) {
-      return;
-    }
-    var items = this.headerMenu.children;
-
-    // Set background color on hover
-    items[i].addEventListener('mouseover', function () {
-      if (items[i].hasAttribute("hover_color")) {
-        items[i].style.color = items[i].getAttribute("hover_color");
-      }
-    });
-    items[i].addEventListener('mouseout', function () {
-      if (items[i].hasAttribute("color")) {
-        items[i].style.color = items[i].getAttribute("color");
-      }
-    });
-  }
-  item_px(i = 0) {
-    if (!this.headerMenu) {
-      return;
-    }
-    var items = this.headerMenu.children;
-    if (items[i].hasAttribute("px")) {
-      items[i].style.paddingLeft = items[i].getAttribute("px");
-      items[i].style.paddingRight = items[i].getAttribute("px");
-    }
-  }
-  item_py(i = 0) {
-    if (!this.headerMenu) {
-      return;
-    }
-    var items = this.headerMenu.children;
-    if (items[i].hasAttribute("py")) {
-      items[i].style.paddingTop = items[i].getAttribute("py");
-      items[i].style.paddingBottom = items[i].getAttribute("py");
-    }
-  }
-  item_mx(i = 0) {
-    if (!this.headerMenu) {
-      return;
-    }
-    var items = this.headerMenu.children;
-    if (items[i].hasAttribute("mx")) {
-      items[i].style.marginLeft = items[i].getAttribute("mx");
-      items[i].style.marginRight = items[i].getAttribute("mx");
-    }
-  }
-  item_my(i = 0) {
-    if (!this.headerMenu) {
-      return;
-    }
-    var items = this.headerMenu.children;
-    if (items[i].hasAttribute("my")) {
-      items[i].style.marginTop = items[i].getAttribute("my");
-      items[i].style.marginBottom = items[i].getAttribute("my");
-    }
-  }
-}
-let gspHeaderContainer = null;
-document.addEventListener("DOMContentLoaded", () => gspHeaderContainer = new GspHeaderMenuController());
-
-/***/ }),
-
-/***/ "./src/header/functions/mobile-menu.js":
-/*!*********************************************!*\
-  !*** ./src/header/functions/mobile-menu.js ***!
-  \*********************************************/
-/***/ (() => {
-
-class GspSidebarMenuController {
-  constructor() {
-    // this is sidebar menu container
-    this.menuContainer = document.getElementById('gsp-sidebar-menu-container');
-
-    // this is the main [ul] tag for menu
-    this.sidebarMenu = document.getElementById('gsp-sidebar-manu');
-
-    // sidebar menu closer container
-    this.menuCloser = document.getElementById('gsp-sidebar-menu-closer');
-
-    // sidebar menu openner button
-    this.menuOpenner = document.getElementById('gsp-sidebar-menu-openner');
-    this.width = document.documentElement.clientWidth;
-    if (this.menuCloser) {
-      this.menuCloser.onclick = () => this.close_menu();
-      this.menuOpenner.onclick = () => this.open_menu();
-
-      // item styles
-      for (let i = 0; i < this.sidebarMenu.children.length; i++) {
-        this.item_bg_color(i);
-        this.item_hover_bg_color(i);
-        this.item_color(i);
-        this.item_hover_color(i);
-        this.item_px(i);
-        this.item_py(i);
-        this.item_mx(i);
-        this.item_my(i);
-      }
-    }
-  }
-  open_menu() {
-    this.menuContainer.classList.remove('hidden');
-    this.menuContainer.classList.add('flex');
-    setTimeout(() => this.menuContainer.style.left = '0px', 100);
-  }
-  close_menu() {
-    this.menuContainer.style.left = '-' + this.width + 'px';
-    setTimeout(function () {
-      this.menuContainer.classList.remove('flex');
-      this.menuContainer.classList.add('hidden');
-    }.bind(this), 500);
-  }
-  item_bg_color(i = 0) {
-    var items = this.sidebarMenu.children;
-    if (items[i].hasAttribute("bg_color")) {
-      items[i].style.backgroundColor = items[i].getAttribute("bg_color");
-    }
-  }
-  item_hover_bg_color(i = 0) {
-    var items = this.sidebarMenu.children;
-
-    // Set background color on hover
-    items[i].addEventListener('mouseover', function () {
-      if (items[i].hasAttribute("bg_hover_color")) {
-        items[i].style.backgroundColor = items[i].getAttribute("bg_hover_color");
-      }
-    });
-    items[i].addEventListener('mouseout', function () {
-      if (items[i].hasAttribute("bg_color")) {
-        items[i].style.backgroundColor = items[i].getAttribute("bg_color");
-      }
-    });
-  }
-  item_color(i = 0) {
-    var items = this.sidebarMenu.children;
-    if (items[i].hasAttribute("color")) {
-      items[i].style.color = items[i].getAttribute("color");
-    }
-  }
-  item_hover_color(i = 0) {
-    var items = this.sidebarMenu.children;
-
-    // Set background color on hover
-    items[i].addEventListener('mouseover', function () {
-      if (items[i].hasAttribute("hover_color")) {
-        items[i].style.color = items[i].getAttribute("hover_color");
-      }
-    });
-    items[i].addEventListener('mouseout', function () {
-      if (items[i].hasAttribute("color")) {
-        items[i].style.color = items[i].getAttribute("color");
-      }
-    });
-  }
-  item_px(i = 0) {
-    var items = this.sidebarMenu.children;
-    if (items[i].hasAttribute("px")) {
-      items[i].style.paddingLeft = items[i].getAttribute("px");
-      items[i].style.paddingRight = items[i].getAttribute("px");
-    }
-  }
-  item_py(i = 0) {
-    var items = this.sidebarMenu.children;
-    if (items[i].hasAttribute("py")) {
-      items[i].style.paddingTop = items[i].getAttribute("py");
-      items[i].style.paddingBottom = items[i].getAttribute("py");
-    }
-  }
-  item_mx(i = 0) {
-    var items = this.sidebarMenu.children;
-    if (items[i].hasAttribute("mx")) {
-      items[i].style.marginLeft = items[i].getAttribute("mx");
-      items[i].style.marginRight = items[i].getAttribute("mx");
-    }
-  }
-  item_my(i = 0) {
-    var items = this.sidebarMenu.children;
-    if (items[i].hasAttribute("my")) {
-      items[i].style.marginTop = items[i].getAttribute("my");
-      items[i].style.marginBottom = items[i].getAttribute("my");
-    }
-  }
-} // class ending
-
-let gspSidebarMenuContainer = null;
-document.addEventListener("DOMContentLoaded", () => gspSidebarMenuContainer = new GspSidebarMenuController());
-
-/***/ }),
-
-/***/ "./src/header/functions/script.js":
-/*!****************************************!*\
-  !*** ./src/header/functions/script.js ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _header_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header-menu */ "./src/header/functions/header-menu.js");
-/* harmony import */ var _header_menu__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_header_menu__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mobile_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mobile-menu */ "./src/header/functions/mobile-menu.js");
-/* harmony import */ var _mobile_menu__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_mobile_menu__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _common_functions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./common-functions */ "./src/header/functions/common-functions.js");
-
-
-
-
-/***/ }),
-
 /***/ "./src/header/index.js":
 /*!*****************************!*\
   !*** ./src/header/index.js ***!
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
@@ -1177,19 +776,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/header/block.json");
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./style.css */ "./src/header/style.css");
-/* harmony import */ var _functions_script__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./functions/script */ "./src/header/functions/script.js");
-/* harmony import */ var _functions_context_api__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./functions/context-api */ "./src/header/functions/context-api.js");
-/* harmony import */ var _components_editor_panel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/editor-panel */ "./src/header/components/editor-panel.js");
-/* harmony import */ var _components_desktop_header_menu__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/desktop/header-menu */ "./src/header/components/desktop/header-menu.js");
-/* harmony import */ var _components_mobile_sidebar_menu__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/mobile/sidebar-menu */ "./src/header/components/mobile/sidebar-menu.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _functions_context_api__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./functions/context-api */ "./src/header/functions/context-api.js");
+/* harmony import */ var _components_editor_panel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/editor-panel */ "./src/header/components/editor-panel.js");
+/* harmony import */ var _components_desktop_header_menu__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/desktop/header-menu */ "./src/header/components/desktop/header-menu.js");
+/* harmony import */ var _components_mobile_sidebar_menu__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/mobile/sidebar-menu */ "./src/header/components/mobile/sidebar-menu.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__);
 
 
 
 
 
 
+// import './functions/script';
 
 
 
@@ -1222,12 +821,12 @@ function Edit(props) {
       setMenus(menus['data']['menu']);
     });
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_functions_context_api__WEBPACK_IMPORTED_MODULE_7__.ContextAttributes.Provider, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_functions_context_api__WEBPACK_IMPORTED_MODULE_6__.ContextAttributes.Provider, {
       value: [attributes, setAttributes],
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_editor_panel__WEBPACK_IMPORTED_MODULE_8__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_editor_panel__WEBPACK_IMPORTED_MODULE_7__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         ...blocksProps,
-        children: menus.length > 0 ? menuWrapper(menus) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+        children: menus.length > 0 ? menuWrapper(menus) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           children: "Data loading..."
         })
       })]
@@ -1235,10 +834,10 @@ function Edit(props) {
   });
 }
 function menuWrapper(items) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_desktop_header_menu__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_desktop_header_menu__WEBPACK_IMPORTED_MODULE_8__["default"], {
       items: items
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_mobile_sidebar_menu__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_mobile_sidebar_menu__WEBPACK_IMPORTED_MODULE_9__["default"], {
       items: items
     })]
   });
@@ -1252,7 +851,6 @@ function menuWrapper(items) {
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -1265,7 +863,6 @@ __webpack_require__.r(__webpack_exports__);
   \**********************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["ReactJSXRuntime"];
 
 /***/ }),
@@ -1276,7 +873,6 @@ module.exports = window["ReactJSXRuntime"];
   \**********************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["apiFetch"];
 
 /***/ }),
@@ -1287,7 +883,6 @@ module.exports = window["wp"]["apiFetch"];
   \*************************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["blockEditor"];
 
 /***/ }),
@@ -1298,7 +893,6 @@ module.exports = window["wp"]["blockEditor"];
   \********************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["blocks"];
 
 /***/ }),
@@ -1309,7 +903,6 @@ module.exports = window["wp"]["blocks"];
   \************************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["components"];
 
 /***/ }),
@@ -1320,7 +913,6 @@ module.exports = window["wp"]["components"];
   \*********************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["element"];
 
 /***/ }),
@@ -1331,8 +923,7 @@ module.exports = window["wp"]["element"];
   \*******************************/
 /***/ ((module) => {
 
-"use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"http://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"gsp/header","title":"Site Header","textdomain":"writteninfo","editorScript":"file:./index.js","script":"file:./functions/script.js","style":"file:./style-index.css","render":"file:./render.php","attributes":{"is_desktop":{"type":"boolean","default":true},"header_bg":{"type":"string","default":""},"title_text":{"type":"string","default":""},"item_bg_color":{"type":"string","default":""},"item_bg_hover_color":{"type":"string","default":""},"item_text_color":{"type":"string","default":""},"item_text_hover_color":{"type":"string","default":""},"submenu_bg":{"type":"string","default":""},"child_item_bg_color":{"type":"string","default":""},"child_item_bg_hover_color":{"type":"string","default":""},"child_item_text_color":{"type":"string","default":""},"child_item_text_hover_color":{"type":"string","default":""},"item_margin_t":{"type":"number","default":0},"item_margin_l":{"type":"number","default":5},"item_margin_r":{"type":"number","default":5},"item_margin_b":{"type":"number","default":0},"item_padding_t":{"type":"number","default":0},"item_padding_l":{"type":"number","default":8},"item_padding_r":{"type":"number","default":8},"item_padding_b":{"type":"number","default":0},"sub_menu_margin_t":{"type":"number","default":10},"child_item_margin_b":{"type":"number","default":8},"sidebar_bg":{"type":"string","default":""},"sidebar_item_bg_color":{"type":"string","default":""},"sidebar_item_bg_hover_color":{"type":"string","default":""},"sidebar_item_text_color":{"type":"string","default":""},"sidebar_item_text_hover_color":{"type":"string","default":""},"sidebar_item_margin_t":{"type":"number","default":0},"sidebar_item_margin_l":{"type":"number","default":0},"sidebar_item_margin_r":{"type":"number","default":0},"sidebar_item_margin_b":{"type":"number","default":10},"sidebar_item_padding_t":{"type":"number","default":8},"sidebar_item_padding_l":{"type":"number","default":8},"sidebar_item_padding_r":{"type":"number","default":8},"sidebar_item_padding_b":{"type":"number","default":0}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"http://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"gsp/header","title":"Site Header","textdomain":"writteninfo","editorScript":"file:./index.js","style":"file:./style-index.css","render":"file:./render.php","supports":{},"attributes":{"is_desktop":{"type":"boolean","default":true},"header_bg":{"type":"string","default":""},"title_text":{"type":"string","default":""},"item_bg_color":{"type":"string","default":""},"item_bg_hover_color":{"type":"string","default":""},"item_text_color":{"type":"string","default":""},"item_text_hover_color":{"type":"string","default":""},"submenu_bg":{"type":"string","default":""},"child_item_bg_color":{"type":"string","default":""},"child_item_bg_hover_color":{"type":"string","default":""},"child_item_text_color":{"type":"string","default":""},"child_item_text_hover_color":{"type":"string","default":""},"item_margin_t":{"type":"number","default":0},"item_margin_l":{"type":"number","default":5},"item_margin_r":{"type":"number","default":5},"item_margin_b":{"type":"number","default":0},"item_padding_t":{"type":"number","default":8},"item_padding_l":{"type":"number","default":8},"item_padding_r":{"type":"number","default":8},"item_padding_b":{"type":"number","default":8},"sub_menu_margin_t":{"type":"number","default":35},"child_item_margin_b":{"type":"number","default":8},"sidebar_bg":{"type":"string","default":""},"sidebar_item_bg_color":{"type":"string","default":""},"sidebar_item_bg_hover_color":{"type":"string","default":""},"sidebar_item_text_color":{"type":"string","default":""},"sidebar_item_text_hover_color":{"type":"string","default":""},"sidebar_item_margin_t":{"type":"number","default":0},"sidebar_item_margin_l":{"type":"number","default":0},"sidebar_item_margin_r":{"type":"number","default":0},"sidebar_item_margin_b":{"type":"number","default":10},"sidebar_item_padding_t":{"type":"number","default":8},"sidebar_item_padding_l":{"type":"number","default":8},"sidebar_item_padding_r":{"type":"number","default":8},"sidebar_item_padding_b":{"type":"number","default":0}}}');
 
 /***/ })
 

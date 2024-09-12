@@ -6,7 +6,7 @@ import { registerBlockType  } from "@wordpress/blocks"
 import  metadata  from "./block.json"
 
 import './style.css';
-import './functions/script';
+// import './functions/script';
 
 import {  ContextAttributes } from './functions/context-api';
 import EditorPanel from './components/editor-panel';
