@@ -1,0 +1,71 @@
+.-flex {
+    display: flex
+  }
+  
+  @media (min-width: 768px) {
+    .-md-flex {
+      display: flex
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .-lg-flex {
+      display: flex
+    }
+  }
+  
+  .-hidden {
+    display: none
+  }
+  
+  @media (min-width: 768px) {
+    .-md-hidden {
+      display: none
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .-lg-hidden {
+      display: none
+    }
+  }
+  
+  .-justify-start {
+    justify-content: flex-start
+  }
+  
+  .-justify-end {
+    justify-content: flex-end
+  }
+  
+  .-justify-center {
+    justify-content: center
+  }
+  
+  .-justify-between {
+    justify-content: space-between
+  }
+  
+  .-justify-around {
+    justify-content: space-around
+  }
+  
+  .-justify-evenly {
+    justify-content: space-evenly
+  }
+  
+  .-items-start {
+    align-items: flex-start
+  }
+  
+  .-items-end {
+    align-items: flex-end
+  }
+  
+  .-items-center {
+    align-items: center
+  }
+  
+  .-items-baseline {
+    align-items: baseline
+  }

@@ -7,6 +7,7 @@ class ServiceInitialization
 {
     private $services = [
         Menu\Register::class,
+        Base\Scripts::class,
     ];
 
     function __construct()
