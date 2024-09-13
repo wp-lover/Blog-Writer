@@ -17,6 +17,14 @@
       "type": "string",
       "default": ""
     },
+    "header_justify_content": {
+      "type": "string",
+      "default": "md:justify-between"
+    },
+    "header_item_align": {
+      "type": "string",
+      "default": "md:items-end"
+    },
     "title_text": {
       "type": "string",
       "default": ""
@@ -95,7 +103,7 @@
     },
     "child_item_margin_b": {
       "type": "number",
-      "default": 8
+      "default": 2
     },
     "sidebar_bg": {
       "type": "string",

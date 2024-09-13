@@ -51,7 +51,6 @@ class StylesForBlocks
 }
 .nav-item :hover {
     background-color: <?php print_value($this->headerAttributes['item_bg_hover_color'])  ?>;
-    padding: 20px;
 }
 .nav-item a , .nav-item svg {
     margin: 0px !important; padding: 0px !important;
@@ -65,7 +64,7 @@ class StylesForBlocks
 }
 .nav-item a {
     color: <?php print_value( $this->headerAttributes['item_text_color'] );?>;
-    text-decoration: none;
+    text-decoration: none; border: none;
 }
 .nav-item :hover a {
     color: <?php print_value($this->headerAttributes['item_text_hover_color'])  ?>;

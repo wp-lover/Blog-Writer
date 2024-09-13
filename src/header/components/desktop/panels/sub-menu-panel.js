@@ -29,19 +29,19 @@ function Margin() {
                         min={0}
                         onChange={(val) => {
                             
-                            setAttributes(  );
+                            setAttributes({ sub_menu_margin_t: val });
                     
                         }} />
                     </PanelRow>
                     <PanelRow>
                         <RangeControl  
                         initialPosition={attributes.child_item_margin_b}
-                        label="Item Margin-Bottom"
+                        label="Child Item Margin-Bottom"
                         max={100}
                         min={0}
                         onChange={(val) => {
                             
-                            setAttributes(  );
+                            setAttributes({ child_item_margin_b : val });
                     
                         }} />
                     </PanelRow>

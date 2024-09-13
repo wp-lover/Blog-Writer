@@ -1,5 +1,5 @@
 
-import {useContext } from "@wordpress/element";
+import {useContext , useState } from "@wordpress/element";
 import { ContextAttributes } from "../../functions/context-api";
 
 
@@ -7,26 +7,9 @@ export default function HeaderMenu({items}) {
 
     const [attributes , setAttributes] = useContext(ContextAttributes);
 
-    const li_styles = {
-        mainWidth : '270px',
-        background : attributes.item_bg_color,
-
-        marginTop : attributes.item_margin_t + "px",
-        marginLeft : attributes.item_margin_l + "px",
-        marginRight : attributes.item_margin_r + "px",
-        marginBottom : attributes.item_margin_b + "px",
-
-        paddingTop : attributes.item_padding_t + "px",
-        paddingLeft : attributes.item_padding_l + "px",
-        paddingRight : attributes.item_padding_r+ "px",
-        paddingBottom : attributes.item_padding_b + "px"
-    }; 
-
-
-
     return (
         <>
-            <header id="gsp-header-container" class="gsp-site-header md:flex md:items-end md:justify-between z-40 md:h-20 min-w-full py-0  px-4"
+            <header id="gsp-header-container" class={"gsp-site-header md:flex " + attributes.header_item_align + " " + + attributes.header_justify_content + " z-40 md:h-20 min-w-full py-0  px-4"}
             style={{backgroundColor:attributes.header_bg}}
             >
                         <div class="gsp-site-name bg-slate-400 flex justify-between p-2">
@@ -36,6 +19,23 @@ export default function HeaderMenu({items}) {
                         <ul id="gsp-header-menu" class="header-menu hidden md:flex justify-start">
                             { 
                                 items.map( function(e) {
+
+                                    const [hoverd , setHoverd] = useState(false);
+
+                                    const li_styles = {
+                                        background : hoverd ? attributes.item_bg_hover_color : attributes.item_bg_color,
+                                        color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,
+                                        marginTop : attributes.item_margin_t + "px",
+                                        marginLeft : attributes.item_margin_l + "px",
+                                        marginRight : attributes.item_margin_r + "px",
+                                        marginBottom : attributes.item_margin_b + "px",
+                                
+                                        paddingTop : attributes.item_padding_t + "px",
+                                        paddingLeft : attributes.item_padding_l + "px",
+                                        paddingRight : attributes.item_padding_r+ "px",
+                                        paddingBottom : attributes.item_padding_b + "px"
+                                    }; 
+
                                     var link = e[0]['link']; var id = e[0]['ID'];
                                     var name = e[0]['name'];
                                     var ID = "nav-item-"+id;
@@ -52,16 +52,22 @@ export default function HeaderMenu({items}) {
 
 
                                 if (e[0]['has_child']) {
-                                    return <li id={ID} className={classes + " item-parent"} style={li_styles} onClick={ for_on_click }>
-                                            <a itemprop="url" href={link} class="nav-link" aria-current="page" style={{color:attributes.item_text_color}}>
+                                    return <li id={ID} className={classes + " item-parent"} style={li_styles} onClick={ for_on_click }  onMouseEnter={ () => setHoverd(true) } onMouseLeave={ () => setHoverd(false) }>
+                                            <a itemprop="url" href={link} class="nav-link" aria-current="page" style={{
+                                               color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,
+                                                textDecoration:"none"
+                                                }}>
                                                 {name}
                                                 </a>
+                                                <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                                    <path id="path-id-128" d="M6 9l6 6 6-6" fill={hoverd ? attributes.item_text_hover_color : attributes.item_text_color}></path>
+                                                </svg>    
                                                 <SubMenu item={ e } styles={li_styles} />
                                         </li>
                                 }
 
-                                return <li id={ID} className={classes} style={li_styles}>
-                                        <a itemprop="url" href={link} class="nav-link" aria-current="page" style={{color:attributes.item_text_color}}>
+                                return <li id={ID} className={classes} style={li_styles}  onMouseEnter={ () => setHoverd(true) } onMouseLeave={ () => setHoverd(false) }>
+                                        <a itemprop="url" href={link} class="nav-link" aria-current="page" style={{color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,textDecoration:"none"}}>
                                             {name}
                                         </a>
                                     </li>
@@ -80,16 +86,28 @@ export default function HeaderMenu({items}) {
 
 function SubMenu({item , styles}){
 
-    styles = {
-        ...styles
-    };
+    const [attributes , setAttributes] = useContext(ContextAttributes);
+
+
+
 
 
     return (
-        <ul className="sub-menu hidden" >
+        <ul className="sub-menu hidden" style={{marginTop:attributes.sub_menu_margin_t}} >
             {
                 item.map( function (e , i) {
-                   
+
+                    const [hoverd , setHoverd] = useState(false);
+
+                    const itemStyles = {
+                         background:  hoverd ? attributes.item_bg_hover_color : attributes.item_bg_color,
+                         marginBottom:attributes.child_item_margin_b,
+                         paddingLeft:styles.paddingLeft,
+                         paddingRight:styles.paddingRight,
+                         paddingTop:styles.paddingTop,
+                         paddingBottom:styles.paddingBottom
+                     };
+                 
                     if (i != 0) {
                         var link = e[0]['link'] ? e[0]['link'] : '';
                         var id = e[0]['ID'] ? e[0]['ID'] : '';
@@ -99,8 +117,11 @@ function SubMenu({item , styles}){
                         var classes = "nav-item-"+id+" nav-item";
 
                         return (
-                            <li id={ID} className={classes} style={styles}>
-                                <a itemprop="url" href={link} class="nav-link" aria-current="page">
+                            <li id={ID} className={classes} style={itemStyles} onMouseEnter={ () => setHoverd(true) } onMouseLeave={ () => setHoverd(false) }>
+                                <a itemprop="url" href={link} class="nav-link" aria-current="page" style={{
+                                               color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,
+                                                textDecoration:"none"
+                                                }}>
                                     {name}
                                 </a>
                             </li>

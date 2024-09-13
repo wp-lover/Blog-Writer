@@ -13,6 +13,8 @@
     "attributes": {
         "is_desktop" : {"type":"boolean", "default": true},
         "header_bg" : {"type":"string", "default":""},
+        "header_justify_content" : {"type":"string", "default":"md:justify-between"},
+        "header_item_align" : {"type":"string", "default":"md:items-end"},
         "title_text" : {"type":"string", "default":""},
 
         "item_bg_color" : {"type":"string", "default":""},
@@ -37,7 +39,7 @@
         "item_padding_b":{"type":"number", "default":8},
 
         "sub_menu_margin_t":{"type":"number", "default":35},
-        "child_item_margin_b":{"type":"number", "default":8},
+        "child_item_margin_b":{"type":"number", "default":2},
 
         "sidebar_bg" : {"type":"string", "default":""},
         "sidebar_item_bg_color" : {"type":"string", "default":""},

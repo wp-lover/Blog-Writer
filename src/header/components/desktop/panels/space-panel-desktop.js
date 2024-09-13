@@ -1,35 +1,125 @@
+import {RangeControl , Panel, PanelBody} from '@wordpress/components';
 import { useContext } from '@wordpress/element';
 import { ContextAttributes } from '../../../functions/context-api';
     
-import Margin from "../../common/margin";
-
-import Padding from "../../common/padding";
-import PanelMargin from "../../common/panel-margin";
-import PanelPadding from "../../common/panel-padding";
-
-
 
 export default function SpacePanelDesktop() {
 
+    return (
+        <>
+           <ItemMargin />
+           <ItemPadding />
+        </>
+    );
+}
+
+
+
+function ItemMargin() {
+
     const [attributes , setAttributes] = useContext( ContextAttributes );
-
-    const margins = [
-        <Margin props={[ "Margin-Left", "margin_l", attributes.item_margin_l ]} />,
-        <Margin props={[ "Margin-Right", "margin_r", attributes.item_margin_r ]} />,
-        <Margin props={[ "Margin-Bottom", "margin_b", attributes.item_margin_b ]} />
-    ];
-
-    const padings = [
-        <Padding props={[ "Padding-Top", "padding_t", attributes.item_padding_t ]} />,
-        <Padding props={[ "Padding-Left", "padding_l", attributes.item_padding_l ]} />,
-        <Padding props={[ "Padding-Left", "padding_r", attributes.item_padding_r ]} />,
-        <Padding props={[ "Padding-Bottom", "padding_b", attributes.item_padding_b ]} />
-    ];
 
     return (
         <>
-           <PanelMargin items={margins} /> 
-           <PanelPadding items={padings}/>
+           <Panel>
+                <PanelBody title='Item Margin' initialOpen={false}>
+                    <RangeControl  
+                        initialPosition={ attributes.item_margin_t }
+                        label={"Margin-Top"}
+                        max={100}
+                        min={0}
+                        onChange={(val) => {
+
+                            setAttributes({item_margin_t: val});
+                    
+                    }} />
+                    <RangeControl  
+                        initialPosition={ attributes.item_margin_t }
+                        label={"Margin-Bottom"}
+                        max={100}
+                        min={0}
+                        onChange={(val) => {
+
+                            setAttributes({item_margin_b: val});
+                    
+                    }} />
+                    <RangeControl  
+                        initialPosition={ attributes.item_margin_l }
+                        label={"Margin-Left"}
+                        max={100}
+                        min={0}
+                        onChange={(val) => {
+
+                            setAttributes({item_margin_l: val});
+                    
+                    }} />
+                    <RangeControl  
+                        initialPosition={ attributes.item_margin_r }
+                        label={"Margin-Right"}
+                        max={100}
+                        min={0}
+                        onChange={(val) => {
+
+                            setAttributes({item_margin_r: val});
+                    
+                    }} />
+                </PanelBody>
+           </Panel>
+        </>
+    );
+}
+
+
+function ItemPadding() {
+
+    const [attributes , setAttributes] = useContext( ContextAttributes );
+
+    return (
+        <>
+           <Panel>
+                <PanelBody title='Item Padding' initialOpen={false}>
+                    <RangeControl  
+                        initialPosition={ attributes.item_padding_t }
+                        label={"Padding-Top"}
+                        max={100}
+                        min={0}
+                        onChange={(val) => {
+
+                            setAttributes({item_padding_t: val});
+                    
+                    }} />
+                    <RangeControl  
+                        initialPosition={ attributes.item_padding_t }
+                        label={"Padding-Bottom"}
+                        max={100}
+                        min={0}
+                        onChange={(val) => {
+
+                            setAttributes({item_padding_b: val});
+                    
+                    }} />
+                    <RangeControl  
+                        initialPosition={ attributes.item_padding_l }
+                        label={"Padding-Left"}
+                        max={100}
+                        min={0}
+                        onChange={(val) => {
+
+                            setAttributes({item_padding_l: val});
+                    
+                    }} />
+                    <RangeControl  
+                        initialPosition={ attributes.item_padding_r }
+                        label={"Padding-Right"}
+                        max={100}
+                        min={0}
+                        onChange={(val) => {
+
+                            setAttributes({item_padding_r: val});
+                    
+                    }} />
+                </PanelBody>
+           </Panel>
         </>
     );
 }

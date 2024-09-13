@@ -28,6 +28,6 @@ use WpLover\BlogWriter\Inc\Blocks\StylesForBlocks;
 	<?php
 
 	// echo $attributes['submenu_bg'];
-	foreach ($attributes as $key => $value) {
-		echo $key . ' ' . $value . "</br>";
-	}
+	// foreach ($attributes as $key => $value) {
+	// 	echo $key . ' ' . $value . "</br>";
+	// }
