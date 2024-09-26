@@ -1,8 +1,8 @@
 import { InspectorControls } from '@wordpress/block-editor';
 import { TabPanel , SelectControl , Panel, PanelBody } from "@wordpress/components";
-import {useState , useContext} from '@wordpress/element';
+import { useContext} from '@wordpress/element';
 
-import { ContextAttributes } from '../functions/context-api';
+import { ContextAttributes , state_header_align, state_header_justify_content  } from '../functions/context-api';
 import ColorsPanel from './desktop/panels/colors-panel';
 import SubMenuSettings from './desktop/panels/sub-menu-panel';
 
@@ -80,8 +80,6 @@ function MobileSidebaMenu(){
 const JustifyContent = () => {
 
     const [attributes ,setAttribute] = useContext(ContextAttributes);
-    
-    const [ value , setValue ] = useState( 'md:justify-between' );
 
     return (
         <Panel>
@@ -89,16 +87,16 @@ const JustifyContent = () => {
                 <h3>Header Justify Content</h3>
                 <SelectControl
                     label="Justify Content"
-                    value={ value }
+                    value={ attributes.header_justify_content }
                     options={ [
-                        { label: 'Between', value: 'md:justify-between' },
-                        { label: 'Center', value: 'md:justify-center' },
-                        { label: 'Around', value: 'md:justify-around' },
+                        { label: 'Between', value: '-md-justify-between' },
+                        { label: 'Center', value: '-md-justify-center' },
+                        { label: 'Around', value: '-md-justify-around' },
                     ] }
                     onChange={ ( val ) => {
-                        setValue( val );
+                      
                         setAttribute({ header_justify_content : val });
-
+                        state_header_justify_content.value = val;
                     } }
                     __nextHasNoMarginBottom
                 />
@@ -111,8 +109,6 @@ const JustifyContent = () => {
 const ItemAlign = () => {
 
     const [attributes ,setAttribute] = useContext(ContextAttributes);
-    
-    const [ value, setValue ] = useState( 'md:items-end' );
 
     return (
         <Panel>
@@ -120,16 +116,16 @@ const ItemAlign = () => {
                 <h3>Header Item Alignment</h3>
                 <SelectControl
                     label="Item Align"
-                    value={ value }
+                    value={ attributes.header_item_align }
                     options={ [
                         { label: 'Start', value: 'md:items-start' },
                         { label: 'Center', value: 'md:items-center' },
                         { label: 'End', value: 'md:items-end' },
                     ] }
                     onChange={ ( val ) => {
-                        setValue( val );
+                      
                         setAttribute({ header_item_align : val });
-
+                        state_header_align.value = val;
                     } }
                     __nextHasNoMarginBottom
                 />

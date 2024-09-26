@@ -8,9 +8,8 @@ use WpLover\BlogWriter\Inc\Blocks\StylesForBlocks;
 
 	$menu = new Register;
 
-	
 
-	?><header id="gsp-header-container" class="gsp-site-header md:flex md:items-end md:justify-between z-40 md:h-20 min-w-full py-0  px-4"
+	?><header id="gsp-header-container" class="gsp-site-header md:flex <?php echo $attributes['header_item_align'] ?> <?php echo $attributes['header_justify_content'] ?> z-40 md:h-20 min-w-full py-0  px-4"
 	   justify_content="space-around" style="background:<?php echo $attributes['header_bg'];?>"
 	>
 	  <div class="gsp-site-name bg-slate-400 flex justify-between p-2">
@@ -27,7 +26,7 @@ use WpLover\BlogWriter\Inc\Blocks\StylesForBlocks;
 
 	<?php
 
-	// echo $attributes['submenu_bg'];
-	// foreach ($attributes as $key => $value) {
-	// 	echo $key . ' ' . $value . "</br>";
-	// }
+	echo $attributes['submenu_bg'];
+	foreach ($attributes as $key => $value) {
+		echo $key . ' ' . $value . "</br>";
+	}

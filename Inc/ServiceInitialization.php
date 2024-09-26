@@ -7,8 +7,10 @@ class ServiceInitialization
 {
     private $services = [
         Menu\Register::class,
+        Base\Scripts::class,
+        Blocks\Register::class,
         \WpLover\BlogWriter\RestApi\Initialize::class,
-        Blocks\Register::class
+        
     ];
 
     function __construct()

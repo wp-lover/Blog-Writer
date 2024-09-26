@@ -1,15 +1,19 @@
 
 import {useContext , useState } from "@wordpress/element";
-import { ContextAttributes } from "../../functions/context-api";
+import { ContextAttributes , state_header_justify_content , state_header_align } from "../../functions/context-api";
 
 
 export default function HeaderMenu({items}) {
 
     const [attributes , setAttributes] = useContext(ContextAttributes);
 
+    state_header_align.value = attributes.header_item_align;
+    state_header_justify_content.value = attributes.header_justify_content;
+    
+
     return (
         <>
-            <header id="gsp-header-container" class={"gsp-site-header md:flex " + attributes.header_item_align + " " + + attributes.header_justify_content + " z-40 md:h-20 min-w-full py-0  px-4"}
+            <header id="gsp-header-container" class={"gsp-site-header z-40 md:h-20 min-w-full py-0  px-4 md:flex " + state_header_align.value + " " + state_header_justify_content.value}
             style={{backgroundColor:attributes.header_bg}}
             >
                         <div class="gsp-site-name bg-slate-400 flex justify-between p-2">
@@ -29,11 +33,14 @@ export default function HeaderMenu({items}) {
                                         marginLeft : attributes.item_margin_l + "px",
                                         marginRight : attributes.item_margin_r + "px",
                                         marginBottom : attributes.item_margin_b + "px",
-                                
                                         paddingTop : attributes.item_padding_t + "px",
                                         paddingLeft : attributes.item_padding_l + "px",
                                         paddingRight : attributes.item_padding_r+ "px",
-                                        paddingBottom : attributes.item_padding_b + "px"
+                                        paddingBottom : attributes.item_padding_b + "px",
+                                        borderTopLeftRadius: "10px",
+                                        borderTopRightRadius: "10px",
+                                        borderBottomLeftRadius: attributes.item_margin_b  ? "8px" : "0px",
+                                        borderBottomRightRadius: attributes.item_margin_b ? "8px" : "0px",
                                     }; 
 
                                     var link = e[0]['link']; var id = e[0]['ID'];
@@ -84,12 +91,9 @@ export default function HeaderMenu({items}) {
 
 
 
-function SubMenu({item , styles}){
+function SubMenu({item , styles }){
 
     const [attributes , setAttributes] = useContext(ContextAttributes);
-
-
-
 
 
     return (
@@ -105,7 +109,8 @@ function SubMenu({item , styles}){
                          paddingLeft:styles.paddingLeft,
                          paddingRight:styles.paddingRight,
                          paddingTop:styles.paddingTop,
-                         paddingBottom:styles.paddingBottom
+                         paddingBottom:styles.paddingBottom,
+                         borderRadius: "10px"
                      };
                  
                     if (i != 0) {

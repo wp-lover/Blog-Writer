@@ -39,7 +39,6 @@ function Edit( props ) {
            
                 apiFetch({ path: '/gsp/v1/menu' }).then((menus) => {
                     // setMenus(menus);
-                    console.log(menus);
                     setMenus(menus['data']['menu'])
                 });
             

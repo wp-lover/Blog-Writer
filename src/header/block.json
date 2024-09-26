@@ -5,7 +5,7 @@
     "title": "Site Header",
     "textdomain": "writteninfo",
     "editorScript" : "file:./index.js",
-    "style" : "file:./style-index.css",
+    "editorStyle" : "file:./style-index.css",
     "render": "file:./render.php",
     "supports": {
        
@@ -13,8 +13,8 @@
     "attributes": {
         "is_desktop" : {"type":"boolean", "default": true},
         "header_bg" : {"type":"string", "default":""},
-        "header_justify_content" : {"type":"string", "default":"md:justify-between"},
-        "header_item_align" : {"type":"string", "default":"md:items-end"},
+        "header_justify_content" : {"type":"string", "default":"-justify-between"},
+        "header_item_align" : {"type":"string", "default":"-items-end"},
         "title_text" : {"type":"string", "default":""},
 
         "item_bg_color" : {"type":"string", "default":""},

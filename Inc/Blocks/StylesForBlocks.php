@@ -43,39 +43,54 @@ class StylesForBlocks
     background-color: <?php print_value($this->headerAttributes['item_bg_color'])  ?>;
     margin-left: <?php print_value( $this->headerAttributes['item_margin_l'] ); ?>px;
     margin-right: <?php print_value( $this->headerAttributes['item_margin_r'] ); ?>px;
+    margin-bottom: <?php print_value( $this->headerAttributes['item_margin_b'] ); ?>px;
+    padding: 0px;
+    display: block;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: <?php echo ( $this->headerAttributes['item_margin_b'] ) ? '8px' : '0px'  ?>;
+    border-bottom-right-radius: <?php echo ( $this->headerAttributes['item_margin_b'] ) ? '8px' : '0px'  ?>;
+}
+
+.nav-item :hover {
+    background-color: <?php print_value($this->headerAttributes['item_bg_hover_color'])  ?>;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: <?php echo ( $this->headerAttributes['item_margin_b'] ) ? '8px' : '0px'  ?>;
+    border-bottom-right-radius: <?php echo ( $this->headerAttributes['item_margin_b'] ) ? '8px' : '0px'  ?>;
+}
+
+.nav-item a {
     padding-top: <?php print_value( $this->headerAttributes['item_padding_t'] ); ?>px;
     padding-left: <?php print_value( $this->headerAttributes['item_padding_l'] ); ?>px;
     padding-bottom: <?php print_value( $this->headerAttributes['item_padding_b'] ); ?>px;
     padding-right: <?php print_value( $this->headerAttributes['item_padding_r'] ); ?>px;
     display: block;
 }
-.nav-item :hover {
-    background-color: <?php print_value($this->headerAttributes['item_bg_hover_color'])  ?>;
-}
-.nav-item a , .nav-item svg {
-    margin: 0px !important; padding: 0px !important;
-    display: inline-block;
-}
 .nav-item svg path {
     fill: <?php print_value( $this->headerAttributes['item_text_color'] ); ?>;
 }
-.nav-item :hover svg path {
-    fill: <?php print_value($this->headerAttributes['item_text_hover_color'])  ?>;
-}
+
 .nav-item a {
     color: <?php print_value( $this->headerAttributes['item_text_color'] );?>;
     text-decoration: none; border: none;
 }
-.nav-item :hover a {
-    color: <?php print_value($this->headerAttributes['item_text_hover_color'])  ?>;
-}
+
 .item-parent .sub-menu{
-    background-color: white;
+    background-color: transparent;
     margin-top: <?php print_value( $this->headerAttributes['sub_menu_margin_t']  );  ?>px;
+    
 }
 .item-parent .sub-menu li {
     margin-bottom: <?php print_value( $this->headerAttributes['child_item_margin_b']  );  ?>px;
+    border-radius: 10px;
 }
+.item-parent .sub-menu li :hover{
+    border-radius: 10px;
+}
+
+
+
 </style><?php
 
         }

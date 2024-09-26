@@ -1,0 +1,126 @@
+  .-flex {
+    display: flex
+  }
+  .-hidden {
+    display: none
+  }
+  /* items-alignment */
+  .-items-start {
+    align-items: flex-start
+  }
+  
+  .-items-end {
+    align-items: flex-end
+  }
+  
+  .-items-center {
+    align-items: center
+  }
+  
+  .-items-baseline {
+    align-items: baseline
+  }
+  /* justify content */
+  .-justify-start {
+    justify-content: flex-start
+  }
+  .-justify-end {
+    justify-content: flex-end
+  }
+  .-justify-center {
+    justify-content: center
+  }
+  
+  .-justify-between {
+    justify-content: space-between
+  }
+  
+  .-justify-around {
+    justify-content: space-around
+  }
+  
+  .-justify-evenly {
+    justify-content: space-evenly
+  }
+
+  @media (min-width: 768px) {
+
+    .-md-flex {
+      display: flex
+    }
+    .-md-hidden {
+      display: none
+    }
+    .-md-items-start {
+      align-items: flex-start
+    }
+    .-md-items-end {
+      align-items: flex-end
+    }
+    .-md-items-center {
+      align-items: center
+    }
+    .-md-items-baseline {
+      align-items: baseline
+    }
+    /* justify content */
+    .-md-justify-start {
+      justify-content: flex-start
+    }
+    .-md-justify-end {
+      justify-content: flex-end
+    }
+    .-md-justify-center {
+      justify-content: center
+    }
+    .-md-justify-between {
+      justify-content: space-between
+    }
+    .-md-justify-around {
+      justify-content: space-around
+    }
+    .-md-justify-evenly {
+      justify-content: space-evenly
+    }
+    
+  }
+  
+  @media (min-width: 1024px) {
+    .-lg-flex {
+      display: flex
+    }
+    .-lg-hidden {
+      display: none
+    }
+    .-lg-items-start {
+      align-items: flex-start
+    }
+    .-lg-items-end {
+      align-items: flex-end
+    }
+    .-lg-items-center {
+      align-items: center
+    }
+    .-lg-items-baseline {
+      align-items: baseline
+    }
+    /* justify content */
+    .-lg-justify-start {
+      justify-content: flex-start
+    }
+    .-lg-justify-end {
+      justify-content: flex-end
+    }
+    .-lg-justify-center {
+      justify-content: center
+    }
+    .-lg-justify-between {
+      justify-content: space-between
+    }
+    .-lg-justify-around {
+      justify-content: space-around
+    }
+    .-lg-justify-evenly {
+      justify-content: space-evenly
+    }
+  }
