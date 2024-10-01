@@ -27,13 +27,19 @@ function Edit(props) {
 
     // Define the blocks that are allowed, excluding the unwanted ones (e.g., core/image and core/quote).
     const notAllowedBlocksForRight = ['core/site-name', 'core/site-logo'];
+    const styles = {
+        position:"absolute",
+        left: "0px",
+        top : "0px",
+        background: "red",
+        marginTop: "0px",
+        height: "100vh"
+    };
   return (
-      <div>
-          <div className="first-section">
-              <InnerBlocks key="md-left" allowedBlocks={wp.blocks.getBlockTypes().map(block => block.name).filter(blockName => !notAllowedBlocksForRight.includes(blockName))} />
-          </div>
+      <div style={styles}>
           <div className="second-section">
               <InnerBlocks key="md-right" allowedBlocks={wp.blocks.getBlockTypes().map(block => block.name).filter(blockName => !notAllowedBlocksForLeft.includes(blockName))} />
+                <p>This is sidebar block</p>
           </div>
       </div>
   );

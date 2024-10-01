@@ -1,25 +1,20 @@
-import { useBlockProps , InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps  } from '@wordpress/block-editor';
 import { useState, useEffect  } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
-
 import { registerBlockType  } from "@wordpress/blocks"
 import  metadata  from "./block.json"
-
-import './style.css';
-// import './functions/script';
-
 import {  ContextAttributes  } from './functions/context-api';
 import EditorPanel from './components/editor-panel';
 import HeaderMenu from "./components/desktop/header-menu";
-import SidebarMenu from "./components/mobile/sidebar-menu";
+
+
+import "./editor-index.css";
+
 
 registerBlockType( metadata.name, {
     edit: Edit,
     save: function (props) {
 
-        // return (
-        //     <InnerBlocks.Content />
-        // );
         return null;
     }
 } );
@@ -68,7 +63,6 @@ function menuWrapper( items ){
     return (
     <>
         <HeaderMenu items={items}/>
-        <SidebarMenu items={items}/>
         </>
        );
 }

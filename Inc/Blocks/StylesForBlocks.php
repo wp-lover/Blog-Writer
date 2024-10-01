@@ -43,13 +43,13 @@ class StylesForBlocks
                margin-bottom: -30px;
             }
 .nav-item{
+    min-width: <?php print_value($this->headerAttributes['item_min_width'])  ?>px;
     background-color: <?php print_value($this->headerAttributes['item_bg_color'])  ?>;
     margin-top: <?php print_value( $this->headerAttributes['item_margin_t'] ); ?>px;
     margin-left: <?php print_value( $this->headerAttributes['item_margin_l'] ); ?>px;
     margin-right: <?php print_value( $this->headerAttributes['item_margin_r'] ); ?>px;
     margin-bottom: <?php print_value( $this->headerAttributes['item_margin_b'] ); ?>px;
     padding: 0px;
-    display: block;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: <?php echo ( $this->headerAttributes['item_margin_b'] ) ? '8px' : '0px'  ?>;
@@ -62,6 +62,7 @@ class StylesForBlocks
 
 .nav-item :hover {
     background-color: <?php print_value($this->headerAttributes['item_bg_hover_color'])  ?>;
+    color: <?php print_value($this->headerAttributes['item_text_hover_color'])  ?>;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: <?php echo ( $this->headerAttributes['item_margin_b'] ) ? '8px' : '0px'  ?>;
@@ -73,7 +74,6 @@ class StylesForBlocks
     padding-left: <?php print_value( $this->headerAttributes['item_padding_l'] ); ?>px;
     padding-bottom: <?php print_value( $this->headerAttributes['item_padding_b'] ); ?>px;
     padding-right: <?php print_value( $this->headerAttributes['item_padding_r'] ); ?>px;
-    display: block;
 }
 .nav-item svg path {
     fill: <?php print_value( $this->headerAttributes['item_text_color'] ); ?>;
@@ -82,6 +82,7 @@ class StylesForBlocks
 .nav-item a {
     color: <?php print_value( $this->headerAttributes['item_text_color'] );?>;
     text-decoration: none; border: none;
+    margin: 0;
 }
 
 .item-parent .sub-menu{
@@ -124,7 +125,7 @@ class StylesForBlocks
                     
                 } , 450 );  
                 
-                controll_dropdown_icon( itemId , 'red' , false );
+                controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] );?>", false );
 
             }else{
                 
@@ -139,7 +140,7 @@ class StylesForBlocks
                 } , 100 );
 
                 
-                controll_dropdown_icon( itemId , 'green' , true );
+                controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] );?>" , true );
             }     
 }
 

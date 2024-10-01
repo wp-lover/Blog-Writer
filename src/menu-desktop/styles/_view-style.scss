@@ -8,21 +8,21 @@
     #gsp-header-menu ul, #gsp-header-menu li {
         list-style: none;
     }
-    #gsp-header-menu li {
-        margin: 5px 15px;
-    }
-    .nav-item{
-        min-width: 200px;
-    }
     .nav-item a{
         text-decoration: none;
-        padding: 10px;
-        background-color: aqua;
-        // display: block;
+        border: none;
+        outline: none;
+        text-align: center;
+        display: block;
+    }
+    .item-parent a{
+        display: flex;
+        justify-content: space-between;
+        padding: 0px;
     }
     .item-parent .sub-menu {
         position: absolute;
-        margin-left: -40px;
+        padding: 0; margin-left: 0; margin-right: 0;
     }
     .sub-menu li{
         margin: 5px 0px;

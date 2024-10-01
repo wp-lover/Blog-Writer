@@ -15,6 +15,7 @@ export default function HeaderMenu({items}) {
                         const [hoverd , setHoverd] = useState(false);
 
                         const li_styles = {
+                            minWidth: attributes.item_min_width + "px",
                             background : hoverd ? attributes.item_bg_hover_color : attributes.item_bg_color,
                             color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,
                             marginTop : attributes.item_margin_t + "px",
@@ -80,15 +81,16 @@ function SubMenu({item , styles }){
 
     const [attributes , setAttributes] = useContext(ContextAttributes);
 
-
+    console.log(item);
     return (
-        <ul className="sub-menu" style={{marginTop:attributes.sub_menu_margin_t}} >
+        <ul className="sub-menu hidden" style={{marginTop:attributes.sub_menu_margin_t+"px"}} >
             {
                 item.map( function (e , i) {
 
                     const [hoverd , setHoverd] = useState(false);
 
                     const itemStyles = {
+                        minWidth: styles.minWidth,
                          background:  hoverd ? attributes.item_bg_hover_color : attributes.item_bg_color,
                          marginBottom:attributes.child_item_margin_b,
                          paddingLeft:styles.paddingLeft,
@@ -144,7 +146,7 @@ function gsp_header_sub_menu(item , marginTop){
             
         } , 450 );  
         
-        // controll_dropdown_icon( i , item.getAttribute( 'color' ) , false );
+        controll_dropdown_icon( item , item.getAttribute( 'color' ) , false );
 
     }else{
         
@@ -165,13 +167,13 @@ function gsp_header_sub_menu(item , marginTop){
         } , 100 );
 
         
-        // controll_dropdown_icon( i , item.getAttribute( 'hover_color' ) , true );
+        controll_dropdown_icon( item , item.getAttribute( 'hover_color' ) , true );
     }     
 }
 
 function controll_dropdown_icon(item , fillColor , isOpen )
 {
-    let path = item.getElementById( "path-id-" + i );
+    let path = item.getElementsByTagName('path')[0];
 
 
     if (isOpen) {

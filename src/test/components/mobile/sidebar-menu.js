@@ -2,7 +2,6 @@ import {useContext} from '@wordpress/element'
 import { ContextAttributes } from "../../functions/context-api";
 
 
-
 export default function SidebarMenu({items}){
 
   const [attributes , setAttributes] = useContext(ContextAttributes);
@@ -23,10 +22,16 @@ export default function SidebarMenu({items}){
     paddingBottom : attributes.sidebar_item_padding_b + "px"
 }; 
 
-// hidden md:hidden
+ const styleContainer = {
+    position:"absolute",
+    left:"-380px",
+    top:"0px",
+    zIndex: 100,
+    background: "green"
+ };
 
     return (
-        <div id="gsp-mobile-menu" style={{zIndex:"100"}} class="">
+        <div id="gsp-mobile-menu" style={styleContainer} class="">
                 <ul  class="nav-primary-menu">
 
                 { 

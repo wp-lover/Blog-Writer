@@ -16,13 +16,15 @@ class Register
     {
         $blogWriter = BlogWriter::get_instance();
 
-        if ( is_dir( $blogWriter->dir . '/build/header' ) ) {
+        if ( is_dir( $blogWriter->dir . '/build/menu-desktop' ) ) {
           
-            register_block_type_from_metadata( $blogWriter->dir . '/build/header'  );
+            register_block_type_from_metadata( $blogWriter->dir . '/build/menu-desktop'  );
         }
 
-        register_block_type_from_metadata( $blogWriter->dir . '/build/test'  );
-       
+        if ( is_dir( $blogWriter->dir . '/build/test' ) ) {
+          
+            register_block_type_from_metadata( $blogWriter->dir . '/build/test'  );
+        }
 
     }
     

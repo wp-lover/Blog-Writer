@@ -5,6 +5,8 @@ import { ContextAttributes } from '../../../functions/context-api';
 
 export default function SpacePanelDesktop() {
 
+    const [attributes , setAttributes] = useContext(ContextAttributes);
+
     return (
         <>
            <ItemMargin />

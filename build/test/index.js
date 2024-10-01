@@ -146,18 +146,24 @@ function Edit(props) {
 
   // Define the blocks that are allowed, excluding the unwanted ones (e.g., core/image and core/quote).
   const notAllowedBlocksForRight = ['core/site-name', 'core/site-logo'];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "first-section",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
-        allowedBlocks: wp.blocks.getBlockTypes().map(block => block.name).filter(blockName => !notAllowedBlocksForRight.includes(blockName))
-      }, "md-left")
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+  const styles = {
+    position: "absolute",
+    left: "0px",
+    top: "0px",
+    background: "red",
+    marginTop: "0px",
+    height: "100vh"
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    style: styles,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "second-section",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
         allowedBlocks: wp.blocks.getBlockTypes().map(block => block.name).filter(blockName => !notAllowedBlocksForLeft.includes(blockName))
-      }, "md-right")
-    })]
+      }, "md-right"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        children: "This is sidebar block"
+      })]
+    })
   });
 }
 /******/ })()

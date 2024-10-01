@@ -1,21 +1,19 @@
 {
   "$schema": "http://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "gsp/header",
-  "title": "Site Header",
+  "name": "gsp/menudesktop",
+  "title": "Menu Desktop",
   "textdomain": "writteninfo",
-  "editorScript": "file:./index.js",
-  "editorStyle": "file:./style-index.css",
+  "editorScript": "file:./editor-index.js",
+  "viewScript": "file:./view-index.js",
+  "editorStyle": "file:./editor-index.css",
+  "viewStyle": "file:./view-index.css",
   "render": "file:./render.php",
   "supports": {},
   "attributes": {
-    "is_desktop": {
-      "type": "boolean",
-      "default": true
-    },
-    "title_text": {
-      "type": "string",
-      "default": ""
+    "item_min_width": {
+      "type": "number",
+      "default": 100
     },
     "item_bg_color": {
       "type": "string",
@@ -27,7 +25,7 @@
     },
     "item_text_color": {
       "type": "string",
-      "default": ""
+      "default": "black"
     },
     "item_text_hover_color": {
       "type": "string",
@@ -87,7 +85,7 @@
     },
     "sub_menu_margin_t": {
       "type": "number",
-      "default": 43
+      "default": 0
     },
     "child_item_margin_b": {
       "type": "number",
