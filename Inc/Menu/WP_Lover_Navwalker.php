@@ -54,7 +54,7 @@ class WP_Lover_Navwalker extends \Walker_Nav_menu
         $classes[] = 'nav-item nav-item-' . $item->ID;
 
         if ( $depth && $args->walker->has_children ) {
-            $classes[] = "sub-menu";
+            $classes[] = "sub-menu hidden";
         }
 
         $class_names = join( ' ' , apply_filters( 'nav_menu_css_class' , array_filter( $classes ) , $item, $args ) );
@@ -77,10 +77,9 @@ class WP_Lover_Navwalker extends \Walker_Nav_menu
         $item_output .= '<a '. $attributes .'>';
         $item_output .= $args->link_before . apply_filters( 'the_title', '<span>'. $item->title .'</span>', $item->ID ) . $args->link_after;
         $item_output .= ( $depth == 0 && $args->walker->has_children ) ? '<svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-            <path id="path-id-'. $item->ID .'" d="M6 9l6 6 6-6"/>
-          </svg>' : '' ;
+        <path id="path-id-'. $item->ID .'" d="M6 9l6 6 6-6"/>
+      </svg>' : '' ;
         $item_output .= '</a>';
-        
         $item_output .= $args->after;
 
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output , $item , $depth , $args );
