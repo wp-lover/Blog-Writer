@@ -59,8 +59,6 @@ export default function EditorPanel() {
 function DesktopHeaderMenu() {
     return (
         <>
-            <JustifyContent />
-            <ItemAlign />
             <ColorsPanel />
             <SpacePanelDesktop />
             <SubMenuSettings />
@@ -75,61 +73,3 @@ function MobileSidebaMenu(){
         </>
     );
 }
-
-
-const JustifyContent = () => {
-
-    const [attributes ,setAttribute] = useContext(ContextAttributes);
-
-    return (
-        <Panel>
-            <PanelBody>
-                <h3>Header Justify Content</h3>
-                <SelectControl
-                    label="Justify Content"
-                    value={ attributes.header_justify_content }
-                    options={ [
-                        { label: 'Between', value: '-md-justify-between' },
-                        { label: 'Center', value: '-md-justify-center' },
-                        { label: 'Around', value: '-md-justify-around' },
-                    ] }
-                    onChange={ ( val ) => {
-                      
-                        setAttribute({ header_justify_content : val });
-                        state_header_justify_content.value = val;
-                    } }
-                    __nextHasNoMarginBottom
-                />
-            </PanelBody>
-        </Panel>
-    );
-};
-
-
-const ItemAlign = () => {
-
-    const [attributes ,setAttribute] = useContext(ContextAttributes);
-
-    return (
-        <Panel>
-            <PanelBody>
-                <h3>Header Item Alignment</h3>
-                <SelectControl
-                    label="Item Align"
-                    value={ attributes.header_item_align }
-                    options={ [
-                        { label: 'Start', value: 'md:items-start' },
-                        { label: 'Center', value: 'md:items-center' },
-                        { label: 'End', value: 'md:items-end' },
-                    ] }
-                    onChange={ ( val ) => {
-                      
-                        setAttribute({ header_item_align : val });
-                        state_header_align.value = val;
-                    } }
-                    __nextHasNoMarginBottom
-                />
-            </PanelBody>
-        </Panel>
-    );
-};

@@ -39,8 +39,12 @@ class StylesForBlocks
         if ( ! empty( $this->headerAttributes ) ) {
             
             ?><style> 
+            #gsp-header-menu{
+               margin-bottom: -30px;
+            }
 .nav-item{
     background-color: <?php print_value($this->headerAttributes['item_bg_color'])  ?>;
+    margin-top: <?php print_value( $this->headerAttributes['item_margin_t'] ); ?>px;
     margin-left: <?php print_value( $this->headerAttributes['item_margin_l'] ); ?>px;
     margin-right: <?php print_value( $this->headerAttributes['item_margin_r'] ); ?>px;
     margin-bottom: <?php print_value( $this->headerAttributes['item_margin_b'] ); ?>px;
@@ -50,6 +54,10 @@ class StylesForBlocks
     border-top-right-radius: 10px;
     border-bottom-left-radius: <?php echo ( $this->headerAttributes['item_margin_b'] ) ? '8px' : '0px'  ?>;
     border-bottom-right-radius: <?php echo ( $this->headerAttributes['item_margin_b'] ) ? '8px' : '0px'  ?>;
+}
+
+.item-parent ul li{
+    margin-top: 5px;
 }
 
 .nav-item :hover {

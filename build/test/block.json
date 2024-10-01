@@ -1,17 +1,28 @@
 {
   "$schema": "http://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "gsp/header",
-  "title": "Site Header",
+  "name": "gsp/test2",
+  "title": "block test 2",
   "textdomain": "writteninfo",
   "editorScript": "file:./index.js",
-  "editorStyle": "file:./style-index.css",
   "render": "file:./render.php",
   "supports": {},
   "attributes": {
     "is_desktop": {
       "type": "boolean",
       "default": true
+    },
+    "header_bg": {
+      "type": "string",
+      "default": ""
+    },
+    "header_justify_content": {
+      "type": "string",
+      "default": "-justify-between"
+    },
+    "header_item_align": {
+      "type": "string",
+      "default": "-items-end"
     },
     "title_text": {
       "type": "string",
@@ -87,7 +98,7 @@
     },
     "sub_menu_margin_t": {
       "type": "number",
-      "default": 43
+      "default": 35
     },
     "child_item_margin_b": {
       "type": "number",
@@ -107,7 +118,7 @@
     },
     "sidebar_item_text_color": {
       "type": "string",
-      "default": "black"
+      "default": ""
     },
     "sidebar_item_text_hover_color": {
       "type": "string",

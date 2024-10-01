@@ -70,97 +70,47 @@ function HeaderMenu({
   items
 }) {
   const [attributes, setAttributes] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useContext)(_functions_context_api__WEBPACK_IMPORTED_MODULE_1__.ContextAttributes);
-  _functions_context_api__WEBPACK_IMPORTED_MODULE_1__.state_header_align.value = attributes.header_item_align;
-  _functions_context_api__WEBPACK_IMPORTED_MODULE_1__.state_header_justify_content.value = attributes.header_justify_content;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("header", {
-      id: "gsp-header-container",
-      class: "gsp-site-header z-40 md:h-20 min-w-full py-0  px-4 md:flex " + _functions_context_api__WEBPACK_IMPORTED_MODULE_1__.state_header_align.value + " " + _functions_context_api__WEBPACK_IMPORTED_MODULE_1__.state_header_justify_content.value,
-      style: {
-        backgroundColor: attributes.header_bg
-      },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        class: "gsp-site-name bg-slate-400 flex justify-between p-2",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-          class: "gsp-site-name text-white text-xl",
-          children: "This is siteName"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-          id: "gsp-sidebar-menu-openner",
-          class: "md:hidden p-2 bg-black text-white fle",
-          children: "open"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
-        id: "gsp-header-menu",
-        class: "header-menu hidden md:flex justify-start",
-        children: items.map(function (e) {
-          const [hoverd, setHoverd] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-          const li_styles = {
-            background: hoverd ? attributes.item_bg_hover_color : attributes.item_bg_color,
-            color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,
-            marginTop: attributes.item_margin_t + "px",
-            marginLeft: attributes.item_margin_l + "px",
-            marginRight: attributes.item_margin_r + "px",
-            marginBottom: attributes.item_margin_b + "px",
-            paddingTop: attributes.item_padding_t + "px",
-            paddingLeft: attributes.item_padding_l + "px",
-            paddingRight: attributes.item_padding_r + "px",
-            paddingBottom: attributes.item_padding_b + "px",
-            borderTopLeftRadius: "10px",
-            borderTopRightRadius: "10px",
-            borderBottomLeftRadius: attributes.item_margin_b ? "8px" : "0px",
-            borderBottomRightRadius: attributes.item_margin_b ? "8px" : "0px"
-          };
-          var link = e[0]['link'];
-          var id = e[0]['ID'];
-          var name = e[0]['name'];
-          var ID = "nav-item-" + id;
-          var classes = "nav-item-" + id + " nav-item";
-          const for_on_click = e => {
-            let item = e.view.document.getElementById(ID);
-            gsp_header_sub_menu(item, attributes.sub_menu_margin_t);
-          };
-          if (e[0]['has_child']) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-              id: ID,
-              className: classes + " item-parent",
-              style: li_styles,
-              onClick: for_on_click,
-              onMouseEnter: () => setHoverd(true),
-              onMouseLeave: () => setHoverd(false),
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                itemprop: "url",
-                href: link,
-                class: "nav-link",
-                "aria-current": "page",
-                style: {
-                  color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,
-                  textDecoration: "none"
-                },
-                children: name
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
-                class: "",
-                xmlns: "http://www.w3.org/2000/svg",
-                viewBox: "0 0 24 24",
-                width: "24",
-                height: "24",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
-                  id: "path-id-128",
-                  d: "M6 9l6 6 6-6",
-                  fill: hoverd ? attributes.item_text_hover_color : attributes.item_text_color
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SubMenu, {
-                item: e,
-                styles: li_styles
-              })]
-            });
-          }
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
+      id: "gsp-header-menu",
+      class: "header-menu",
+      children: items.map(function (e) {
+        const [hoverd, setHoverd] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+        const li_styles = {
+          background: hoverd ? attributes.item_bg_hover_color : attributes.item_bg_color,
+          color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,
+          marginTop: attributes.item_margin_t + "px",
+          marginLeft: attributes.item_margin_l + "px",
+          marginRight: attributes.item_margin_r + "px",
+          marginBottom: attributes.item_margin_b + "px",
+          paddingTop: attributes.item_padding_t + "px",
+          paddingLeft: attributes.item_padding_l + "px",
+          paddingRight: attributes.item_padding_r + "px",
+          paddingBottom: attributes.item_padding_b + "px",
+          borderTopLeftRadius: "10px",
+          borderTopRightRadius: "10px",
+          borderBottomLeftRadius: attributes.item_margin_b ? "8px" : "0px",
+          borderBottomRightRadius: attributes.item_margin_b ? "8px" : "0px",
+          listStyle: "none"
+        };
+        var link = e[0]['link'];
+        var id = e[0]['ID'];
+        var name = e[0]['name'];
+        var ID = "nav-item-" + id;
+        var classes = "nav-item-" + id + " nav-item";
+        const for_on_click = e => {
+          let item = e.view.document.getElementById(ID);
+          gsp_header_sub_menu(item, attributes.sub_menu_margin_t);
+        };
+        if (e[0]['has_child']) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
             id: ID,
-            className: classes,
+            className: classes + " item-parent",
             style: li_styles,
+            onClick: for_on_click,
             onMouseEnter: () => setHoverd(true),
             onMouseLeave: () => setHoverd(false),
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
               itemprop: "url",
               href: link,
               class: "nav-link",
@@ -170,16 +120,42 @@ function HeaderMenu({
                 textDecoration: "none"
               },
               children: name
-            })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
+              class: "",
+              xmlns: "http://www.w3.org/2000/svg",
+              viewBox: "0 0 24 24",
+              width: "24",
+              height: "24",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
+                id: "path-id-128",
+                d: "M6 9l6 6 6-6",
+                fill: hoverd ? attributes.item_text_hover_color : attributes.item_text_color
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SubMenu, {
+              item: e,
+              styles: li_styles
+            })]
           });
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        class: "hidden md:block ",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-          class: "p-2 bg-slate-500 text-white rounded-md",
-          children: "SIGN-IN"
-        })
-      })]
+        }
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+          id: ID,
+          className: classes,
+          style: li_styles,
+          onMouseEnter: () => setHoverd(true),
+          onMouseLeave: () => setHoverd(false),
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            itemprop: "url",
+            href: link,
+            class: "nav-link",
+            "aria-current": "page",
+            style: {
+              color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,
+              textDecoration: "none"
+            },
+            children: name
+          })
+        });
+      })
     })
   });
 }
@@ -189,7 +165,7 @@ function SubMenu({
 }) {
   const [attributes, setAttributes] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useContext)(_functions_context_api__WEBPACK_IMPORTED_MODULE_1__.ContextAttributes);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
-    className: "sub-menu hidden",
+    className: "sub-menu",
     style: {
       marginTop: attributes.sub_menu_margin_t
     },
@@ -202,7 +178,8 @@ function SubMenu({
         paddingRight: styles.paddingRight,
         paddingTop: styles.paddingTop,
         paddingBottom: styles.paddingBottom,
-        borderRadius: "10px"
+        borderRadius: "10px",
+        listStyle: "none"
       };
       if (i != 0) {
         var link = e[0]['link'] ? e[0]['link'] : '';
@@ -301,20 +278,6 @@ function ColorsPanel() {
         title: "Colors",
         initialOpen: false,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
-            children: "Header Background Color"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ColorPicker, {
-            onChange: val => {
-              setAttributes({
-                header_bg: val
-              });
-            },
-            enableAlpha: true,
-            defaultValue: attributes.header_bg
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelRow, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
             children: "Item Background Color"
           })
@@ -632,7 +595,7 @@ function EditorPanel() {
 }
 function DesktopHeaderMenu() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(JustifyContent, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(ItemAlign, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_desktop_panels_colors_panel__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_desktop_panels_space_panel_desktop__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_desktop_panels_sub_menu_panel__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_desktop_panels_colors_panel__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_desktop_panels_space_panel_desktop__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_desktop_panels_sub_menu_panel__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
   });
 }
 function MobileSidebaMenu() {
@@ -640,66 +603,6 @@ function MobileSidebaMenu() {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_desktop_panels_space_panel_desktop__WEBPACK_IMPORTED_MODULE_6__["default"], {})
   });
 }
-const JustifyContent = () => {
-  const [attributes, setAttribute] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useContext)(_functions_context_api__WEBPACK_IMPORTED_MODULE_3__.ContextAttributes);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Panel, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
-        children: "Header Justify Content"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
-        label: "Justify Content",
-        value: attributes.header_justify_content,
-        options: [{
-          label: 'Between',
-          value: '-md-justify-between'
-        }, {
-          label: 'Center',
-          value: '-md-justify-center'
-        }, {
-          label: 'Around',
-          value: '-md-justify-around'
-        }],
-        onChange: val => {
-          setAttribute({
-            header_justify_content: val
-          });
-          _functions_context_api__WEBPACK_IMPORTED_MODULE_3__.state_header_justify_content.value = val;
-        },
-        __nextHasNoMarginBottom: true
-      })]
-    })
-  });
-};
-const ItemAlign = () => {
-  const [attributes, setAttribute] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useContext)(_functions_context_api__WEBPACK_IMPORTED_MODULE_3__.ContextAttributes);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Panel, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
-        children: "Header Item Alignment"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
-        label: "Item Align",
-        value: attributes.header_item_align,
-        options: [{
-          label: 'Start',
-          value: 'md:items-start'
-        }, {
-          label: 'Center',
-          value: 'md:items-center'
-        }, {
-          label: 'End',
-          value: 'md:items-end'
-        }],
-        onChange: val => {
-          setAttribute({
-            header_item_align: val
-          });
-          _functions_context_api__WEBPACK_IMPORTED_MODULE_3__.state_header_align.value = val;
-        },
-        __nextHasNoMarginBottom: true
-      })]
-    })
-  });
-};
 
 /***/ }),
 
@@ -738,62 +641,68 @@ function SidebarMenu({
     paddingRight: attributes.sidebar_item_padding_r + "px",
     paddingBottom: attributes.sidebar_item_padding_b + "px"
   };
+
+  // hidden md:hidden
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    id: "gsp-sidebar-menu-container",
-    class: "hidden md:hidden justify-start min-w-full min-h-full inset-0 fixed overflow-y-auto",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("nav", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
-        id: "gsp-sidebar-manu",
-        class: "nav-primary-menu",
-        children: items.map(function (e) {
-          var link = e[0]['link'];
-          var id = e[0]['ID'];
-          var name = e[0]['name'];
-          var ID = "nav-item-" + id;
-          var classes = "nav-item-" + id + " nav-item";
-          const for_on_click = e => {
-            let item = e.view.document.getElementById(ID);
-            // gsp_header_sub_menu(item , states.sub_menu_margin_t);
-          };
-          if (e[0]['has_child']) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-              id: ID,
-              className: classes + " item-parent",
-              style: li_styles,
-              onClick: for_on_click,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-                itemprop: "url",
-                href: link,
-                class: "nav-link",
-                "aria-current": "page",
-                children: name
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SubMenu, {
-                item: e,
-                styles: li_styles
-              })]
-            });
-          }
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+    id: "gsp-mobile-menu",
+    style: {
+      zIndex: "100"
+    },
+    class: "",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
+      class: "nav-primary-menu",
+      children: items.map(function (e) {
+        var link = e[0]['link'];
+        var id = e[0]['ID'];
+        var name = e[0]['name'];
+        var ID = "nav-item-" + id;
+        var classes = "nav-item-" + id + " nav-item";
+        const for_on_click = e => {
+          let item = e.view.document.getElementById(ID);
+          // gsp_header_sub_menu(item , states.sub_menu_margin_t);
+        };
+        if (e[0]['has_child']) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
             id: ID,
-            className: classes,
+            className: classes + " item-parent",
             style: li_styles,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            onClick: for_on_click,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
               itemprop: "url",
               href: link,
               class: "nav-link",
               "aria-current": "page",
               children: name
-            })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SubMenu, {
+              item: e,
+              styles: li_styles
+            })]
           });
-        })
+        }
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+          id: ID,
+          className: classes,
+          style: li_styles,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            itemprop: "url",
+            href: link,
+            class: "nav-link",
+            "aria-current": "page",
+            children: name
+          })
+        });
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       id: "gsp-sidebar-menu-closer",
-      class: "menu-closer-box w-1/5 min-h-full",
+      style: {
+        background: "red"
+      },
+      class: "",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         class: "w-15 h-15 mt-2 text-center",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-          class: "menu-icon mr-2 pr-2 pl-2 pt-0 text-center bg-red-600  text-xl absolute right-0",
+          class: "menu-icon",
           children: "x"
         })
       })
@@ -845,9 +754,7 @@ function SubMenu({
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ContextAttributes: () => (/* binding */ ContextAttributes),
-/* harmony export */   state_header_align: () => (/* binding */ state_header_align),
-/* harmony export */   state_header_justify_content: () => (/* binding */ state_header_justify_content)
+/* harmony export */   ContextAttributes: () => (/* binding */ ContextAttributes)
 /* harmony export */ });
 /* harmony import */ var _preact_signals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @preact/signals */ "./node_modules/@preact/signals/dist/signals.module.js");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
@@ -857,8 +764,16 @@ __webpack_require__.r(__webpack_exports__);
 
 // 
 const ContextAttributes = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createContext)();
-const state_header_justify_content = (0,_preact_signals__WEBPACK_IMPORTED_MODULE_0__.signal)('-md-justify-start');
-const state_header_align = (0,_preact_signals__WEBPACK_IMPORTED_MODULE_0__.signal)('md:items-start');
+
+// export const state_header_justify_content = signal('-md-justify-start');
+// export const state_header_align = signal('md:items-start');
+
+// export const is_data_loaded = signal(false);
+// export let menuData = {};
+
+// export function setMenuData(data) {
+//     menuData = data;
+// }
 
 /***/ }),
 
@@ -901,6 +816,9 @@ __webpack_require__.r(__webpack_exports__);
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, {
   edit: Edit,
   save: function (props) {
+    // return (
+    //     <InnerBlocks.Content />
+    // );
     return null;
   }
 });
@@ -918,9 +836,8 @@ function Edit(props) {
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default()({
       path: '/gsp/v1/menu'
-    }).then(menus => {
-      // setMenus(menus);
-      setMenus(menus['data']['menu']);
+    }).then(menu => {
+      setMenus(menu['data']['menu']);
     });
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
@@ -1080,7 +997,7 @@ module.exports = window["wp"]["element"];
   \*******************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"http://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"gsp/header","title":"Site Header","textdomain":"writteninfo","editorScript":"file:./index.js","editorStyle":"file:./style-index.css","render":"file:./render.php","supports":{},"attributes":{"is_desktop":{"type":"boolean","default":true},"header_bg":{"type":"string","default":""},"header_justify_content":{"type":"string","default":"-justify-between"},"header_item_align":{"type":"string","default":"-items-end"},"title_text":{"type":"string","default":""},"item_bg_color":{"type":"string","default":""},"item_bg_hover_color":{"type":"string","default":""},"item_text_color":{"type":"string","default":""},"item_text_hover_color":{"type":"string","default":""},"submenu_bg":{"type":"string","default":""},"child_item_bg_color":{"type":"string","default":""},"child_item_bg_hover_color":{"type":"string","default":""},"child_item_text_color":{"type":"string","default":""},"child_item_text_hover_color":{"type":"string","default":""},"item_margin_t":{"type":"number","default":0},"item_margin_l":{"type":"number","default":5},"item_margin_r":{"type":"number","default":5},"item_margin_b":{"type":"number","default":0},"item_padding_t":{"type":"number","default":8},"item_padding_l":{"type":"number","default":8},"item_padding_r":{"type":"number","default":8},"item_padding_b":{"type":"number","default":8},"sub_menu_margin_t":{"type":"number","default":35},"child_item_margin_b":{"type":"number","default":2},"sidebar_bg":{"type":"string","default":""},"sidebar_item_bg_color":{"type":"string","default":""},"sidebar_item_bg_hover_color":{"type":"string","default":""},"sidebar_item_text_color":{"type":"string","default":""},"sidebar_item_text_hover_color":{"type":"string","default":""},"sidebar_item_margin_t":{"type":"number","default":0},"sidebar_item_margin_l":{"type":"number","default":0},"sidebar_item_margin_r":{"type":"number","default":0},"sidebar_item_margin_b":{"type":"number","default":10},"sidebar_item_padding_t":{"type":"number","default":8},"sidebar_item_padding_l":{"type":"number","default":8},"sidebar_item_padding_r":{"type":"number","default":8},"sidebar_item_padding_b":{"type":"number","default":0}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"http://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"gsp/header","title":"Site Header","textdomain":"writteninfo","editorScript":"file:./index.js","editorStyle":"file:./style-index.css","render":"file:./render.php","supports":{},"attributes":{"is_desktop":{"type":"boolean","default":true},"title_text":{"type":"string","default":""},"item_bg_color":{"type":"string","default":""},"item_bg_hover_color":{"type":"string","default":""},"item_text_color":{"type":"string","default":""},"item_text_hover_color":{"type":"string","default":""},"submenu_bg":{"type":"string","default":""},"child_item_bg_color":{"type":"string","default":""},"child_item_bg_hover_color":{"type":"string","default":""},"child_item_text_color":{"type":"string","default":""},"child_item_text_hover_color":{"type":"string","default":""},"item_margin_t":{"type":"number","default":0},"item_margin_l":{"type":"number","default":5},"item_margin_r":{"type":"number","default":5},"item_margin_b":{"type":"number","default":0},"item_padding_t":{"type":"number","default":8},"item_padding_l":{"type":"number","default":8},"item_padding_r":{"type":"number","default":8},"item_padding_b":{"type":"number","default":8},"sub_menu_margin_t":{"type":"number","default":43},"child_item_margin_b":{"type":"number","default":2},"sidebar_bg":{"type":"string","default":""},"sidebar_item_bg_color":{"type":"string","default":""},"sidebar_item_bg_hover_color":{"type":"string","default":""},"sidebar_item_text_color":{"type":"string","default":"black"},"sidebar_item_text_hover_color":{"type":"string","default":""},"sidebar_item_margin_t":{"type":"number","default":0},"sidebar_item_margin_l":{"type":"number","default":0},"sidebar_item_margin_r":{"type":"number","default":0},"sidebar_item_margin_b":{"type":"number","default":10},"sidebar_item_padding_t":{"type":"number","default":8},"sidebar_item_padding_l":{"type":"number","default":8},"sidebar_item_padding_r":{"type":"number","default":8},"sidebar_item_padding_b":{"type":"number","default":0}}}');
 
 /***/ })
 

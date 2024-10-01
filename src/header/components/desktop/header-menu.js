@@ -1,90 +1,75 @@
-
-import {useContext , useState } from "@wordpress/element";
-import { ContextAttributes , state_header_justify_content , state_header_align } from "../../functions/context-api";
-
+import {useContext , useState  } from "@wordpress/element";
+import { ContextAttributes  } from "../../functions/context-api";
 
 export default function HeaderMenu({items}) {
 
     const [attributes , setAttributes] = useContext(ContextAttributes);
 
-    state_header_align.value = attributes.header_item_align;
-    state_header_justify_content.value = attributes.header_justify_content;
-    
-
     return (
         <>
-            <header id="gsp-header-container" class={"gsp-site-header z-40 md:h-20 min-w-full py-0  px-4 md:flex " + state_header_align.value + " " + state_header_justify_content.value}
-            style={{backgroundColor:attributes.header_bg}}
-            >
-                        <div class="gsp-site-name bg-slate-400 flex justify-between p-2">
-                            <h1 class="gsp-site-name text-white text-xl">This is siteName</h1>
-                            <span id="gsp-sidebar-menu-openner" class="md:hidden p-2 bg-black text-white fle">open</span>
-                        </div>
-                        <ul id="gsp-header-menu" class="header-menu hidden md:flex justify-start">
-                            { 
-                                items.map( function(e) {
+            
+            <ul id="gsp-header-menu" class="header-menu">
+                { 
+                    items.map( function(e) {
 
-                                    const [hoverd , setHoverd] = useState(false);
+                        const [hoverd , setHoverd] = useState(false);
 
-                                    const li_styles = {
-                                        background : hoverd ? attributes.item_bg_hover_color : attributes.item_bg_color,
-                                        color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,
-                                        marginTop : attributes.item_margin_t + "px",
-                                        marginLeft : attributes.item_margin_l + "px",
-                                        marginRight : attributes.item_margin_r + "px",
-                                        marginBottom : attributes.item_margin_b + "px",
-                                        paddingTop : attributes.item_padding_t + "px",
-                                        paddingLeft : attributes.item_padding_l + "px",
-                                        paddingRight : attributes.item_padding_r+ "px",
-                                        paddingBottom : attributes.item_padding_b + "px",
-                                        borderTopLeftRadius: "10px",
-                                        borderTopRightRadius: "10px",
-                                        borderBottomLeftRadius: attributes.item_margin_b  ? "8px" : "0px",
-                                        borderBottomRightRadius: attributes.item_margin_b ? "8px" : "0px",
-                                    }; 
+                        const li_styles = {
+                            background : hoverd ? attributes.item_bg_hover_color : attributes.item_bg_color,
+                            color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,
+                            marginTop : attributes.item_margin_t + "px",
+                            marginLeft : attributes.item_margin_l + "px",
+                            marginRight : attributes.item_margin_r + "px",
+                            marginBottom : attributes.item_margin_b + "px",
+                            paddingTop : attributes.item_padding_t + "px",
+                            paddingLeft : attributes.item_padding_l + "px",
+                            paddingRight : attributes.item_padding_r+ "px",
+                            paddingBottom : attributes.item_padding_b + "px",
+                            borderTopLeftRadius: "10px",
+                            borderTopRightRadius: "10px",
+                            borderBottomLeftRadius: attributes.item_margin_b  ? "8px" : "0px",
+                            borderBottomRightRadius: attributes.item_margin_b ? "8px" : "0px",
+                            listStyle:"none"
+                        }; 
 
-                                    var link = e[0]['link']; var id = e[0]['ID'];
-                                    var name = e[0]['name'];
-                                    var ID = "nav-item-"+id;
-                                    var classes = "nav-item-"+id+" nav-item";
+                        var link = e[0]['link']; var id = e[0]['ID'];
+                        var name = e[0]['name'];
+                        var ID = "nav-item-"+id;
+                        var classes = "nav-item-"+id+" nav-item";
 
-                                    const  for_on_click = (e) => {
+                        const  for_on_click = (e) => {
 
-                                        let item = e.view.document.getElementById(ID);
+                            let item = e.view.document.getElementById(ID);
 
-                                        gsp_header_sub_menu(item , attributes.sub_menu_margin_t);
+                            gsp_header_sub_menu(item , attributes.sub_menu_margin_t);
 
-                                    
-                                    }   
+                        
+                        }   
 
 
-                                if (e[0]['has_child']) {
-                                    return <li id={ID} className={classes + " item-parent"} style={li_styles} onClick={ for_on_click }  onMouseEnter={ () => setHoverd(true) } onMouseLeave={ () => setHoverd(false) }>
-                                            <a itemprop="url" href={link} class="nav-link" aria-current="page" style={{
-                                               color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,
-                                                textDecoration:"none"
-                                                }}>
-                                                {name}
-                                                </a>
-                                                <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                                    <path id="path-id-128" d="M6 9l6 6 6-6" fill={hoverd ? attributes.item_text_hover_color : attributes.item_text_color}></path>
-                                                </svg>    
-                                                <SubMenu item={ e } styles={li_styles} />
-                                        </li>
-                                }
+                    if (e[0]['has_child']) {
+                        return <li id={ID} className={classes + " item-parent"} style={li_styles} onClick={ for_on_click }  onMouseEnter={ () => setHoverd(true) } onMouseLeave={ () => setHoverd(false) }>
+                                <a itemprop="url" href={link} class="nav-link" aria-current="page" style={{
+                                    color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,
+                                    textDecoration:"none"
+                                    }}>
+                                    {name}
+                                    </a>
+                                    <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path id="path-id-128" d="M6 9l6 6 6-6" fill={hoverd ? attributes.item_text_hover_color : attributes.item_text_color}></path>
+                                    </svg>    
+                                    <SubMenu item={ e } styles={li_styles} />
+                            </li>
+                    }
 
-                                return <li id={ID} className={classes} style={li_styles}  onMouseEnter={ () => setHoverd(true) } onMouseLeave={ () => setHoverd(false) }>
-                                        <a itemprop="url" href={link} class="nav-link" aria-current="page" style={{color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,textDecoration:"none"}}>
-                                            {name}
-                                        </a>
-                                    </li>
-                                }) 
-                            }
-                                </ul>
-                                <div class="hidden md:block ">
-                                    <button class="p-2 bg-slate-500 text-white rounded-md">SIGN-IN</button>
-                                </div>
-                </header>
+                    return <li id={ID} className={classes} style={li_styles}  onMouseEnter={ () => setHoverd(true) } onMouseLeave={ () => setHoverd(false) }>
+                            <a itemprop="url" href={link} class="nav-link" aria-current="page" style={{color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,textDecoration:"none"}}>
+                                {name}
+                            </a>
+                        </li>
+                    }) 
+                }
+            </ul>
         </>
     );
 }
@@ -97,7 +82,7 @@ function SubMenu({item , styles }){
 
 
     return (
-        <ul className="sub-menu hidden" style={{marginTop:attributes.sub_menu_margin_t}} >
+        <ul className="sub-menu" style={{marginTop:attributes.sub_menu_margin_t}} >
             {
                 item.map( function (e , i) {
 
@@ -110,7 +95,8 @@ function SubMenu({item , styles }){
                          paddingRight:styles.paddingRight,
                          paddingTop:styles.paddingTop,
                          paddingBottom:styles.paddingBottom,
-                         borderRadius: "10px"
+                         borderRadius: "10px",
+                         listStyle:"none"
                      };
                  
                     if (i != 0) {
@@ -197,3 +183,7 @@ function controll_dropdown_icon(item , fillColor , isOpen )
     }
      
 }
+
+
+
+

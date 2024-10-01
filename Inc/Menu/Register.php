@@ -32,21 +32,36 @@ class Register extends BaseController
     /**
      * @param array
      */
-    function header_menu( $styles = [] , $subMenuStyles = [] , $childItemStyle = []) {
+    function header_menu( $styles = [] , $subMenuStyles = [] , $childItemStyle = [], $menuId = 'gsp-header-menu') {
     
            return wp_nav_menu( array(
                 'theme_location'    => 'blog_writer_header',
                 'depth'             => 2,
                 'container'         => '',
                 'container_class'   => '',
-                'container_id'      => 'gsp-header-menu',
+                'container_id'      => '',
                 'menu_class'        => 'header-menu hidden md:flex justify-start',
-                'menu_id'        => 'gsp-header-menu',
+                'menu_id'           => $menuId,
                 // 'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
                 'walker'            => new WP_Lover_Navwalker( $styles , $subMenuStyles , $childItemStyle),
                 'echo'              => false
             ) ); 
     }
+
+    function mobile_menu( $styles = [] , $subMenuStyles = [] , $childItemStyle = []) {
+    
+        return wp_nav_menu( array(
+             'theme_location'    => 'blog_writer_sidebar',
+             'depth'             => 2,
+             'container'         => '',
+             'container_class'   => '',
+             'menu_class'        => 'sidebar-menu hidden md:flex justify-start',
+             'menu_id'        =>    'menu',
+             // 'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+             'walker'            => new WP_Lover_Navwalker( $styles , $subMenuStyles , $childItemStyle),
+             'echo'              => false
+         ) ); 
+ }
 
     
 

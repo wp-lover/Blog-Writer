@@ -20,6 +20,8 @@ class Register
           
             register_block_type_from_metadata( $blogWriter->dir . '/build/header'  );
         }
+
+        register_block_type_from_metadata( $blogWriter->dir . '/build/test'  );
        
 
     }

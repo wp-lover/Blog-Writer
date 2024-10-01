@@ -14,19 +14,6 @@ export default function ColorsPanel() {
             <Panel>
                 <PanelBody title="Colors" initialOpen={false}>
                     <PanelRow>
-                        <h3>Header Background Color</h3>
-                    </PanelRow>
-                    <PanelRow>
-                        <ColorPicker
-                            onChange={ (val) => {
-                                setAttributes({ header_bg : val });
-                            } }
-                            enableAlpha
-                            defaultValue={attributes.header_bg}
-                           
-                        />
-                    </PanelRow>
-                    <PanelRow>
                     <h3>Item Background Color</h3>
                     </PanelRow>
                     <PanelRow>

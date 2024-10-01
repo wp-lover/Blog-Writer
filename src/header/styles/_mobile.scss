@@ -1,0 +1,45 @@
+// mobile version styles
+@media (min-width: 768px){
+    #gsp-mobile-menu{
+        display: none;
+    }
+}
+@media (max-width: 768px){
+    #gsp-mobile-menu{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        padding: 0px;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+    }
+
+    #gsp-mobile-menu ul{
+        margin-top: 0px;
+        min-width: 70vw;
+        padding: 0px;
+        background-color: #fff;
+    }
+    #sidebar_closer{
+        min-width: 30vw;
+        opacity: .5;
+    }
+    #sidebar_closer_btn{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    #gsp-mobile-menu ul li {
+        list-style: none;
+        margin: 10px 0px;
+    }
+    
+    #gsp-mobile-menu .nav-item a{
+        text-decoration: none;
+        padding: 10px;
+        background-color: chocolate;
+        display: block;
+    }
+    
+}

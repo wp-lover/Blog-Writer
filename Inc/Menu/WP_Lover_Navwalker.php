@@ -64,7 +64,7 @@ class WP_Lover_Navwalker extends \Walker_Nav_menu
         $id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
 
 
-        $output .= $indent . '<li' . $id . $value . $class_names . $li_attributes . '>';
+        $output .= $indent . '<li ' . $id . $value . $class_names . $li_attributes . '>';
 
         // set attributes
         $attributes = ! empty( $item->attr_title ) ? ' title="'. esc_attr( $item->attr_title ) .'"' : '';
@@ -149,9 +149,9 @@ class WP_Lover_Navwalker extends \Walker_Nav_menu
     }
 
     // End Element
-    // function end_el( &$output, $item, $depth = 0, $args = null ) {
-    //     $output .= "</li>\n";
-    // }
+    function end_el( &$output, $item, $depth = 0, $args = null ) {
+        $output .= "</li>\n";
+    }
 
     // function end_lvl(&$output, $depth = 0, $args = \null)
     // {
