@@ -15,11 +15,6 @@ class Register
     function register_blocks()
     {
         $blogWriter = BlogWriter::get_instance();
-
-        if ( is_dir( $blogWriter->dir . '/build/header' ) ) {
-          
-            register_block_type_from_metadata( $blogWriter->dir . '/build/header'  );
-        }
        
 
     }
