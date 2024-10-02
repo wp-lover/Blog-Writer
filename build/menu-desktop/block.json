@@ -2,6 +2,7 @@
   "$schema": "http://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "gsp/menudesktop",
+  "icon": "dashicons-menu",
   "title": "Menu Desktop",
   "textdomain": "writteninfo",
   "editorScript": "file:./editor-index.js",
