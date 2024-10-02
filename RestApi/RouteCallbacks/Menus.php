@@ -4,6 +4,10 @@ namespace WpLover\BlogWriter\RestApi\RouteCallbacks;
 
 trait Menus {
 
+    protected $locations;
+
+    protected $locationName = '';
+
     protected $items = [];
 
     protected $menu_items = [];
@@ -11,29 +15,66 @@ trait Menus {
     /**
      * This is the modified data will return as result
      */
-    protected $menu = []; 
+    protected $menu = [];
+
+    // it will store menu order number for preventing duplication
+    protected $menu_orders = [];
 
     function get_menu( \WP_REST_Request $request )
     {
-        $locations = get_nav_menu_locations();
+        
+        $locationName = $request['location-name'];
 
-        if ( array_key_exists( 'blog_writer_header' , $locations) ) {
+        $this->locations = get_nav_menu_locations();
+
+        if ( $this->is_location_exists( $locationName ) ) {
+
+          $menu = wp_get_nav_menu_object($this->locations[$this->locationName]);
+
+          $this->menu_items = wp_get_nav_menu_items($menu->term_id);
+  
+          foreach ( $this->menu_items as $index => $item) {
+              $this->modify_item( $index , $item );
+          }
+
+
+          return wp_send_json_success( [
+            "menu" => $this->menu,
+            "site_title" => get_bloginfo('name')
+            
+          ] );
+        }
           
-            $menu = wp_get_nav_menu_object($locations['blog_writer_header']);
+        return wp_send_json_error('data not found');
+      
+    }
 
-            $this->menu_items = wp_get_nav_menu_items($menu->term_id);
-    
-            foreach ( $this->menu_items as $index => $item) {
-                $this->modify_item( $index , $item );
-            }
+    function is_location_exists( $name ){
+
+      $status = false;
+
+      if ( array_key_exists( $name , $this->locations) ) {
+
+        $this->locationName = $name;
+
+        $status = true;
+
+      } else {
+
+        if ( array_key_exists( 'blog_writer_header' , $this->locations) ) {
+          
+          $this->locationName = 'blog_writer_header';
+
+          $status = true;
+
+        } else {
+
+          $status = false;
         }
 
-    
-        return wp_send_json_success( [
-          "menu" => $this->menu,
-          "site_title" => get_bloginfo('name')
-        ] );
+      }
       
+      return $status;
     }
 
     function modify_item( $index, $item )
@@ -45,7 +86,10 @@ trait Menus {
         $isChild = true;
       }
 
+
+
         if ( $item->menu_item_parent == "0" ) {
+
             $this->menu[][] = [
                 'ID'        => $item->ID,
                 'parent_id' => $item->menu_item_parent,
@@ -55,6 +99,8 @@ trait Menus {
             ];
 
             $isChild = false;
+
+            array_push( $this->menu_orders , $item->menu_order );
 
         }else{
 
@@ -74,17 +120,21 @@ trait Menus {
                         $isChild2 = true;
                       }
                       
-                      $this->menu[$index][][] = [
-                        
-                              'ID'        => $item2->ID,
-                              'parent_id' => $item2->menu_item_parent,
-                              'name'      => $item2->title,
-                              'link'      => $item2->url,
-                              'has_child' => $isChild2
-                        
-                      ];
+                      if ( ! in_array( $item2->menu_order , $this->menu_orders )  ) {
+                        $this->menu[$index][][] = [
+                              
+                            'ID'        => $item2->ID,
+                            'parent_id' => $item2->menu_item_parent,
+                            'name'      => $item2->title,
+                            'link'      => $item2->url,
+                            'has_child' => $isChild2
+                          
+                        ];
 
-                      $isChild2 = false;
+                        $isChild2 = false;
+
+                        array_push( $this->menu_orders , $item2->menu_order );
+                      }
                     
                     }
                   }
