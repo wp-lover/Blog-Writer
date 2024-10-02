@@ -23,7 +23,7 @@ class Scripts
 
     function styles()
     {   
-        wp_enqueue_style( 'gsp-primary' , $this->instance->pluginURI . '/assets/css/primary.css' , [] ,  $this->instance->version , 'all' );
+        wp_enqueue_style( 'gsp-primary', $this->instance->pluginURI . '/assets/css/primary.css' , [] ,  $this->instance->version , 'all' );
 
     }
 
