@@ -23,9 +23,9 @@ class Register
             register_block_type_from_metadata( $blogWriter->dir . '/build/menu-desktop'  );
         }
 
-        if ( is_dir( $blogWriter->dir . '/build/test' ) ) {
+        if ( is_dir( $blogWriter->dir . '/build/z-demo' ) ) {
           
-            register_block_type_from_metadata( $blogWriter->dir . '/build/test'  );
+            register_block_type_from_metadata( $blogWriter->dir . '/build/z-demo'  );
         }
 
     }
