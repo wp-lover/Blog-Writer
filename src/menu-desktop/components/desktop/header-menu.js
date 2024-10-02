@@ -83,7 +83,7 @@ function SubMenu({item , styles }){
 
     console.log(item);
     return (
-        <ul className="sub-menu hidden" style={{marginTop:attributes.sub_menu_margin_t+"px"}} >
+        <ul className="sub-menu hidden" style={{marginTop:attributes.sub_menu_margin_t+35+"px"}} >
             {
                 item.map( function (e , i) {
 
