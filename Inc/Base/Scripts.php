@@ -14,6 +14,8 @@ class Scripts
         $this->instance = BlogWriter::get_instance();
 
         add_action( 'wp_enqueue_scripts' , [ $this , 'scripts' ] );
+
+        add_action( 'admin_enqueue_scripts' , [ $this , 'adminScripts' ] );
     }
 
     function scripts()
@@ -24,5 +26,9 @@ class Scripts
     function styles()
     {
         wp_enqueue_style( 'gsp-primary' , $this->instance->pluginURI . '/assets/css/primary.css' , [] ,  $this->instance->version , 'all' );
+    }
+
+    function adminScripts(){
+        wp_enqueue_style('dashicons');
     }
 }
