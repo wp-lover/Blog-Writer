@@ -1,22 +1,12 @@
 {
   "$schema": "http://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "gsp/header",
-  "title": "Site Header",
+  "name": "gsp/test2",
+  "title": "block test 2",
   "textdomain": "writteninfo",
   "editorScript": "file:./index.js",
-  "script": "file:./functions/script.js",
-  "style": "file:./style-index.css",
   "render": "file:./render.php",
-  "supports": {
-    "spacing": {
-      "padding": true,
-      "margin": true
-    },
-    "typography": {
-      "textAlign": true
-    }
-  },
+  "supports": {},
   "attributes": {
     "is_desktop": {
       "type": "boolean",
@@ -24,27 +14,35 @@
     },
     "header_bg": {
       "type": "string",
-      "default": "green"
+      "default": ""
+    },
+    "header_justify_content": {
+      "type": "string",
+      "default": "-justify-between"
+    },
+    "header_item_align": {
+      "type": "string",
+      "default": "-items-end"
     },
     "title_text": {
       "type": "string",
-      "default": "black"
+      "default": ""
     },
     "item_bg_color": {
       "type": "string",
-      "default": "black"
+      "default": ""
     },
     "item_bg_hover_color": {
       "type": "string",
-      "default": "white"
+      "default": ""
     },
     "item_text_color": {
       "type": "string",
-      "default": "white"
+      "default": ""
     },
     "item_text_hover_color": {
       "type": "string",
-      "default": "black"
+      "default": ""
     },
     "submenu_bg": {
       "type": "string",
@@ -52,19 +50,19 @@
     },
     "child_item_bg_color": {
       "type": "string",
-      "default": "black"
+      "default": ""
     },
     "child_item_bg_hover_color": {
       "type": "string",
-      "default": "white"
+      "default": ""
     },
     "child_item_text_color": {
       "type": "string",
-      "default": "white"
+      "default": ""
     },
     "child_item_text_hover_color": {
       "type": "string",
-      "default": "black"
+      "default": ""
     },
     "item_margin_t": {
       "type": "number",
@@ -84,7 +82,7 @@
     },
     "item_padding_t": {
       "type": "number",
-      "default": 0
+      "default": 8
     },
     "item_padding_l": {
       "type": "number",
@@ -96,35 +94,35 @@
     },
     "item_padding_b": {
       "type": "number",
-      "default": 0
+      "default": 8
     },
     "sub_menu_margin_t": {
       "type": "number",
-      "default": 10
+      "default": 35
     },
     "child_item_margin_b": {
       "type": "number",
-      "default": 8
+      "default": 2
     },
     "sidebar_bg": {
       "type": "string",
-      "default": "green"
+      "default": ""
     },
     "sidebar_item_bg_color": {
       "type": "string",
-      "default": "black"
+      "default": ""
     },
     "sidebar_item_bg_hover_color": {
       "type": "string",
-      "default": "white"
+      "default": ""
     },
     "sidebar_item_text_color": {
       "type": "string",
-      "default": "white"
+      "default": ""
     },
     "sidebar_item_text_hover_color": {
       "type": "string",
-      "default": "black"
+      "default": ""
     },
     "sidebar_item_margin_t": {
       "type": "number",
