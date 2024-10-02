@@ -24,11 +24,10 @@ class Scripts
     }
 
     function styles()
-    {
+    {   
         wp_enqueue_style( 'gsp-primary' , $this->instance->pluginURI . '/assets/css/primary.css' , [] ,  $this->instance->version , 'all' );
+
     }
 
-    function adminScripts(){
-        wp_enqueue_style('dashicons');
-    }
+
 }

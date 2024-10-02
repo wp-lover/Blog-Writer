@@ -16,6 +16,7 @@ class Register
     {
         $blogWriter = BlogWriter::get_instance();
 
+        
 
         if ( is_dir( $blogWriter->dir . '/build/menu-desktop' ) ) {
           
