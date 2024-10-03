@@ -3,6 +3,7 @@
   "apiVersion": 3,
   "name": "gsp/menudesktop",
   "icon": "menu",
+  "category": "blog-writer",
   "title": "Menu Desktop",
   "textdomain": "writteninfo",
   "editorScript": "file:./editor-index.js",
