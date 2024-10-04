@@ -39,9 +39,9 @@ class StylesForBlocks
         if ( ! empty( $this->headerAttributes ) ) {
             
             ?><style> 
-            #gsp-header-menu{
-               margin-bottom: -30px;
-            }
+#gsp-header-menu{
+    margin-bottom: <?php print_value($this->headerAttributes['menu_container_margin_y'])  ?>px;
+}
 .nav-item{
     min-width: <?php print_value($this->headerAttributes['item_min_width'])  ?>px;
     background-color: <?php print_value($this->headerAttributes['item_bg_color'])  ?>;
@@ -55,7 +55,9 @@ class StylesForBlocks
     border-bottom-left-radius: <?php echo ( $this->headerAttributes['item_margin_b'] ) ? '8px' : '0px'  ?>;
     border-bottom-right-radius: <?php echo ( $this->headerAttributes['item_margin_b'] ) ? '8px' : '0px'  ?>;
 }
-
+.item-parent{
+    cursor: pointer;
+}
 .item-parent ul li{
     margin-top: 5px;
 }

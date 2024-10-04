@@ -1,0 +1,44 @@
+// desktop version styles
+@media (min-width: 768px ) {
+    #gsp-header-menu{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0; padding: 0;
+    }
+    
+    #gsp-header-menu ul, #gsp-header-menu li {
+        list-style: none;
+    }
+    .nav-item a{
+        text-decoration: none;
+        border: none;
+        outline: none;
+        text-align: center;
+    }
+    .item-parent{
+        display: flex;
+        justify-content: space-between;
+        padding: 0px;
+    }
+    .item-parent .sub-menu {
+        position: absolute;
+        right: 0;
+        margin: 0; padding: 0;
+    }
+    .sub-menu li{
+        margin: 5px 0px;
+    }
+}
+
+@media (max-width: 767px) {
+    #gsp-header-menu{
+        display: none;
+    }
+}
+
+.d-block{
+    display: block;
+}
+.hidden{
+    display: none;
+}
