@@ -863,6 +863,8 @@ __webpack_require__.r(__webpack_exports__);
 function Edit(props) {
   // const blockProps = useBlockProps();
   const [menus, setMenus] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+  const [isLoading, setLoading] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(true);
+  const [loadingMessage, setLoadingMessage] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)('Data loading...');
   const {
     attributes,
     setAttributes
@@ -875,7 +877,15 @@ function Edit(props) {
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default()({
       path: '/gsp/v1/menu'
     }).then(menu => {
-      setMenus(menu['data']['menu']);
+      if (menu['success']) {
+        setMenus(menu['data']['menu']);
+        setLoading(false);
+      } else {
+        alert('Menu-Desktop did not found menu data, pleasse add menu first.');
+        setLoadingMessage('Menu-Desktop did not found menu data, pleasse add menu first.');
+
+        // setLoading(false);
+      }
     });
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
@@ -883,8 +893,10 @@ function Edit(props) {
       value: [attributes, setAttributes],
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_editor_panel__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         ...blocksProps,
-        children: menus.length > 0 ? menuWrapper(menus) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-          children: "Data loading..."
+        children: isLoading == false ? menuWrapper(menus) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+            children: loadingMessage
+          })
         })
       })]
     })

@@ -26,6 +26,10 @@ function Edit( props ) {
     // const blockProps = useBlockProps();
     const [menus, setMenus] = useState([]);
 
+    const [isLoading , setLoading] = useState(true);
+
+    const [loadingMessage , setLoadingMessage] = useState('Data loading...');
+
    const  {attributes , setAttributes } = props;
 
 
@@ -36,7 +40,18 @@ function Edit( props ) {
         useEffect(() => {
            
            apiFetch({ path: '/gsp/v1/menu' }).then((menu) => {
-                setMenus(menu['data']['menu'])
+                
+                if (menu['success']) {
+                    setMenus(menu['data']['menu']);
+                    setLoading(false);
+                } else {
+                    alert('Menu-Desktop did not found menu data, pleasse add menu first.');
+
+                    setLoadingMessage('Menu-Desktop did not found menu data, pleasse add menu first.');
+
+                    // setLoading(false);
+                }
+                
 
             });
         }, []);
@@ -48,7 +63,7 @@ function Edit( props ) {
         <ContextAttributes.Provider value={[attributes , setAttributes]} >  
             <EditorPanel /> 
             <div {...blocksProps}>
-                { menus.length > 0 ? menuWrapper( menus ) : <div>Data loading...</div>}
+                { isLoading == false ? menuWrapper( menus ) : <div><h3>{loadingMessage}</h3></div>}
             </div>
         </ContextAttributes.Provider>
         </>
