@@ -40,11 +40,7 @@ class WP_Lover_Navwalker extends \Walker_Nav_menu
     {
         $indent = ( $depth ) ? str_repeat( "\t", $depth) : '';
         
-<<<<<<< HEAD
-        $li_attributes = ( $depth && $args->walker->has_children ) ? 'onclick="gsp_header_sub_menu('.$item->ID.')" ' : '';
-=======
         $li_attributes = ( isset( $args->walker ) && $args->walker->has_children ) ? 'onclick="gsp_header_sub_menu('.$item->ID.')" ' : '';
->>>>>>> common
 
         $li_attributes .= ( $depth && $args->walker->has_children ) ? $this->style_child_ele() : $this->itemStyles();
 
@@ -53,11 +49,7 @@ class WP_Lover_Navwalker extends \Walker_Nav_menu
         // do not add wp defualt menu classes
         $classes = empty( $item->classes ) ? array() : array();
 
-<<<<<<< HEAD
-        $classes[] = ( $depth && $args->walker->has_children ) ? 'item-parent' : '';
-=======
         $classes[] = ( isset( $args->walker ) && $args->walker->has_children ) ? 'item-parent' : '';
->>>>>>> common
         $classes[] = ( $item->current || $item->current_item_anchestor ) ? 'active' : '';
         $classes[] = 'nav-item nav-item-' . $item->ID;
 
