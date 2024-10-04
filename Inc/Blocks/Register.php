@@ -27,7 +27,7 @@ class Register
             return $categories;
         } );
     }
-
+    
     function register_blocks()
     {
         $blogWriter = BlogWriter::get_instance();
