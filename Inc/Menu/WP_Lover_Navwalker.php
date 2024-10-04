@@ -40,7 +40,7 @@ class WP_Lover_Navwalker extends \Walker_Nav_menu
     {
         $indent = ( $depth ) ? str_repeat( "\t", $depth) : '';
         
-        $li_attributes = ( $args->walker->has_children ) ? 'onclick="gsp_header_sub_menu('.$item->ID.')" ' : '';
+        $li_attributes = ( isset( $args->walker ) && $args->walker->has_children ) ? 'onclick="gsp_header_sub_menu('.$item->ID.')" ' : '';
 
         $li_attributes .= ( $depth && $args->walker->has_children ) ? $this->style_child_ele() : $this->itemStyles();
 
@@ -49,7 +49,7 @@ class WP_Lover_Navwalker extends \Walker_Nav_menu
         // do not add wp defualt menu classes
         $classes = empty( $item->classes ) ? array() : array();
 
-        $classes[] = ( $args->walker->has_children ) ? 'item-parent' : '';
+        $classes[] = ( isset( $args->walker ) && $args->walker->has_children ) ? 'item-parent' : '';
         $classes[] = ( $item->current || $item->current_item_anchestor ) ? 'active' : '';
         $classes[] = 'nav-item nav-item-' . $item->ID;
 
@@ -73,18 +73,18 @@ class WP_Lover_Navwalker extends \Walker_Nav_menu
         $attributes .= ! empty( $item->url ) ? ' href="'. esc_attr( $item->url ) .'"' : '';
 
         // item output
-        $item_output = $args->before;
+        $item_output = (isset( $args->before ) ) ? $args->before : '';
         $item_output .= '<a '. $attributes .'>';
-        $item_output .= $args->link_before . apply_filters( 'the_title', '<span>'. $item->title .'</span>', $item->ID ) . $args->link_after;
-        $item_output .= ( $depth == 0 && $args->walker->has_children ) ? '<svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        $item_output .= (isset( $args->before ) ) ? $args->link_before . apply_filters( 'the_title', '<span>'. $item->title .'</span>', $item->ID ) . $args->link_after : '';
+
+        $item_output .= ( isset( $args->walker ) && $args->walker->has_children ) ? '<svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
         <path id="path-id-'. $item->ID .'" d="M6 9l6 6 6-6"/>
       </svg>' : '' ;
         $item_output .= '</a>';
-        $item_output .= $args->after;
+        $item_output .= (isset( $args->after ) ) ? $args->after : '';
 
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output , $item , $depth , $args );
 
-        
     }
 
      function itemStyles()
