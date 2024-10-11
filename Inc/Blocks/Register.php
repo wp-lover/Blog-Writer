@@ -33,9 +33,14 @@ class Register
         $blogWriter = BlogWriter::get_instance();
 
         
-        if ( is_dir( $blogWriter->dir . '/build/z-demo' ) ) {
+        if ( is_dir( $blogWriter->dir . '/build/menu-mobile' ) ) {
           
-            register_block_type_from_metadata( $blogWriter->dir . '/build/z-demo'  );
+            register_block_type_from_metadata( $blogWriter->dir . '/build/menu-mobile'  );
+        }
+
+        if ( is_dir( $blogWriter->dir . '/build/menu-mobile-icon' ) ) {
+          
+            register_block_type_from_metadata( $blogWriter->dir . '/build/menu-mobile-icon'  );
         }
 
     }
