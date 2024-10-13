@@ -9,6 +9,8 @@ class StylesForBlocks
 
     public $headerAttributes = [];
 
+    public $sidebarAttributes = [];
+
     private function __construct()
     {
         add_action( 'wp_head' , [ $this, 'styles' ] );
@@ -32,16 +34,49 @@ class StylesForBlocks
     function styles( )
     {
        $this->headerStyles();
+
+       $this->sidebarMenuStype();
+
+    }
+
+    function sidebarMenuStype()
+    {
+        ?>
+        <style>
+            #gsp-sidebar-container{
+                margin-top: <?php print_value($this->sidebarAttributes['container_margin_t'])  ?>px;
+            }
+            #gsp-sidebar-inside{
+                background-color: <?php print_value($this->sidebarAttributes['container_bg_color'])  ?>;
+            }
+            #gsp-sidebar-container li{
+                background-color: <?php print_value($this->sidebarAttributes['item_bg_color'])  ?>;
+            }
+            #gsp-sidebar-container li:hover {
+                background-color: <?php print_value($this->sidebarAttributes['item_bg_hover_color'])  ?>;
+            }
+            #gsp-sidebar-container li a {
+                color: <?php print_value($this->sidebarAttributes['item_text_color'])  ?>;
+            }
+            #gsp-sidebar-container li:hover a {
+                color: <?php print_value($this->sidebarAttributes['item_text_hover_color'])  ?>;
+            }
+            #gsp-sidebar-container li a path {
+                fill: <?php print_value($this->sidebarAttributes['item_text_color'])  ?>;
+            }
+        </style>
+        <?php
     }
 
     function headerStyles()
     {
         if ( ! empty( $this->headerAttributes ) ) {
             
-            ?><style> 
-            #gsp-header-menu{
-               margin-bottom: -30px;
-            }
+            ?>
+<style> 
+#gsp-header-menu{
+    margin-bottom: -30px;
+}
 .nav-item{
     min-width: <?php print_value($this->headerAttributes['item_min_width'])  ?>px;
     background-color: <?php print_value($this->headerAttributes['item_bg_color'])  ?>;
@@ -97,9 +132,6 @@ class StylesForBlocks
 .item-parent .sub-menu li :hover{
     border-radius: 10px;
 }
-
-
-
 </style><?php
 
         }
@@ -125,7 +157,7 @@ class StylesForBlocks
                     
                 } , 450 );  
                 
-                controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] );?>", false );
+                controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] ?? '' );?>", false );
 
             }else{
                 
@@ -140,7 +172,7 @@ class StylesForBlocks
                 } , 100 );
 
                 
-                controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] );?>" , true );
+                controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] ?? '' );?>" , true );
             }     
 }
 

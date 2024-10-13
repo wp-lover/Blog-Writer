@@ -16,7 +16,6 @@
     left: 0;
     top: 0;
     margin: 0; padding: 0;
-    background-color: white;
     min-height: 100vh;
     z-index: 110;
 }
@@ -29,7 +28,6 @@
 #gsp-sidebar-closer{
     min-width: 30vw;
     opacity: .5;
-
     background-color: gray;
 }
 #sidebar_closer_btn{
@@ -45,10 +43,9 @@
 #gsp-mobile-menu .nav-item a{
     text-decoration: none;
     padding: 10px;
-    background-color: green;
-    color: #fff;
     display: block;
 }
+
 #gsp-mobile-menu .item-parent a{
     display: flex;
     justify-content: space-between;
@@ -56,4 +53,9 @@
 
 #gsp-mobile-menu .sub-menu {
     display: none;
+    left: -70%;
+    position: relative;
+    transition: left 0.5s ease;
+    margin: 0px;
+    padding: 5px;
 }

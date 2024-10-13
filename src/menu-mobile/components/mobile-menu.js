@@ -1,15 +1,15 @@
-import {useContext , useState , useRef  } from "@wordpress/element";
-
-// import references from "../functions/references";
-import MenuMobileLogic from "../functions/editor-logic";
-
+import {useContext , useState , useRef   } from "@wordpress/element";
+import { InnerBlocks } from '@wordpress/block-editor';
+import { ContextAttributes } from "../functions/context-api";
 
 
 export default function MobileMenu({items}) {
 
-
+    const [attributes , setAttribute] = useContext(ContextAttributes);
 
     const menuContainer = useRef(null)
+
+    const [hoverd , setHoverd] = useState(false);
 
     const  menuCloserOnclick = () => {
        
@@ -24,69 +24,90 @@ export default function MobileMenu({items}) {
         right: "20px",
         zIndex : 99,
        };
+
+       const liStyles = {
+            backgroundColor : hoverd ? attributes.item_bg_hover_color : attributes.item_bg_color,
+       };
+
+       const linkStyles = {
+        color : hoverd ? attributes.item_text_hover_color : attributes.item_text_color,
+       }
        
 
     return (
         <>
-        <div style={meneIconStyles}>
-            <svg xmlns="http://www.w3.org/2000/svg" onClick={menuCloserOnclick} id="gsp-sidebar-opener" width="35" height="35" viewBox="0 0 100 80" fill="black">
-                <rect width="100" height="10"></rect>
-                <rect y="30" width="100" height="10"></rect>
-                <rect y="60" width="100" height="10"></rect>
-            </svg>
+            <div style={meneIconStyles}>
+                <svg xmlns="http://www.w3.org/2000/svg" onClick={menuCloserOnclick} id="gsp-sidebar-opener" width="35" height="35" viewBox="0 0 100 80" fill="black">
+                    <rect width="100" height="10"></rect>
+                    <rect y="30" width="100" height="10"></rect>
+                    <rect y="60" width="100" height="10"></rect>
+                </svg>
             </div>
-           <div ref={menuContainer} id="gsp-sidebar-container" style={{
-                zIndex: 100,
-                left : "0px"
-            }}>
-            <div>
-            <ul id="gsp-mobile-menu" className="mobile-menu" >
-                { 
-                    items.map( function(e) {
+            <div ref={menuContainer} id="gsp-sidebar-container" style={{
+                    zIndex: 100,
+                    left : "0px",
+                    marginTop : attributes.container_margin_t + "px"
+                }}>
+                <div style={{
+                    background : attributes.container_bg_color
+                }}>
+                    < InnerBlocks />
+                    <ul id="gsp-mobile-menu" className="mobile-menu" >
+                        { 
+                        items.map( function(e) {
 
-                        const [hoverd , setHoverd] = useState(false);
-
-                       
-                        var link = e[0]['link']; var id = e[0]['ID'];
-                        var name = e[0]['name'];
-                        var ID = "nav-item-"+id;
-                        var classes = "nav-item-"+id+" nav-item";
-
-                        const  for_on_click = (e) => {
-
-                            // let item = e.view.document.getElementById(ID);
-
-                            // gsp_header_sub_menu(item , attributes.sub_menu_margin_t);
+                            const [hoverd , setHoverd] = useState(false);
 
                         
-                        }   
+                            var link = e[0]['link']; var id = e[0]['ID'];
+                            var name = e[0]['name'];
+                            var ID = "nav-item-"+id;
+                            var classes = "nav-item-"+id+" nav-item";
+
+                            const  for_on_click = (e) => {
+
+                                let item = e.view.document.getElementById(ID);
+
+                                sidebar_sub_menu( item );
+
+                            }   
 
 
-                    if (e[0]['has_child']) {
-                        return <li id={ID} className={classes + " item-parent"} onClick={ for_on_click }  onMouseEnter={ () => setHoverd(true) } onMouseLeave={ () => setHoverd(false) }>
-                                <a itemprop="url" href={link} class="nav-link" aria-current="page" >
+                        if (e[0]['has_child']) {
+                            return <li id={ID} className={classes + " item-parent"} style={{
+                                background : hoverd ? attributes.item_bg_hover_color : attributes.item_bg_color
+                            }} onClick={ for_on_click }  onMouseEnter={ () => setHoverd(true) } onMouseLeave={ () => setHoverd(false) }>
+                                    <a itemprop="url" href={link} class="nav-link" aria-current="page" style={{
+                                         color : hoverd ? attributes.item_text_hover_color : attributes.item_text_color
+                                    }} >
+                                        {name}
+                                        <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                            <path fill={ hoverd ? attributes.item_text_hover_color : attributes.item_text_color} id="path-id-128" d="M6 9l6 6 6-6"></path>
+                                        </svg> 
+                                    </a>   
+                                        <SubMenu item={ e } liStyles={liStyles}/>
+                                </li>
+                        }
+
+                        return <li id={ID} className={classes} style={{
+                            background : hoverd ? attributes.item_bg_hover_color : attributes.item_bg_color
+                        }} onMouseEnter={ () => setHoverd(true) } onMouseLeave={ () => setHoverd(false) }>
+                                <a itemprop="url" href={link} class="nav-link" aria-current="page" style={{
+                                    color : hoverd ? attributes.item_text_hover_color : attributes.item_text_color
+                                }}>
                                     {name}
-                                    </a>
-                                    <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                        <path id="path-id-128" d="M6 9l6 6 6-6"></path>
-                                    </svg>    
-                                    {/* <SubMenu item={ e } /> */}
+                                </a>
                             </li>
+                        }) 
                     }
-
-                    return <li id={ID} className={classes}  onMouseEnter={ () => setHoverd(true) } onMouseLeave={ () => setHoverd(false) }>
-                            <a itemprop="url" href={link} class="nav-link" aria-current="page">
-                                {name}
-                            </a>
-                        </li>
-                    }) 
-                }
-            </ul>
+                </ul>
             </div>
-            <div id="gsp-sidebar-closer" onClick={menuCloserOnclick}>
-                <button id="sidebar_closer_btn">X</button>
+            <div id="gsp-sidebar-closer" style={{
+                opacity: ".5",
+            }} onClick={menuCloserOnclick}>
+                    <button id="sidebar_closer_btn">X</button>
             </div>
-            </div>
+        </div>
         </>
     );
 }
@@ -109,28 +130,16 @@ function gsp_sidebar_container_control( element)
 
 }
 
-function SubMenu({item  }){
+function SubMenu({ item , liStyles }){
 
     const [attributes , setAttributes] = useContext(ContextAttributes);
 
     return (
-        <ul className="sub-menu hidden" style={{marginTop:attributes.sub_menu_margin_t+35+"px"}} >
+        <ul className="sub-menu" style={{display : "none"}} >
             {
                 item.map( function (e , i) {
 
                     const [hoverd , setHoverd] = useState(false);
-
-                    // const itemStyles = {
-                    //     minWidth: styles.minWidth,
-                    //      background:  hoverd ? attributes.item_bg_hover_color : attributes.item_bg_color,
-                    //      marginBottom:attributes.child_item_margin_b,
-                    //      paddingLeft:styles.paddingLeft,
-                    //      paddingRight:styles.paddingRight,
-                    //      paddingTop:styles.paddingTop,
-                    //      paddingBottom:styles.paddingBottom,
-                    //      borderRadius: "10px",
-                    //      listStyle:"none"
-                    //  };
                  
                     if (i != 0) {
                         var link = e[0]['link'] ? e[0]['link'] : '';
@@ -141,7 +150,9 @@ function SubMenu({item  }){
                         var classes = "nav-item-"+id+" nav-item";
 
                         return (
-                            <li id={ID} className={classes}  onMouseEnter={ () => setHoverd(true) } onMouseLeave={ () => setHoverd(false) }>
+                            <li id={ID} className={classes} style={{
+                                background : hoverd ? attributes.item_bg_hover_color : attributes.item_bg_color
+                            }}  onMouseEnter={ () => setHoverd(true) } onMouseLeave={ () => setHoverd(false) }>
                                 <a itemprop="url" href={link} class="nav-link" aria-current="page" style={{
                                                color: hoverd ? attributes.item_text_hover_color : attributes.item_text_color,
                                                 textDecoration:"none"
@@ -161,50 +172,39 @@ function SubMenu({item  }){
 }
 
 
-let styles = null;
 
-function gsp_header_sub_menu(item , marginTop){
+function sidebar_sub_menu( item ){
     
-    var child = item.getElementsByClassName( 'sub-menu' );
+    var subMenu = item.querySelector( '.sub-menu' );
 
     // if not container class named 'hidden'
-    if (!child[0].classList.contains('hidden') ) {
+    if ( subMenu.style.display != "block" ) {
 
-        child[0].style.opacity = 0;
+        subMenu.style.display = "block";
+
         setTimeout( function(){
-            child[0].classList.remove( 'd-block' );
-            child[0].classList.add( 'hidden' );
+            subMenu.style.left = "0px";
             
-        } , 450 );  
+        } , 100 );  
         
-        controll_dropdown_icon( item , item.getAttribute( 'color' ) , false );
-
+        controll_dropdown_icon( item , '' , true );
+        
     }else{
-        
+       
+        subMenu.style.left = "-70%";
 
-
-        child[0].classList.remove( 'hidden' );
-        child[0].classList.add( 'd-block' );
-
-        if (styles == null) {
-            styles = child[0].style;
-        }
-
-        
         setTimeout( function(){
-            child[0].style.opacity = 1;
-            child[0].style.marginTop = styles.marginTop ;
-            
-        } , 100 );
+            subMenu.style.display = "none";
+        } , 500 );
 
-        
-        controll_dropdown_icon( item , item.getAttribute( 'hover_color' ) , true );
+       
+        controll_dropdown_icon( item , '' , false );
     }     
 }
 
 function controll_dropdown_icon(item , fillColor , isOpen )
 {
-    let path = item.getElementsByTagName('path')[0];
+    let path = item.querySelector('path');
 
 
     if (isOpen) {

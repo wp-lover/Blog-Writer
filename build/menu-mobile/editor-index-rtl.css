@@ -22,7 +22,6 @@
   top: 0;
   margin: 0;
   padding: 0;
-  background-color: white;
   min-height: 100vh;
   z-index: 110;
 }
@@ -54,8 +53,6 @@
 #gsp-mobile-menu .nav-item a {
   text-decoration: none;
   padding: 10px;
-  background-color: green;
-  color: #fff;
   display: block;
 }
 
@@ -66,4 +63,9 @@
 
 #gsp-mobile-menu .sub-menu {
   display: none;
+  right: -70%;
+  position: relative;
+  transition: right 0.5s ease;
+  margin: 0px;
+  padding: 5px;
 }

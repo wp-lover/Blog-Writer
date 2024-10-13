@@ -2,6 +2,10 @@
 
 
     use WpLover\BlogWriter\Inc\Menu\WP_Lover_Navwalker;
+    use WpLover\BlogWriter\Inc\Blocks\StylesForBlocks;
+
+        $blocksStyle = StylesForBlocks::get_instance();
+        $blocksStyle->sidebarAttributes = $attributes;
 
 ?><div>
 <svg xmlns="http://www.w3.org/2000/svg" id="gsp-sidebar-opener" width="35" height="35" viewBox="0 0 100 80" fill="black">
@@ -13,6 +17,10 @@
 <div id="gsp-sidebar-container">
     <div id="gsp-sidebar-inside">
         <?php
+
+        if ( ! empty( $content ) ) {
+           echo $content;
+        }
            wp_nav_menu( array(
             'theme_location'    => 'blog_writer_sidebar',
             'depth'             => 2,

@@ -1,9 +1,3 @@
-document.addEventListener( 'DOMContentLoaded' , function () {
-
-    new GspMenuMobile();
-
-} );
-
 export class GspMenuMobile {
     
     constructor () {
@@ -45,6 +39,8 @@ export class GspMenuMobile {
                 
             }
         } , 500);
+
+        this.hangle_onclick_for_submenu();
     } // constructor ending
 
     gsp_sidebar_container_control()
@@ -94,37 +90,71 @@ export class GspMenuMobile {
             this.gspSidebarContainer.style.left = "0px";
         }
     }
+
+    hangle_onclick_for_submenu(){
+        
+        let items = this.gspSidebarContainer.getElementsByClassName( 'item-parent' );
+        
+        for (let i = 0; i < items.length; i++) {
+            const element = items[i];
+            
+            element.onclick = () => {
+                this.sidebar_sub_menu(element);
+            }
+        }
+    }
   
 
     /**
      * 
      * @param i [is menu-item id number] 
      */
-    gsp_sidebar_sub_menu(i){
+    sidebar_sub_menu(item){ 
         
-        var item = document.getElementById('nav-item-' + i);
-
+      
         var child = item.getElementsByClassName( 'sub-menu' );
 
-        if (child[0].style.left == '0px') {
+        // this the first time if display property = none value
+        if ( child[0].style.display != 'block') {
 
-            child[0].style.left = '-600px';
+            child[0].style.display = 'block';
+
+            setTimeout( function(){
+                child[0].style.left = '0px';
+            } , 100 );
+
+            this.controll_dropdown_icon( item , true );
+
+        } else {
+            child[0].style.left = '-70%';
 
             setTimeout( function(){
                 child[0].style.display = 'none';
-                
-            } , 550 );  
+            } , 600 );
 
+            this.controll_dropdown_icon( item , false );
+        } 
+    }
+
+    controll_dropdown_icon(item , isOpen )
+    {
+        let path = item.getElementsByTagName('path');
+
+
+        if (isOpen) {
+            path[0].setAttribute( "d" , "M6 15l6-6 6 6" ); 
         }else{
-            
-            child[0].style.display = 'block';
-            setTimeout( function(){
-                child[0].style.left = '0px';
-                
-            } , 100 );   
-            
-        }     
+            path[0].setAttribute( "d" , "M6 9l6 6 6-6" ); 
+        }
+        
     }
 
 }
+
+
+document.addEventListener( 'DOMContentLoaded' , function () {
+
+    new GspMenuMobile();
+
+} );
 

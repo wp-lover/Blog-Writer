@@ -1,9 +1,12 @@
 
 import { InspectorControls } from '@wordpress/block-editor';
 import {RangeControl , Panel, PanelBody} from '@wordpress/components';
-
 import { useContext } from '@wordpress/element';
 import { ContextAttributes } from '../../functions/context-api';
+
+import {ContainerBgColor} from './container-bg-color';
+import {ItemBgColor , ItemBgHoverColor} from './item-bg-color';
+import {ItemTextColor , ItemTextHoverColor } from './item-text-color';
 
 
 
@@ -13,32 +16,25 @@ export default function EditorPanel() {
         <>
             <InspectorControls>
                 <Panel>
-                    <PanelBody>
+                    <PanelBody initialOpen={false} title='Container Space'>
                     <RangeControl  
-                            initialPosition={ attributes.menu_container_margin_y }
-                            label={"Menu Container Margin-Y"}
+                            initialPosition={ attributes.container_margin_t }
+                            label={"Container Margin-Top"}
                             max={100}
                             min={-100}
                             onChange={(val) => {
 
-                                setAttributes({ menu_container_margin_y : val});
-                        
-                            }}
-                        />
-                        <RangeControl  
-                            initialPosition={ attributes.item_min_width }
-                            label={"Item min-width"}
-                            max={450}
-                            min={0}
-                            onChange={(val) => {
-
-                                setAttributes({item_min_width: val});
+                                setAttributes({ container_margin_t : val});
                         
                             }}
                         />
                     </PanelBody>
                 </Panel>
-               
+                <ContainerBgColor />
+                <ItemBgColor />
+                <ItemBgHoverColor />
+                <ItemTextColor />
+                <ItemTextHoverColor />
             </InspectorControls>
         </>
     );

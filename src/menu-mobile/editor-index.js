@@ -2,6 +2,9 @@ import { useBlockProps  } from '@wordpress/block-editor';
 import { useState, useEffect  } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 import { registerBlockType  } from "@wordpress/blocks"
+import { InnerBlocks } from '@wordpress/block-editor';
+
+
 import  metadata  from "./block.json"
 import { ContextAttributes } from './functions/context-api';
 import EditorPanel from './components/panel/editor-panel';
@@ -15,7 +18,11 @@ registerBlockType( metadata.name, {
     edit: Edit,
     save: function (props) {
 
-        return null;
+        return (
+            <div>
+                <InnerBlocks.Content />
+            </div>
+        );
     }
 } );
 
