@@ -1,0 +1,68 @@
+#gsp-sidebar-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  display: none;
+  left: -100%;
+  padding: 0px;
+  flex-wrap: wrap;
+  margin: 0px;
+  padding: 0px;
+  z-index: 100;
+  transition: left 0.5s ease;
+}
+
+#gsp-sidebar-inside {
+  position: relative;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  z-index: 110;
+}
+
+#gsp-mobile-menu {
+  margin: 0px;
+  min-width: 70vw;
+  padding: 0px;
+  list-style: none;
+}
+
+#gsp-sidebar-closer {
+  min-width: 30vw;
+  opacity: 0.5;
+  background-color: gray;
+}
+
+#sidebar_closer_btn {
+  margin: 15px;
+  color: red;
+}
+
+#gsp-mobile-menu li {
+  list-style: none;
+  margin: 10px 0px;
+  list-style: none;
+}
+
+#gsp-mobile-menu .nav-item a {
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+}
+
+#gsp-mobile-menu .item-parent a {
+  display: flex;
+  justify-content: space-between;
+}
+
+#gsp-mobile-menu .sub-menu {
+  display: none;
+  left: -70%;
+  position: relative;
+  transition: left 0.5s ease;
+  margin: 0px;
+  padding: 5px;
+}/*# sourceMappingURL=editor-index.css.map */

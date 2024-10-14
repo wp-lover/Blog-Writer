@@ -16,7 +16,9 @@ class ServiceInitialization
     function __construct()
     {
         $this->run_service();
+       
     }
+
 
     function run_service()
     {

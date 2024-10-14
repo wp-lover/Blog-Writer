@@ -9,6 +9,8 @@ class StylesForBlocks
 
     public $headerAttributes = [];
 
+    public $sidebarAttributes = [];
+
     private function __construct()
     {
         add_action( 'wp_head' , [ $this, 'styles' ] );
@@ -32,6 +34,52 @@ class StylesForBlocks
     function styles( )
     {
        $this->headerStyles();
+
+       $this->sidebarMenuStype();
+
+    }
+
+    function sidebarMenuStype()
+    {   
+        if ( empty( $this->sidebarAttributes )  ) {
+
+            return;
+        }
+
+        $is_hidden_desktop = false;
+        
+        if ( isset( $this->sidebarAttributes['is_hidden_desktop'] ) && $this->sidebarAttributes['is_hidden_desktop'] ) {
+            $is_hidden_desktop = true;
+        }
+        
+        ?><style>
+            @media ( min-width : 767px ) {
+                #gsp-sidebar-menu-icon {
+                    display: <?php echo  $is_hidden_desktop == true ? 'none' : 'block' ?>;
+                }
+            }
+            #gsp-sidebar-container{
+                margin-top: <?php print_value($this->sidebarAttributes['container_margin_t'])  ?>px;
+            }
+            #gsp-sidebar-inside{
+                background-color: <?php print_value($this->sidebarAttributes['container_bg_color'])  ?>;
+            }
+            #gsp-sidebar-container li{
+                background-color: <?php print_value($this->sidebarAttributes['item_bg_color'])  ?>;
+            }
+            #gsp-sidebar-container li:hover {
+                background-color: <?php print_value($this->sidebarAttributes['item_bg_hover_color'])  ?>;
+            }
+            #gsp-sidebar-container li a {
+                color: <?php print_value($this->sidebarAttributes['item_text_color'])  ?>;
+            }
+            #gsp-sidebar-container li:hover a {
+                color: <?php print_value($this->sidebarAttributes['item_text_hover_color'])  ?>;
+            }
+            #gsp-sidebar-container li a path {
+                fill: <?php print_value($this->sidebarAttributes['item_text_color'])  ?>;
+            }
+        </style><?php
     }
 
     function headerStyles()
@@ -40,7 +88,7 @@ class StylesForBlocks
             
             ?><style> 
 #gsp-header-menu{
-    margin-bottom: <?php print_value($this->headerAttributes['menu_container_margin_y'])  ?>px;
+    margin-bottom: -30px;
 }
 .nav-item{
     min-width: <?php print_value($this->headerAttributes['item_min_width'])  ?>px;
@@ -99,9 +147,6 @@ class StylesForBlocks
 .item-parent .sub-menu li :hover{
     border-radius: 10px;
 }
-
-
-
 </style><?php
 
         }
@@ -109,59 +154,9 @@ class StylesForBlocks
 
     function headerScript()
     { 
-        ?>
-        <script>
-            function gsp_header_sub_menu(itemId , marginTop){
-
-            var item = document.getElementById( 'nav-item-' + itemId )
-    
-            var child = item.getElementsByClassName( 'sub-menu' );
-
-            // if not container class named 'hidden'
-            if (!child[0].classList.contains('hidden') ) {
-
-                child[0].style.opacity = 0;
-                setTimeout( function(){
-                    child[0].classList.remove( 'd-block' );
-                    child[0].classList.add( 'hidden' );
-                    
-                } , 450 );  
-                
-                controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] );?>", false );
-
-            }else{
-                
-
-
-                child[0].classList.remove( 'hidden' );
-                child[0].classList.add( 'd-block' );
-
-                
-                setTimeout( function(){
-                    child[0].style.opacity = 1;
-                } , 100 );
-
-                
-                controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] );?>" , true );
-            }     
-}
-
-function controll_dropdown_icon(itemId , fillColor , isOpen )
-{
-    let path = document.getElementById( "path-id-" + itemId );
-
-
-    if (isOpen) {
-        path.setAttribute( "d" , "M6 15l6-6 6 6" ); 
-        path.setAttribute( "fill" , fillColor ); 
-    }else{
-        path.setAttribute( "d" , "M6 9l6 6 6-6" ); 
-        path.setAttribute( "fill" , fillColor ); 
-    }
-     
-}
-        </script>
-        <?php
+        ?><script> function gsp_header_sub_menu(itemId , marginTop){ var item = document.getElementById( 'nav-item-' + itemId ); var child = item.getElementsByClassName( 'sub-menu' );if (!child[0].classList.contains('hidden') ) {child[0].style.opacity = 0;setTimeout( function(){child[0].classList.remove( 'd-block' );child[0].classList.add( 'hidden' );} , 450 );controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] ?? '' );?>", false );}else{child[0].classList.remove( 'hidden' );child[0].classList.add( 'd-block' );setTimeout( function(){child[0].style.opacity = 1;} , 100 );controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] ?? '' );?>" , true );}}
+        function controll_dropdown_icon(itemId , fillColor , isOpen ){let path = document.getElementById( "path-id-" + itemId ); if (isOpen) { path.setAttribute( "d" , "M6 15l6-6 6 6" ); 
+        path.setAttribute( "fill" , fillColor ); }else{ path.setAttribute( "d" , "M6 9l6 6 6-6" ); path.setAttribute( "fill" , fillColor ); } }</script><?php
 
     }
 
@@ -177,6 +172,7 @@ function print_value( $value )
     }else{
         $val = esc_attr( $value );
         $val = esc_html( $value );
+        $val = esc_sql( $value );
     }
 
     echo $val ?? '';
