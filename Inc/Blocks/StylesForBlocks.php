@@ -82,13 +82,13 @@ class StylesForBlocks
         </style><?php
     }
 
-    function headerStyles()
-    {
-        if ( ! empty( $this->headerAttributes ) ) {
-            
-            ?><style> 
+function headerStyles()
+{
+    if ( ! empty( $this->headerAttributes ) ) {
+        
+        ?><style> 
 #gsp-header-menu{
-    margin-bottom: -30px;
+    margin-bottom: <?php print_value($this->headerAttributes['menu_container_margin_y'])  ?>px;
 }
 #gsp-header-menu .nav-item{
     min-width: <?php print_value($this->headerAttributes['item_min_width'])  ?>px;
@@ -154,6 +154,9 @@ class StylesForBlocks
 #gsp-header-menu .item-parent .sub-menu li :hover{
     border-radius: 10px;
 }
+
+
+
 </style><?php
 
         }
