@@ -42,7 +42,7 @@ class StylesForBlocks
 #gsp-header-menu{
     margin-bottom: <?php print_value($this->headerAttributes['menu_container_margin_y'])  ?>px;
 }
-.nav-item{
+#gsp-header-menu .nav-item{
     min-width: <?php print_value($this->headerAttributes['item_min_width'])  ?>px;
     background-color: <?php print_value($this->headerAttributes['item_bg_color'])  ?>;
     margin-top: <?php print_value( $this->headerAttributes['item_margin_t'] ); ?>px;
@@ -55,48 +55,55 @@ class StylesForBlocks
     border-bottom-left-radius: <?php echo ( $this->headerAttributes['item_margin_b'] ) ? '8px' : '0px'  ?>;
     border-bottom-right-radius: <?php echo ( $this->headerAttributes['item_margin_b'] ) ? '8px' : '0px'  ?>;
 }
-.item-parent{
+#gsp-header-menu .item-parent{
     cursor: pointer;
 }
-.item-parent ul li{
+#gsp-header-menu .item-parent ul li{
     margin-top: 5px;
 }
 
-.nav-item :hover {
+#gsp-header-menu .nav-item:hover {
     background-color: <?php print_value($this->headerAttributes['item_bg_hover_color'])  ?>;
-    color: <?php print_value($this->headerAttributes['item_text_hover_color'])  ?>;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    padding: 0px;
     border-bottom-left-radius: <?php echo ( $this->headerAttributes['item_margin_b'] ) ? '8px' : '0px'  ?>;
     border-bottom-right-radius: <?php echo ( $this->headerAttributes['item_margin_b'] ) ? '8px' : '0px'  ?>;
 }
 
-.nav-item a {
+#gsp-header-menu .nav-item:hover a {
+    display: flex;
+    color: <?php print_value($this->headerAttributes['item_text_hover_color'])  ?>;
+    
+}
+
+#gsp-header-menu .nav-item a {
+    display: flex;
+    color: <?php print_value( $this->headerAttributes['item_text_color'] );?>;
+    text-decoration: none;
+    border: none;
     padding-top: <?php print_value( $this->headerAttributes['item_padding_t'] ); ?>px;
     padding-left: <?php print_value( $this->headerAttributes['item_padding_l'] ); ?>px;
     padding-bottom: <?php print_value( $this->headerAttributes['item_padding_b'] ); ?>px;
     padding-right: <?php print_value( $this->headerAttributes['item_padding_r'] ); ?>px;
+    margin: 0px;
 }
-.nav-item svg path {
+#gsp-header-menu .nav-item svg path {
     fill: <?php print_value( $this->headerAttributes['item_text_color'] ); ?>;
 }
 
-.nav-item a {
-    color: <?php print_value( $this->headerAttributes['item_text_color'] );?>;
-    text-decoration: none; border: none;
-    margin: 0;
-}
 
-.item-parent .sub-menu{
+#gsp-header-menu .item-parent .sub-menu{
     background-color: transparent;
     margin-top: <?php print_value( $this->headerAttributes['sub_menu_margin_t']  );  ?>px;
+    z-index: 800;
     
 }
-.item-parent .sub-menu li {
+#gsp-header-menu .item-parent .sub-menu li {
     margin-bottom: <?php print_value( $this->headerAttributes['child_item_margin_b']  );  ?>px;
     border-radius: 10px;
 }
-.item-parent .sub-menu li :hover{
+#gsp-header-menu .item-parent .sub-menu li :hover{
     border-radius: 10px;
 }
 
