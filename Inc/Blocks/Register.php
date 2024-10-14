@@ -38,7 +38,13 @@ class Register
     {
         $blogWriter = BlogWriter::get_instance();
 
-        // menu-block 
+        // menu-desktop-block 
+        if ( is_dir( $blogWriter->dir . '/build/menu-desktop' ) ) {
+    
+            register_block_type_from_metadata( $blogWriter->dir . '/build/menu-desktop'  );
+        }
+
+        // menu-mobile-block 
         if ( is_dir( $blogWriter->dir . '/build/menu-mobile' ) ) {
           
             register_block_type_from_metadata( $blogWriter->dir . '/build/menu-mobile'  );
