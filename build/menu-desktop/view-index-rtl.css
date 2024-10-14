@@ -9,25 +9,25 @@
   #gsp-header-menu ul, #gsp-header-menu li {
     list-style: none;
   }
-  .nav-item a {
+  #gsp-header-menu .nav-item a {
     text-decoration: none;
     border: none;
     outline: none;
     text-align: center;
     display: block;
   }
-  .item-parent a {
+  #gsp-header-menu .item-parent a {
     display: flex;
     justify-content: space-between;
     padding: 0px;
   }
-  .item-parent .sub-menu {
+  #gsp-header-menu .item-parent .sub-menu {
     position: absolute;
     padding: 0;
     margin-right: 0;
     margin-left: 0;
   }
-  .sub-menu li {
+  #gsp-header-menu .sub-menu li {
     margin: 5px 0px;
   }
 }

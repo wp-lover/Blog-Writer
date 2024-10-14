@@ -84,7 +84,7 @@ function SubMenu({item , styles }){
     const [attributes , setAttributes] = useContext(ContextAttributes);
 
     return (
-        <ul className="sub-menu hidden" style={{marginTop:attributes.sub_menu_margin_t+35+"px"}} >
+        <ul className="sub-menu hidden" style={{marginTop:attributes.sub_menu_margin_t+35+"px", zIndex: 800}} >
             {
                 item.map( function (e , i) {
 

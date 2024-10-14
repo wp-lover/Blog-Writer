@@ -174,7 +174,8 @@ function SubMenu({
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
     className: "sub-menu hidden",
     style: {
-      marginTop: attributes.sub_menu_margin_t + 35 + "px"
+      marginTop: attributes.sub_menu_margin_t + 35 + "px",
+      zIndex: 800
     },
     children: item.map(function (e, i) {
       const [hoverd, setHoverd] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
