@@ -1,5 +1,8 @@
 <?php 
 
+// Exit if access directly
+!defined( 'ABSPATH' ) ? exit : '';
+
 
     use WpLover\BlogWriter\Inc\Menu\WP_Lover_Navwalker;
     use WpLover\BlogWriter\Inc\Blocks\StylesForBlocks;
@@ -7,7 +10,9 @@
         $blocksStyle = StylesForBlocks::get_instance();
         $blocksStyle->sidebarAttributes = $attributes;
 
-?><div>
+        
+
+?><div id="gsp-sidebar-menu-icon">
 <svg xmlns="http://www.w3.org/2000/svg" id="gsp-sidebar-opener" width="35" height="35" viewBox="0 0 100 80" fill="black">
     <rect width="100" height="10"></rect>
     <rect y="30" width="100" height="10"></rect>

@@ -12,8 +12,14 @@ class Register
         add_action( 'init' , [ $this , 'register_blocks' ] );
 
         $this->register_category();
-    }
 
+    } // ending register
+
+    /**
+     * @package Blog_Writter
+     * 
+     * version 1.0.0
+     */
     function register_category(){
 
         add_filter( 'block_categories_all' , function( $categories ) {
@@ -26,23 +32,28 @@ class Register
         
             return $categories;
         } );
-    }
+    } // ending register_category
     
     function register_blocks()
     {
         $blogWriter = BlogWriter::get_instance();
 
-        
+        // menu-block 
         if ( is_dir( $blogWriter->dir . '/build/menu-mobile' ) ) {
           
             register_block_type_from_metadata( $blogWriter->dir . '/build/menu-mobile'  );
         }
 
-        if ( is_dir( $blogWriter->dir . '/build/menu-mobile-icon' ) ) {
+        if ( is_dir( $blogWriter->dir . '/build/after-login' ) ) {
           
-            register_block_type_from_metadata( $blogWriter->dir . '/build/menu-mobile-icon'  );
+            register_block_type_from_metadata( $blogWriter->dir . '/build/after-login'  );
         }
 
-    }
+        if ( is_dir( $blogWriter->dir . '/build/before-login' ) ) {
+          
+            register_block_type_from_metadata( $blogWriter->dir . '/build/before-login'  );
+        }
+
+    } // ending register_blocks
     
-}
+} // ending class

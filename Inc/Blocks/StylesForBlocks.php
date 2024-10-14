@@ -40,9 +40,24 @@ class StylesForBlocks
     }
 
     function sidebarMenuStype()
-    {
-        ?>
-        <style>
+    {   
+        if ( empty( $this->sidebarAttributes )  ) {
+
+            return;
+        }
+
+        $is_hidden_desktop = false;
+        
+        if ( isset( $this->sidebarAttributes['is_hidden_desktop'] ) && $this->sidebarAttributes['is_hidden_desktop'] ) {
+            $is_hidden_desktop = true;
+        }
+        
+        ?><style>
+            @media ( min-width : 767px ) {
+                #gsp-sidebar-menu-icon {
+                    display: <?php echo  $is_hidden_desktop == true ? 'none' : 'block' ?>;
+                }
+            }
             #gsp-sidebar-container{
                 margin-top: <?php print_value($this->sidebarAttributes['container_margin_t'])  ?>px;
             }
@@ -64,16 +79,14 @@ class StylesForBlocks
             #gsp-sidebar-container li a path {
                 fill: <?php print_value($this->sidebarAttributes['item_text_color'])  ?>;
             }
-        </style>
-        <?php
+        </style><?php
     }
 
     function headerStyles()
     {
         if ( ! empty( $this->headerAttributes ) ) {
             
-            ?>
-<style> 
+            ?><style> 
 #gsp-header-menu{
     margin-bottom: -30px;
 }
@@ -139,59 +152,9 @@ class StylesForBlocks
 
     function headerScript()
     { 
-        ?>
-        <script>
-            function gsp_header_sub_menu(itemId , marginTop){
-
-            var item = document.getElementById( 'nav-item-' + itemId )
-    
-            var child = item.getElementsByClassName( 'sub-menu' );
-
-            // if not container class named 'hidden'
-            if (!child[0].classList.contains('hidden') ) {
-
-                child[0].style.opacity = 0;
-                setTimeout( function(){
-                    child[0].classList.remove( 'd-block' );
-                    child[0].classList.add( 'hidden' );
-                    
-                } , 450 );  
-                
-                controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] ?? '' );?>", false );
-
-            }else{
-                
-
-
-                child[0].classList.remove( 'hidden' );
-                child[0].classList.add( 'd-block' );
-
-                
-                setTimeout( function(){
-                    child[0].style.opacity = 1;
-                } , 100 );
-
-                
-                controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] ?? '' );?>" , true );
-            }     
-}
-
-function controll_dropdown_icon(itemId , fillColor , isOpen )
-{
-    let path = document.getElementById( "path-id-" + itemId );
-
-
-    if (isOpen) {
-        path.setAttribute( "d" , "M6 15l6-6 6 6" ); 
-        path.setAttribute( "fill" , fillColor ); 
-    }else{
-        path.setAttribute( "d" , "M6 9l6 6 6-6" ); 
-        path.setAttribute( "fill" , fillColor ); 
-    }
-     
-}
-        </script>
-        <?php
+        ?><script> function gsp_header_sub_menu(itemId , marginTop){ var item = document.getElementById( 'nav-item-' + itemId ); var child = item.getElementsByClassName( 'sub-menu' );if (!child[0].classList.contains('hidden') ) {child[0].style.opacity = 0;setTimeout( function(){child[0].classList.remove( 'd-block' );child[0].classList.add( 'hidden' );} , 450 );controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] ?? '' );?>", false );}else{child[0].classList.remove( 'hidden' );child[0].classList.add( 'd-block' );setTimeout( function(){child[0].style.opacity = 1;} , 100 );controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] ?? '' );?>" , true );}}
+        function controll_dropdown_icon(itemId , fillColor , isOpen ){let path = document.getElementById( "path-id-" + itemId ); if (isOpen) { path.setAttribute( "d" , "M6 15l6-6 6 6" ); 
+        path.setAttribute( "fill" , fillColor ); }else{ path.setAttribute( "d" , "M6 9l6 6 6-6" ); path.setAttribute( "fill" , fillColor ); } }</script><?php
 
     }
 
@@ -207,6 +170,7 @@ function print_value( $value )
     }else{
         $val = esc_attr( $value );
         $val = esc_html( $value );
+        $val = esc_sql( $value );
     }
 
     echo $val ?? '';
