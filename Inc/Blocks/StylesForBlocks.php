@@ -169,6 +169,10 @@ class StylesForBlocks
 
             const gspHeaderMenu = document.getElementById('gsp-header-menu');
 
+            if (!gspHeaderMenu) {
+                return;
+            }
+
             var gspHeaderItemParents  = gspHeaderMenu.getElementsByClassName('item-parent');
 
             document.addEventListener( 'click', function (e) {
