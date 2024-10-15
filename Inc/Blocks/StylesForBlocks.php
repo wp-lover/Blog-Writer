@@ -1,4 +1,3 @@
-
 <?php
 
 namespace WpLover\BlogWriter\Inc\Blocks;
