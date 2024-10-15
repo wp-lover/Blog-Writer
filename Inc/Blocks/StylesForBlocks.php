@@ -118,55 +118,88 @@ class StylesForBlocks
     { 
         ?>
         <script>
-            function gsp_header_sub_menu(itemId , marginTop){
+            document.addEventListener( 'DOMContentLoaded' , function () {
 
-            var item = document.getElementById( 'nav-item-' + itemId )
+            const gspHeaderMenu = document.getElementById('gsp-header-menu');
+
+            var gspHeaderItemParents  = gspHeaderMenu.getElementsByClassName('item-parent');
+
+            document.addEventListener( 'click', function (e) {
+
+                
+                for (let i = 0; i < gspHeaderItemParents.length; i++) {
+
+                    const element = gspHeaderItemParents[i];
+
+                    if (e.target.tagName == 'A') {
+                        const li = e.target.parentNode;
+
+                        if (li == element) {
+                            gsp_header_sub_menu(element);
+                        } 
+                    }
+
+                    if ( e.target.tagName == 'SPAN') {
+                        const aTag = e.target.parentNode;
+
+                        if (aTag.parentNode == element) {
+
+                            gsp_header_sub_menu(element);
+                        }
+                    }
+                }
+            });
     
-            var child = item.getElementsByClassName( 'sub-menu' );
+    // console.log(gspHeaderItemParents);
 
-            // if not container class named 'hidden'
-            if (!child[0].classList.contains('hidden') ) {
+  function gsp_header_sub_menu( item ){
 
-                child[0].style.opacity = 0;
-                setTimeout( function(){
-                    child[0].classList.remove( 'd-block' );
-                    child[0].classList.add( 'hidden' );
-                    
-                } , 450 );  
-                
-                controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] );?>", false );
+         var child = item.getElementsByClassName( 'sub-menu' );
 
-            }else{
-                
+         // if not container class named 'hidden'
+         if (!child[0].classList.contains('hidden') ) {
 
+             child[0].style.opacity = 0;
+             setTimeout( function(){
+                 child[0].classList.remove( 'd-block' );
+                 child[0].classList.add( 'hidden' );
+                 
+             } , 450 );  
+             
+             controll_dropdown_icon( item , "<?php print_value( $this->headerAttributes['item_text_color'] );?>", false );
 
-                child[0].classList.remove( 'hidden' );
-                child[0].classList.add( 'd-block' );
-
-                
-                setTimeout( function(){
-                    child[0].style.opacity = 1;
-                } , 100 );
-
-                
-                controll_dropdown_icon( itemId , "<?php print_value( $this->headerAttributes['item_text_color'] );?>" , true );
-            }     
-}
-
-function controll_dropdown_icon(itemId , fillColor , isOpen )
-{
-    let path = document.getElementById( "path-id-" + itemId );
+         }else{
+             
 
 
-    if (isOpen) {
-        path.setAttribute( "d" , "M6 15l6-6 6 6" ); 
-        path.setAttribute( "fill" , fillColor ); 
-    }else{
-        path.setAttribute( "d" , "M6 9l6 6 6-6" ); 
-        path.setAttribute( "fill" , fillColor ); 
-    }
+             child[0].classList.remove( 'hidden' );
+             child[0].classList.add( 'd-block' );
+
+             
+             setTimeout( function(){
+                 child[0].style.opacity = 1;
+             } , 100 );
+
+             
+             controll_dropdown_icon( item , "<?php print_value( $this->headerAttributes['item_text_color'] );?>" , true );
+         }     
+ }
+
+     function controll_dropdown_icon(item , fillColor , isOpen )
+     {
+        let path = item.querySelector('path');
+
+
+        if (isOpen) {
+            path.setAttribute( "d" , "M6 15l6-6 6 6" ); 
+            path.setAttribute( "fill" , fillColor ); 
+        }else{
+            path.setAttribute( "d" , "M6 9l6 6 6-6" ); 
+            path.setAttribute( "fill" , fillColor ); 
+        }
      
-}
+     }
+});
         </script>
         <?php
 

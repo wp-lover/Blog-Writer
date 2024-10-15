@@ -40,9 +40,8 @@ class WP_Lover_Navwalker extends \Walker_Nav_menu
     {
         $indent = ( $depth ) ? str_repeat( "\t", $depth) : '';
         
-        $li_attributes = ( isset( $args->walker ) && $args->walker->has_children ) ? 'onclick="gsp_header_sub_menu('.$item->ID.')" ' : '';
 
-        $li_attributes .= ( $depth && $args->walker->has_children ) ? $this->style_child_ele() : $this->itemStyles();
+        $li_attributes = ( $depth && $args->walker->has_children ) ? $this->style_child_ele() : $this->itemStyles();
 
         $class_names = $value = '';
 
