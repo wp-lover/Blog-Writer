@@ -9,6 +9,8 @@ class StylesForBlocks
 
     public $headerAttributes = [];
 
+    public $sidebarAttributes = [];
+
     private function __construct()
     {
         add_action( 'wp_head' , [ $this, 'styles' ] );
@@ -32,6 +34,51 @@ class StylesForBlocks
     function styles( )
     {
        $this->headerStyles();
+
+       $this->sidebarMenuStype();
+    }
+
+    function sidebarMenuStype()
+    {   
+        if ( empty( $this->sidebarAttributes )  ) {
+
+            return;
+        }
+
+        $is_hidden_desktop = false;
+        
+        if ( isset( $this->sidebarAttributes['is_hidden_desktop'] ) && $this->sidebarAttributes['is_hidden_desktop'] ) {
+            $is_hidden_desktop = true;
+        }
+        
+        ?><style>
+            @media ( min-width : 767px ) {
+                #gsp-sidebar-menu-icon {
+                    display: <?php echo  $is_hidden_desktop == true ? 'none' : 'block' ?>;
+                }
+            }
+            #gsp-sidebar-container{
+                margin-top: <?php print_value($this->sidebarAttributes['container_margin_t'])  ?>px;
+            }
+            #gsp-sidebar-inside{
+                background-color: <?php print_value($this->sidebarAttributes['container_bg_color'])  ?>;
+            }
+            #gsp-sidebar-container li{
+                background-color: <?php print_value($this->sidebarAttributes['item_bg_color'])  ?>;
+            }
+            #gsp-sidebar-container li:hover {
+                background-color: <?php print_value($this->sidebarAttributes['item_bg_hover_color'])  ?>;
+            }
+            #gsp-sidebar-container li a {
+                color: <?php print_value($this->sidebarAttributes['item_text_color'])  ?>;
+            }
+            #gsp-sidebar-container li:hover a {
+                color: <?php print_value($this->sidebarAttributes['item_text_hover_color'])  ?>;
+            }
+            #gsp-sidebar-container li a path {
+                fill: <?php print_value($this->sidebarAttributes['item_text_color'])  ?>;
+            }
+        </style><?php
     }
 
     function headerStyles()
