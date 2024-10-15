@@ -39,6 +39,12 @@ class Register
         $blogWriter = BlogWriter::get_instance();
 
         // menu-block 
+        if ( is_dir( $blogWriter->dir . '/build/menu-desktop' ) ) {
+          
+            register_block_type_from_metadata( $blogWriter->dir . '/build/menu-desktop'  );
+        }
+
+        // menu-block 
         if ( is_dir( $blogWriter->dir . '/build/menu-mobile' ) ) {
           
             register_block_type_from_metadata( $blogWriter->dir . '/build/menu-mobile'  );
@@ -53,7 +59,6 @@ class Register
           
             register_block_type_from_metadata( $blogWriter->dir . '/build/before-login'  );
         }
-
-    } // ending register_blocks
+    }
     
 } // ending class
