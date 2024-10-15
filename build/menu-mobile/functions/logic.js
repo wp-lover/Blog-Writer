@@ -47,7 +47,7 @@ class GspMenuMobile {
     this.gspSidebarCloser = document.getElementById('gsp-sidebar-closer');
     this.gspSidebarOpener = document.getElementById('gsp-sidebar-opener');
     this.body = document.querySelector('body');
-    this.bodyWidth = this.body.offsetWidth;
+    this.wpAdminBar = document.getElementById("wpadminbar");
 
     // close & open sidebar
     if (this.gspSidebarContainer) {
@@ -65,15 +65,24 @@ class GspMenuMobile {
         };
       }
     }
-    const wpAdminBar = document.getElementById("wpadminbar");
-    setTimeout(() => {
-      if (wpAdminBar) {
-        this.gspSidebarContainer.style.top = wpAdminBar.offsetHeight + 'px';
-      }
-    }, 500);
+    this.setWPadminBar();
     this.hangle_onclick_for_submenu();
+    window.addEventListener('resize', () => {
+      this.windowResizeEvent();
+    });
   } // constructor ending
 
+  windowResizeEvent() {
+    this.setWPadminBar();
+    console.log('resizing');
+  }
+  setWPadminBar() {
+    setTimeout(() => {
+      if (this.wpAdminBar) {
+        this.gspSidebarContainer.style.top = this.wpAdminBar.offsetHeight + 'px';
+      }
+    }, 500);
+  }
   gsp_sidebar_container_control() {
     // if sidebar-menu hidden
     if (this.gspSidebarContainer.style.left != '0px') {
@@ -93,7 +102,7 @@ class GspMenuMobile {
   }
   menuContainerHide() {
     if (this.gspSidebarContainer.style.left == '0px') {
-      const width = this.bodyWidth + 100;
+      const width = this.body.offsetWidth + 100;
       this.gspSidebarContainer.style.left = '-' + width + 'px';
     }
   }

@@ -9,7 +9,7 @@ export class GspMenuMobile {
 
         this.body = document.querySelector('body');
 
-        this.bodyWidth = this.body.offsetWidth;
+        this.wpAdminBar = document.getElementById("wpadminbar");
 
         // close & open sidebar
         if (this.gspSidebarContainer) {
@@ -30,18 +30,30 @@ export class GspMenuMobile {
             
         }
 
-        const wpAdminBar = document.getElementById("wpadminbar");
+        
+        this.setWPadminBar();
+        
 
+        this.hangle_onclick_for_submenu();
+
+        window.addEventListener('resize' , () => {
+            this.windowResizeEvent();
+        });
+    } // constructor ending
+
+    windowResizeEvent() {
+        this.setWPadminBar();
+    }
+
+    setWPadminBar(){
         setTimeout( () => {
-            if (wpAdminBar) {
+            if (this.wpAdminBar) {
                 
-                this.gspSidebarContainer.style.top = wpAdminBar.offsetHeight + 'px';
+                this.gspSidebarContainer.style.top = this.wpAdminBar.offsetHeight + 'px';
                 
             }
         } , 500);
-
-        this.hangle_onclick_for_submenu();
-    } // constructor ending
+    }
 
     gsp_sidebar_container_control()
     {
@@ -71,7 +83,7 @@ export class GspMenuMobile {
     menuContainerHide(){
 
         if ( this.gspSidebarContainer.style.left == '0px' ) {
-            const width = this.bodyWidth + 100;
+            const width = this.body.offsetWidth + 100;
             this.gspSidebarContainer.style.left = '-'+width+'px';  
         }
     }
