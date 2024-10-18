@@ -1,22 +1,26 @@
 <?php
 
 namespace WpLover\BlogWriter;
+
 /**
- * @package Blog_Writter
+ * Plugin Name:       Blog-Writer
+ * Plugin URI:        https://github.com/wp-lover/Blog-Writer.git
+ * Description:       A Gutenberg block plugin for designing desktop and mobile menus.
+ * Version:           1.0.0
+ * Author:            Joshim
+ * Author URI:        https://github.com/wp-lover/
+ * License:           GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       blog-writer
+ * Requires at least: 5.0  // Minimum WordPress version required.
+ * Requires PHP:      7.4  // Minimum PHP version for Composer and OOP support.
+ * Tested up to:      6.4   // The latest WordPress version you’ve tested.
  */
-/*
- Plugin Name: Blog-Writer
- Plugin URI: https://github.com/wp-lover/Blog-Writer
- Description: This is a WordPress plugin that will help to design pages and  create creative content like posts & articles and also include MCQ-based blog posts.
- Version: 1.0
- Requires at least: 5.8
- Requires PHP: 5.6.20
- Author: Joshim
- Author URI: https://github.com/wp-lover/
- License: GPLv2 or later
- Tags: Bloc Based Plugin, Posts, Articles, MCQ, Learn, etc.
- Text Domain: blog_writer
+
+ /**
+ * @package blog-writer
  */
+
 
 // Exit if access directly
 !defined( 'ABSPATH' ) ? exit : '';
@@ -33,7 +37,7 @@ final class BlogWriter
     public $dir = '';
     public $pluginURI = '';
 
-    public $textDomain = 'blog_writer';
+    public $textDomain = 'blog-writer';
 
     public $version = '1.0';
 
@@ -57,7 +61,7 @@ final class BlogWriter
      *
      * @return BlogWriter
      */
-    static function get_instance(): BlogWriter
+    static function get_instance()
     {
         if (self::$instance === null) {
             // Create a new instance of the class

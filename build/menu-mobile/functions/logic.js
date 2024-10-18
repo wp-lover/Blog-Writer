@@ -74,7 +74,6 @@ class GspMenuMobile {
 
   windowResizeEvent() {
     this.setWPadminBar();
-    console.log('resizing');
   }
   setWPadminBar() {
     setTimeout(() => {
