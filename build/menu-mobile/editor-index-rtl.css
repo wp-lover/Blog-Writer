@@ -9,21 +9,22 @@
   display: none;
   right: -100%;
   padding: 0px;
-  flex-wrap: wrap;
   margin: 0px;
-  padding: 0px;
-  z-index: 100;
+  z-index: 900;
   transition: right 0.5s ease;
 }
 
 #gsp-sidebar-inside {
-  position: relative;
   right: 0;
   top: 0;
   margin: 0;
   padding: 0;
   min-height: 100vh;
   z-index: 110;
+  min-width: 70vw;
+  overflow-y: auto; /* Always show vertical scrollbar */
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 #gsp-mobile-menu {
@@ -67,5 +68,5 @@
   position: relative;
   transition: right 0.5s ease;
   margin: 0px;
-  padding: 5px;
+  padding: 0px;
 }

@@ -15,20 +15,7 @@ let isDataLoaded = false;
 
 registerBlockType( metadata.name, {
     edit: Edit,
-    save: function (props) {
-
-       const {setAttributes} = props;
-
-        if (isDataLoaded) {
-            setAttributes( { has_data : true } );
-
-            console.log('true run');
-        }else{
-            console.log('false run');
-        }
-
-        return null;
-    }
+    save: () => null
 } );
 
 function Edit( props ) {

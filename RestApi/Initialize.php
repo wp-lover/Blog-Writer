@@ -4,6 +4,8 @@
 namespace WpLover\BlogWriter\RestApi;
 
 
+// Exit if access directly
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Initialize extends Routes
 {

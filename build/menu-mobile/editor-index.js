@@ -76,11 +76,21 @@ function MobileMenu({
       style: {
         zIndex: 100,
         left: "0px",
-        marginTop: attributes.container_margin_t + "px"
+        marginTop: attributes.container_margin_t + "px",
+        minHeight: '100%',
+        minWidth: '100%'
       },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        id: "gsp-sidebar-inside",
         style: {
-          background: attributes.container_bg_color
+          background: attributes.container_bg_color,
+          position: 'fixed',
+          top: '0px',
+          left: '0px',
+          minWidth: '70%',
+          overflowY: 'scroll',
+          zIndex: 95,
+          bottom: '0px'
         },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
           id: "gsp-mobile-menu",
@@ -156,7 +166,13 @@ function MobileMenu({
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         id: "gsp-sidebar-closer",
         style: {
-          opacity: ".5"
+          opacity: ".5",
+          position: 'fixed',
+          top: '0px',
+          right: '0px',
+          minHeight: '100%',
+          minWidth: '30%',
+          zIndex: 90
         },
         onClick: menuCloserOnclick,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
@@ -734,7 +750,7 @@ function Edit(props) {
 
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default()({
-      path: '/gsp/v1/menu'
+      path: '/gsp/v1/menu?location-name=blog_writer_sidebar'
     }).then(menu => {
       if (menu['success']) {
         setMenus(menu['data']['menu']);

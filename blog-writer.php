@@ -12,9 +12,9 @@ namespace WpLover\BlogWriter;
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       blog-writer
- * Requires at least: 5.0  // Minimum WordPress version required.
- * Requires PHP:      7.4  // Minimum PHP version for Composer and OOP support.
- * Tested up to:      6.4   // The latest WordPress version you’ve tested.
+ * Requires at least: 5.0
+ * Requires PHP:      7.4
+ * Tested up to:      6.6
  */
 
  /**
@@ -23,7 +23,7 @@ namespace WpLover\BlogWriter;
 
 
 // Exit if access directly
-!defined( 'ABSPATH' ) ? exit : '';
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Autoloader for whole project
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
@@ -36,8 +36,6 @@ final class BlogWriter
      
     public $dir = '';
     public $pluginURI = '';
-
-    public $textDomain = 'blog-writer';
 
     public $version = '1.0';
 

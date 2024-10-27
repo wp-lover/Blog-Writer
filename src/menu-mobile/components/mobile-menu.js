@@ -46,10 +46,21 @@ export default function MobileMenu({items}) {
             <div ref={menuContainer} id="gsp-sidebar-container" style={{
                     zIndex: 100,
                     left : "0px",
-                    marginTop : attributes.container_margin_t + "px"
+                    marginTop : attributes.container_margin_t + "px",
+                    minHeight : '100%',
+                    minWidth : '100%',
+                   
                 }}>
-                <div style={{
-                    background : attributes.container_bg_color
+                <div id="gsp-sidebar-inside" style={{
+                    background : attributes.container_bg_color,
+                    position : 'fixed',
+                    top : '0px',
+                    left : '0px',
+                    minWidth : '70%',
+                    overflowY : 'scroll',
+                    zIndex : 95,
+                    bottom : '0px'
+                   
                 }}>
                     < InnerBlocks />
                     <ul id="gsp-mobile-menu" className="mobile-menu" >
@@ -104,6 +115,13 @@ export default function MobileMenu({items}) {
             </div>
             <div id="gsp-sidebar-closer" style={{
                 opacity: ".5",
+                position : 'fixed',
+                top : '0px',
+                right : '0px',
+                minHeight : '100%',
+                minWidth : '30%',
+                zIndex : 90,
+                
             }} onClick={menuCloserOnclick}>
                     <button id="sidebar_closer_btn">X</button>
             </div>

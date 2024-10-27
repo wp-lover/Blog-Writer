@@ -2,6 +2,9 @@
 
 namespace WpLover\BlogWriter\Inc\Menu; 
 
+// Exit if access directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class WP_Lover_Navwalker extends \Walker_Nav_menu
 {
     public $styles;

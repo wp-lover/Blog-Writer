@@ -28,10 +28,10 @@ export default function HeaderMenu({items}) {
                             paddingLeft : attributes.item_padding_l + "px",
                             paddingRight : attributes.item_padding_r+ "px",
                             paddingBottom : attributes.item_padding_b + "px",
-                            borderTopLeftRadius: "10px",
-                            borderTopRightRadius: "10px",
-                            borderBottomLeftRadius: attributes.item_margin_b  ? "8px" : "0px",
-                            borderBottomRightRadius: attributes.item_margin_b ? "8px" : "0px",
+                            borderTopLeftRadius: attributes.border_radius_tl + "px",
+                            borderTopRightRadius: attributes.border_radius_tr + "px",
+                            borderBottomLeftRadius: attributes.border_radius_bl + "px",
+                            borderBottomRightRadius: attributes.border_radius_br + "px",
                             listStyle:"none"
                         }; 
 
@@ -99,7 +99,11 @@ function SubMenu({item , styles }){
                          paddingTop:styles.paddingTop,
                          paddingBottom:styles.paddingBottom,
                          borderRadius: "10px",
-                         listStyle:"none"
+                         listStyle:"none",
+                         borderTopLeftRadius: styles.borderTopLeftRadius,
+                         borderTopRightRadius: styles.borderTopRightRadius,
+                         borderBottomLeftRadius: styles.borderBottomLeftRadius,
+                         borderBottomRightRadius: styles.borderBottomRightRadius,
                      };
                  
                     if (i != 0) {

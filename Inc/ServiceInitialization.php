@@ -2,6 +2,9 @@
 
 namespace WpLover\BlogWriter\Inc;
 
+// Exit if access directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 
 class ServiceInitialization
 {

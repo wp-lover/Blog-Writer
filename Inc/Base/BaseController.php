@@ -2,6 +2,9 @@
 
 namespace WpLover\BlogWriter\Inc\Base;
 
+// Exit if access directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
  * @package BaseController
  * 
@@ -10,10 +13,10 @@ namespace WpLover\BlogWriter\Inc\Base;
 
 class BaseController
 {
-    protected $textDomain = 'blog-writer';
-
+    
     function __construct()
     {
-        
+        // still not using but in the future
+        // it will be used.
     }
 }

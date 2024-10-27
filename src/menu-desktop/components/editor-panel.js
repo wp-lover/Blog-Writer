@@ -3,6 +3,7 @@ import ColorsPanel from './desktop/panels/colors-panel';
 import SubMenuSettings from './desktop/panels/sub-menu-panel';
 import {RangeControl , Panel, PanelBody} from '@wordpress/components';
 import SpacePanelDesktop from './desktop/panels/space-panel-desktop';
+import BorderRadius  from './desktop/panels/border-radius';
 
 import { useContext } from '@wordpress/element';
 import { ContextAttributes } from '../functions/context-api';
@@ -43,6 +44,7 @@ export default function EditorPanel() {
                 <ColorsPanel />
                 <SpacePanelDesktop />
                 <SubMenuSettings />
+                <BorderRadius />
             </InspectorControls>
         </>
     );

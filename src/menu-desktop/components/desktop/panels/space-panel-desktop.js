@@ -91,7 +91,7 @@ function ItemPadding() {
                     
                     }} />
                     <RangeControl  
-                        initialPosition={ attributes.item_padding_t }
+                        initialPosition={ attributes.item_padding_b }
                         label={"Padding-Bottom"}
                         max={100}
                         min={0}

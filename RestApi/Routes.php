@@ -2,6 +2,10 @@
 
 namespace WpLover\BlogWriter\RestApi;
 
+// Exit if access directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+
 class Routes
 {
     use RouteCallbacks\Menus;

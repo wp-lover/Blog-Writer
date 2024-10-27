@@ -2,6 +2,11 @@
 
 namespace WpLover\BlogWriter\Inc\Base;
 
+// Exit if access directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+
+
 use WpLover\BlogWriter\BlogWriter;
 
 class Scripts
@@ -13,17 +18,20 @@ class Scripts
     {
         $this->instance = BlogWriter::get_instance();
 
-        add_action( 'wp_enqueue_scripts' , [ $this , 'scripts' ] );
+        add_action( 'enqueue_block_assets' , [ $this , 'block_scripts' ] );
     }
 
-    function scripts()
+    function block_scripts()
     {
-        $this->styles();
+        $this->block_styles();
     }
 
-    function styles()
+    function block_styles()
     {   
-        wp_enqueue_style( 'gsp-primary', $this->instance->pluginURI . '/assets/css/primary.css' , [] ,  $this->instance->version , 'all' );
+        wp_enqueue_style( 'blog-writer-blocks', $this->instance->pluginURI . '/assets/css/blocks-main.css' , [] ,  $this->instance->version , 'all' );
+
+        // register inline css for blocks
+        \WpLover\BlogWriter\Inc\Blocks\RegisterDynamicStyles::get_instance()->register_styles();
 
     }
 

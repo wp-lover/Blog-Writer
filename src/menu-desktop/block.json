@@ -7,7 +7,7 @@
     "title": "Menu Desktop",
     "textdomain": "writteninfo",
     "editorScript" : "file:./editor-index.js",
-    "viewScript" : "file:./view-index.js",
+    "viewScript" : [ "file:./functions/header-menu.js"],
     "editorStyle" : "file:./editor-index.css",
     "viewStyle" : "file:./view-index.css",
     "render": "file:./render.php",
@@ -38,6 +38,11 @@
         "item_padding_l":{"type":"number", "default":8},
         "item_padding_r":{"type":"number", "default":8},
         "item_padding_b":{"type":"number", "default":8},
+
+        "border_radius_tl":{"type":"number", "default":8},
+        "border_radius_tr":{"type":"number", "default":8},
+        "border_radius_bl":{"type":"number", "default":8},
+        "border_radius_br":{"type":"number", "default":8},
 
         "sub_menu_margin_t":{"type":"number", "default":0},
         "child_item_margin_b":{"type":"number", "default":2}

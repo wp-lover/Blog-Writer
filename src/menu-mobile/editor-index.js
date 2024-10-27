@@ -45,7 +45,7 @@ function Edit( props ) {
 
         useEffect(() => {
            
-           apiFetch({ path: '/gsp/v1/menu' }).then((menu) => {
+           apiFetch({ path: '/gsp/v1/menu?location-name=blog_writer_sidebar' }).then((menu) => {
                 
                 if (menu['success']) {
                     setMenus(menu['data']['menu']);

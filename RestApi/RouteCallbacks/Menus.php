@@ -2,6 +2,9 @@
 
 namespace WpLover\BlogWriter\RestApi\RouteCallbacks;
 
+// Exit if access directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 trait Menus {
 
     protected $locations;

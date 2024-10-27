@@ -3,6 +3,9 @@
 
 namespace WpLover\BlogWriter\Inc\Menu;
 
+// Exit if access directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 
 use WpLover\BlogWriter\Inc\Base\BaseController;
 
@@ -24,45 +27,8 @@ class Register extends BaseController
     function register_menus()
     {
 
-
-        register_nav_menu('blog_writer_header', __('Blog Writer Header Menu', $this->textDomain ));
-        register_nav_menu('blog_writer_sidebar', __('Blog Writer Sidebar Menu', $this->textDomain ));
-    }
-
-    /**
-     * @param array
-     */
-    function header_menu( $styles = [] , $subMenuStyles = [] , $childItemStyle = [], $menuId = 'gsp-header-menu') {
-    
-           return wp_nav_menu( array(
-                'theme_location'    => 'blog_writer_header',
-                'depth'             => 2,
-                'container'         => '',
-                'container_class'   => '',
-                'container_id'      => '',
-                'menu_class'        => 'header-menu hidden md:flex justify-start',
-                'menu_id'           => $menuId,
-                // 'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                'walker'            => new WP_Lover_Navwalker( $styles , $subMenuStyles , $childItemStyle),
-                'echo'              => false
-            ) ); 
-    }
-
-    function mobile_menu( $styles = [] , $subMenuStyles = [] , $childItemStyle = []) {
-    
-        return wp_nav_menu( array(
-             'theme_location'    => 'blog_writer_sidebar',
-             'depth'             => 2,
-             'container'         => '',
-             'container_class'   => '',
-             'menu_class'        => 'sidebar-menu hidden md:flex justify-start',
-             'menu_id'        =>    'menu',
-             // 'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-             'walker'            => new WP_Lover_Navwalker( $styles , $subMenuStyles , $childItemStyle),
-             'echo'              => false
-         ) ); 
- }
-
-    
+        register_nav_menu('blog_writer_header', __('Blog Writer Header Menu', 'blog-writer' ));
+        register_nav_menu('blog_writer_sidebar', __('Blog Writer Sidebar Menu', 'blog-writer' ));
+    }    
 
 }
